@@ -32,7 +32,10 @@ namespace SoundBoard.WPF
         #region Event handlers
         private void HandleClick(object sender, RoutedEventArgs e)
         {
-            OnSoundButtonClick(Sound);
+            if (OnSoundButtonClick != null)
+            {
+                OnSoundButtonClick(Sound);
+            }
         }
         #endregion
     }
