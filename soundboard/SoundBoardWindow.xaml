@@ -4,7 +4,8 @@
         Title="SoundBoard v0.1"
         Width="500"
         SizeToContent="Height" 
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize" 
+        Topmost="{Binding ElementName=MenuItemStayOnTop, Path=IsChecked}">
     <DockPanel>
         <Menu DockPanel.Dock="Top"
               Height="22"
@@ -25,6 +26,12 @@
             </MenuItem>
             <MenuItem Header="_Edit">
                 <MenuItem Header="_Add Sound..." Click="MenuOptionAddSound_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="Stay on _Top" 
+                          Name="MenuItemStayOnTop"
+                          IsCheckable="True">
                 </MenuItem>
             </MenuItem>
         </Menu>
