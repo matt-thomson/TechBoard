@@ -1,0 +1,39 @@
+﻿<Window x:Class="SoundBoard.WPF.SoundBoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SoundBoard v0.1"
+        Width="500"
+        SizeToContent="Height" 
+        ResizeMode="CanMinimize">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top"
+              Height="22"
+              Width="494" 
+              HorizontalAlignment="Left" 
+              VerticalAlignment="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Click="MenuOptionNew_Click">
+                </MenuItem>
+                <MenuItem Header="_Open..." Click="MenuOptionOpen_Click">
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Save..." Click="MenuOptionSave_Click">
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="E_xit" Click="MenuOptionExit_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Add Sound..." Click="MenuOptionAddSound_Click">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid Name="mGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <MediaElement Name="MediaElement"
+                      LoadedBehavior="Manual" />
+    </DockPanel>
+</Window>
