@@ -44,6 +44,15 @@ namespace SoundBoard.WPF.Test
 
         #region Test cases
         [Test]
+        public void TestViewProperties()
+        {
+            Assert.AreEqual(TITLE, SoundButton.Content);
+            Assert.AreEqual(50, SoundButton.Height);
+            Assert.AreEqual(494, SoundButton.Width);
+            Assert.AreEqual(24, SoundButton.FontSize);
+        }
+
+        [Test]
         public void TestClick()
         {
             // Click on the button.

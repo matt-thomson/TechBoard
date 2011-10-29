@@ -1,12 +1,13 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using SoundBoard.Model;
 
-namespace SoundBoard.WPF
+namespace SoundBoard
 {
-    public class SoundButton : Button
+    /// <summary>
+    /// Interaction logic for SoundButton.xaml
+    /// </summary>
+    public partial class SoundButton : Button
     {
         #region Private properties
         private Sound Sound { get; set; }
@@ -19,12 +20,9 @@ namespace SoundBoard.WPF
         #region Constructors
         public SoundButton(Sound xiSound)
         {
+            InitializeComponent();
             Sound = xiSound;
-
             Content = Sound.Title;
-            FontSize = 24;
-            Width = 494;
-
             Click += HandleClick;
         }
         #endregion 
