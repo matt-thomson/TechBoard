@@ -45,9 +45,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardTest.cs" />
-    <Compile Include="SoundButtonTest.cs" />
-    <Compile Include="SoundTest.cs" />
+    <Compile Include="src\model\BoardTest.cs" />
+    <Compile Include="src\wpf\SoundButtonTest.cs" />
+    <Compile Include="src\model\SoundTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

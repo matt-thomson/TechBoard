@@ -51,28 +51,28 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="src\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Board.cs" />
-    <Compile Include="Sound.cs" />
-    <Compile Include="SoundButton.xaml.cs">
+    <Compile Include="src\model\Board.cs" />
+    <Compile Include="src\model\Sound.cs" />
+    <Compile Include="src\wpf\SoundButton.xaml.cs">
       <DependentUpon>SoundButton.xaml</DependentUpon>
     </Compile>
-    <Page Include="SoundBoardWindow.xaml">
+    <Page Include="src\wpf\SoundBoardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="src\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SoundBoardWindow.xaml.cs">
+    <Compile Include="src\wpf\SoundBoardWindow.xaml.cs">
       <DependentUpon>SoundBoardWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SoundButton.xaml">
+    <Page Include="src\wpf\SoundButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
