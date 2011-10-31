@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using SoundBoard.Model;
 
-namespace SoundBoard
+namespace SoundBoard.WPF
 {
     /// <summary>
     /// Interaction logic for SoundButton.xaml
