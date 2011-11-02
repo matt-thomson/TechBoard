@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardTest.cs" />
-    <Compile Include="SoundButtonTest.cs" />
     <Compile Include="SoundTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
