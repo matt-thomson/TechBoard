@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
+using System.ComponentModel;
 
 namespace SoundBoard.Model
 {
@@ -7,11 +8,39 @@ namespace SoundBoard.Model
     public delegate void SoundDelegate(Sound xiSound);
     #endregion
 
-    public class Sound
+    public class Sound : INotifyPropertyChanged
     {
+        #region Private members
+        private string mTitle;
+        private string mFileName;
+        #endregion
+
         #region Public properties
-        public string Title { get; private set; }
-        public string FileName { get; private set; }
+        public string Title
+        {
+            get
+            {
+                return mTitle;
+            }
+            private set
+            {
+                mTitle = value;
+                OnPropertyChanged("Title");
+            }
+        }
+
+        public string FileName
+        {
+            get
+            {
+                return mFileName;
+            }
+            private set
+            {
+                mFileName = value;
+                OnPropertyChanged("FileName");
+            }
+        }
         #endregion
 
         #region Constructors
@@ -23,7 +52,8 @@ namespace SoundBoard.Model
         }
         #endregion
 
-        #region Public methods
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region Internal methods
@@ -33,6 +63,16 @@ namespace SoundBoard.Model
                                    new XElement("Title", Title),
                                    new XElement("FileName", FileName));
             return element;
+        }
+        #endregion
+
+        #region Private methods
+        private void OnPropertyChanged(string info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
         }
         #endregion
     }

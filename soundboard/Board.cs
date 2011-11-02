@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using System.Collections.ObjectModel;
 
 namespace SoundBoard.Model
 {
     public class Board
     {
         #region Public properties
-        public List<Sound> Sounds { get; private set; }
+        public ObservableCollection<Sound> Sounds { get; private set; }
         #endregion
 
         #region Constructors
         public Board() 
         {
-            Sounds = new List<Sound>();
+            Sounds = new ObservableCollection<Sound>();
         }
         #endregion
 
