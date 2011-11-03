@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
+using Microsoft.Win32;
 using SoundBoard.Model;
 
 namespace SoundBoard
@@ -34,9 +36,30 @@ namespace SoundBoard
         }
         #endregion
 
-        private void OnWindowClosing(object sender, CancelEventArgs e)
+        #region Event handlers
+        private void HandleWindowClosing(object sender, CancelEventArgs e)
         {
             mInstance = null;
         }
+
+        private void HandleAddButtonClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+
+            openDialog.Filter = "Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*";
+
+            Nullable<bool> result = openDialog.ShowDialog();
+
+            if (result == true)
+            {
+                string fileName = openDialog.FileName;
+                string[] fileNameSplit = fileName.Split('\\');
+                string title = fileNameSplit[fileNameSplit.Length - 1];
+
+                Sound sound = new Sound(title, fileName);
+                BoardHandler.Add(sound);
+            }
+        }
+        #endregion
     }
 }

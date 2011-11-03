@@ -5,7 +5,7 @@
         Height="300" 
         Width="250" 
         ResizeMode="NoResize" 
-        Closing="OnWindowClosing">
+        Closing="HandleWindowClosing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Height="24" Margin="2" Content="Add..."/>
+            <Button Grid.Column="0" Height="24" Margin="2" Content="Add..." Click="HandleAddButtonClick" />
             <Button Grid.Column="1" Height="24" Margin="2" Content="Remove"/>
         </Grid>
         <Grid Grid.Row="2">
