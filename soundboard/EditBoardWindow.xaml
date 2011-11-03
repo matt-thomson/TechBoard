@@ -36,7 +36,7 @@
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Title"/>
+            <Label Grid.Column="0" Content="Title" />
             <TextBox Grid.Column="1" 
                      Height="24" 
                      Margin="2"
@@ -49,7 +49,16 @@
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Volume"></Label>
+            <Label Grid.Column="0" Content="Volume" />
+            <Slider Grid.Column="1" 
+                    Margin="2" 
+                    Minimum="0"
+                    Maximum="1" 
+                    IsSnapToTickEnabled="True"
+                    TickFrequency="0.1"
+                    TickPlacement="TopLeft" 
+                    IsMoveToPointEnabled="True"
+                    Value="{Binding ElementName=SoundsList, Path=SelectedItem.Volume}" />
         </Grid>
     </Grid>
 </Window>
