@@ -5,7 +5,7 @@
         Width="500"
         SizeToContent="Height" 
         ResizeMode="CanMinimize" 
-        Topmost="{Binding ElementName=MenuItemStayOnTop, Path=IsChecked}">
+        Topmost="{Binding ElementName=MenuItemStayOnTop, Path=IsChecked}" Closed="HandleWindowClosed">
     <DockPanel>
         <Menu DockPanel.Dock="Top"
               Height="22"

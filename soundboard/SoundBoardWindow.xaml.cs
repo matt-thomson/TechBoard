@@ -20,6 +20,13 @@ namespace SoundBoard.WPF
         }
         #endregion
 
+        #region Window event handlers
+        private void HandleWindowClosed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        #endregion
+
         #region Menu event handlers
         private void HandleMenuOptionNew(object sender, RoutedEventArgs e)
         {
