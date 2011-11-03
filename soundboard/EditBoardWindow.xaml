@@ -4,7 +4,7 @@
         Title="Edit Board" 
         Height="300" 
         Width="250" 
-        ResizeMode="NoResize" 
+        ResizeMode="CanMinimize" 
         Closing="HandleWindowClosing">
     <Grid>
         <Grid.RowDefinitions>
