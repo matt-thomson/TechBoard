@@ -22,7 +22,7 @@ namespace SoundBoard.WPF
         {
             InitializeComponent();
             Board = new Board();
-            SoundsList.DataContext = Board.Sounds;
+            SoundsList.DataContext = Board;
         }
         #endregion
 
@@ -31,7 +31,7 @@ namespace SoundBoard.WPF
         {
             MediaElement.Stop();
             Board = new Board();
-            SoundsList.DataContext = Board.Sounds;
+            SoundsList.DataContext = Board;
         }
 
         private void MenuOptionOpen_Click(object sender, RoutedEventArgs e)
@@ -46,7 +46,7 @@ namespace SoundBoard.WPF
             {
                 MediaElement.Stop();
                 Board = Board.Load(openDialog.FileName);
-                SoundsList.DataContext = Board.Sounds;
+                SoundsList.DataContext = Board;
             }
         }
 
