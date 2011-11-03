@@ -31,6 +31,12 @@ namespace SoundBoard.Model
             {               
                 Sound sound = new Sound(soundElement.Element("Title").Value,
                                         soundElement.Element("FileName").Value);
+
+                if (soundElement.Element("Volume") != null)
+                {
+                    sound.Volume = double.Parse(soundElement.Element("Volume").Value);
+                }
+
                 soundBoard.Sounds.Add(sound);
             }
             

@@ -12,6 +12,7 @@ namespace SoundBoard.Model
     {
         #region Private members
         private string mTitle;
+        private double mVolume;
         #endregion
 
         #region Public properties
@@ -32,6 +33,23 @@ namespace SoundBoard.Model
             }
         }
 
+        public double Volume
+        {
+            get
+            {
+                return mVolume;
+            }
+            set
+            {
+                mVolume = value;
+
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Volume"));
+                }
+            }
+        }
+
         public string FileName { get; set; }
         #endregion
 
@@ -41,6 +59,7 @@ namespace SoundBoard.Model
         {
             Title = xiTitle;
             FileName = xiFileName;
+            Volume = 0.5;
         }
         #endregion
 
@@ -53,7 +72,8 @@ namespace SoundBoard.Model
         {
             XElement element = new XElement("Sound",
                                    new XElement("Title", Title),
-                                   new XElement("FileName", FileName));
+                                   new XElement("FileName", FileName),
+                                   new XElement("Volume", Volume));
             return element;
         }
         #endregion

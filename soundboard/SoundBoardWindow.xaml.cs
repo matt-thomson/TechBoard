@@ -76,6 +76,7 @@ namespace SoundBoard.WPF
 
             MediaElement.Stop();
             MediaElement.Source = new Uri(sound.FileName);
+            MediaElement.Volume = sound.Volume;
             MediaElement.Play();
         }
         #endregion
