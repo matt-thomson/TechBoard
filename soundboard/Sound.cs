@@ -24,7 +24,11 @@ namespace SoundBoard.Model
             set
             {
                 mTitle = value;
-                OnPropertyChanged("Title");
+
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Title"));
+                }
             }
         }
 
@@ -51,16 +55,6 @@ namespace SoundBoard.Model
                                    new XElement("Title", Title),
                                    new XElement("FileName", FileName));
             return element;
-        }
-        #endregion
-
-        #region Private methods
-        private void OnPropertyChanged(string info)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
         }
         #endregion
     }

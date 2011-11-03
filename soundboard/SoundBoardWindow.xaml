@@ -36,7 +36,7 @@
             </MenuItem>
         </Menu>
         <ListView Name="SoundsList" 
-                  ItemsSource="{Binding Path=Sounds}" 
+                  ItemsSource="{Binding Path=CurrentBoard.Sounds}" 
                   BorderBrush="Transparent"                  
                   BorderThickness="0"
                   HorizontalContentAlignment="Stretch">

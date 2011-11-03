@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Board.cs" />
+    <Compile Include="BoardHandler.cs" />
     <Compile Include="Sound.cs" />
     <Page Include="SoundBoardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
