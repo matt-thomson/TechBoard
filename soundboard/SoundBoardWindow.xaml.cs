@@ -62,22 +62,9 @@ namespace SoundBoard.WPF
             Application.Current.Shutdown();
         }
 
-        private void MenuOptionAddSound_Click(object sender, RoutedEventArgs e)
+        private void MenuOptionEditor_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            openDialog.Filter = "Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*";
-
-            Nullable<bool> result = openDialog.ShowDialog();
-
-            if (result == true)
-            {
-                string filename = openDialog.FileName;
-                string title = filename.Split('\\').Last();
-
-                Sound sound = new Sound(title, filename);
-                BoardHandler.Add(sound);
-            }
+            EditBoardWindow.Open();
         }
         #endregion
 

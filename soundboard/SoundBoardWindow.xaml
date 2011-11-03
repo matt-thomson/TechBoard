@@ -24,11 +24,10 @@
                 <MenuItem Header="E_xit" Click="MenuOptionExit_Click">
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Header="_Add Sound..." Click="MenuOptionAddSound_Click">
-                </MenuItem>
-            </MenuItem>
             <MenuItem Header="_View">
+                <MenuItem Header="_Editor..." Click="MenuOptionEditor_Click">
+                </MenuItem>
+                <Separator />
                 <MenuItem Header="Stay on _Top" 
                           Name="MenuItemStayOnTop"
                           IsCheckable="True">

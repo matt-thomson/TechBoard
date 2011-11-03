@@ -60,7 +60,14 @@
     </ApplicationDefinition>
     <Compile Include="Board.cs" />
     <Compile Include="BoardHandler.cs" />
+    <Compile Include="EditBoardWindow.xaml.cs">
+      <DependentUpon>EditBoardWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sound.cs" />
+    <Page Include="EditBoardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SoundBoardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -4,7 +4,7 @@ namespace SoundBoard.Model
 {
     public class BoardHandler : INotifyPropertyChanged
     {
-        #region Private properties
+        #region Private members
         private static BoardHandler mInstance;
         private Board mCurrentBoard = new Board();
         #endregion
