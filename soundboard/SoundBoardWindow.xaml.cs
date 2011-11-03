@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
 using SoundBoard.Model;
-using System.Collections.ObjectModel;
 
 namespace SoundBoard.WPF
 {

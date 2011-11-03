@@ -39,7 +39,6 @@
                   ItemsSource="{Binding Path=Sounds}" 
                   BorderBrush="Transparent"                  
                   BorderThickness="0"
-                  Grid.IsSharedSizeScope="True"
                   HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>

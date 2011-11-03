@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Xml.Linq;
 using System.ComponentModel;
+using System.Xml.Linq;
 
 namespace SoundBoard.Model
 {
