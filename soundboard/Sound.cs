@@ -12,7 +12,6 @@ namespace SoundBoard.Model
     {
         #region Private members
         private string mTitle;
-        private string mFileName;
         #endregion
 
         #region Public properties
@@ -22,25 +21,14 @@ namespace SoundBoard.Model
             {
                 return mTitle;
             }
-            private set
+            set
             {
                 mTitle = value;
                 OnPropertyChanged("Title");
             }
         }
 
-        public string FileName
-        {
-            get
-            {
-                return mFileName;
-            }
-            private set
-            {
-                mFileName = value;
-                OnPropertyChanged("FileName");
-            }
-        }
+        public string FileName { get; set; }
         #endregion
 
         #region Constructors
