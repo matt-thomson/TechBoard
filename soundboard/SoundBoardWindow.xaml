@@ -13,19 +13,19 @@
               HorizontalAlignment="Left" 
               VerticalAlignment="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Click="MenuOptionNew_Click">
+                <MenuItem Header="_New" Click="HandleMenuOptionNew">
                 </MenuItem>
-                <MenuItem Header="_Open..." Click="MenuOptionOpen_Click">
-                </MenuItem>
-                <Separator />
-                <MenuItem Header="_Save..." Click="MenuOptionSave_Click">
+                <MenuItem Header="_Open..." Click="HandleMenuOptionOpen">
                 </MenuItem>
                 <Separator />
-                <MenuItem Header="E_xit" Click="MenuOptionExit_Click">
+                <MenuItem Header="_Save..." Click="HandleMenuOptionSave">
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="E_xit" Click="HandleMenuOptionExit">
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_View">
-                <MenuItem Header="_Editor..." Click="MenuOptionEditor_Click">
+                <MenuItem Header="_Editor..." Click="HandleMenuOptionEditor">
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Stay on _Top" 

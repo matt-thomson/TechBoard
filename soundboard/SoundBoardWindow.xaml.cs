@@ -21,13 +21,13 @@ namespace SoundBoard.WPF
         #endregion
 
         #region Menu event handlers
-        private void MenuOptionNew_Click(object sender, RoutedEventArgs e)
+        private void HandleMenuOptionNew(object sender, RoutedEventArgs e)
         {
             MediaElement.Stop();
             BoardHandler.New();
         }
 
-        private void MenuOptionOpen_Click(object sender, RoutedEventArgs e)
+        private void HandleMenuOptionOpen(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
 
@@ -42,7 +42,7 @@ namespace SoundBoard.WPF
             }
         }
 
-        private void MenuOptionSave_Click(object sender, RoutedEventArgs e)
+        private void HandleMenuOptionSave(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
 
@@ -57,12 +57,12 @@ namespace SoundBoard.WPF
             }
         }
 
-        private void MenuOptionExit_Click(object sender, RoutedEventArgs e)
+        private void HandleMenuOptionExit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void MenuOptionEditor_Click(object sender, RoutedEventArgs e)
+        private void HandleMenuOptionEditor(object sender, RoutedEventArgs e)
         {
             EditBoardWindow.Open();
         }
