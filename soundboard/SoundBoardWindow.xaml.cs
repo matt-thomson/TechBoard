@@ -21,14 +21,16 @@ namespace SoundBoard.WPF
         {
             InitializeComponent();
             Board = new Board();
+            SoundsList.DataContext = Board;
         }
         #endregion
 
         #region Menu event handlers
         private void MenuOptionNew_Click(object sender, RoutedEventArgs e)
         {
+            MediaElement.Stop();
             Board = new Board();
-            ClearGrid();
+            SoundsList.DataContext = Board;
         }
 
         private void MenuOptionOpen_Click(object sender, RoutedEventArgs e)
@@ -41,14 +43,9 @@ namespace SoundBoard.WPF
 
             if (result == true)
             {
+                MediaElement.Stop();
                 Board = Board.Load(openDialog.FileName);
-            }
-
-            ClearGrid();
-
-            foreach (Sound sound in Board.Sounds)
-            {
-                AddSoundToGrid(sound);
+                SoundsList.DataContext = Board;
             }
         }
 
@@ -87,42 +84,19 @@ namespace SoundBoard.WPF
 
                 Sound sound = new Sound(title, filename);
                 Board.Sounds.Add(sound);
-                AddSoundToGrid(sound);
             }
         }
         #endregion
 
         #region Button event handlers
-        private void HandleSoundButtonClick(Sound xiSound)
+        private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            Sound sound = button.DataContext as Sound;
+
             MediaElement.Stop();
-            MediaElement.Source = new Uri(xiSound.FileName);
+            MediaElement.Source = new Uri(sound.FileName);
             MediaElement.Play();
-        }
-        #endregion
-
-        #region Private methods
-        private void AddSoundToGrid(Sound xiSound)
-        {
-            SoundButton soundButton = new SoundButton(xiSound);
-            soundButton.OnSoundButtonClick += HandleSoundButtonClick;
-
-            // Add a row to the grid.
-            RowDefinition row = new RowDefinition();
-            row.Height = new GridLength(50);
-            mGrid.RowDefinitions.Add(row);
-
-            // Put a button in the new row.
-            Grid.SetColumn(soundButton, 0);
-            Grid.SetRow(soundButton, mGrid.RowDefinitions.Count - 1);
-            mGrid.Children.Add(soundButton);
-        }
-
-        private void ClearGrid()
-        {
-            MediaElement.Stop();
-            mGrid.Children.Clear();
-            mGrid.RowDefinitions.Clear();
         }
         #endregion
     }

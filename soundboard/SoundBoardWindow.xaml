@@ -35,12 +35,21 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Grid Name="mGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <MediaElement Name="MediaElement"
-                      LoadedBehavior="Manual" />
+        <ListView Name="SoundsList" 
+                  ItemsSource="{Binding Path=Sounds}" 
+                  BorderBrush="Transparent"                  
+                  BorderThickness="0"
+                  HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Width="488" 
+                            Height="50" 
+                            FontSize="24" 
+                            Content="{Binding Title}"
+                            Click="HandleSoundButtonClick" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <MediaElement Name="MediaElement" LoadedBehavior="Manual" />
     </DockPanel>
 </Window>
