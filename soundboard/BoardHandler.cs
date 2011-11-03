@@ -67,6 +67,11 @@ namespace SoundBoard.Model
         {
             Instance.CurrentBoard.Sounds.Add(xiSound);
         }
+
+        public static void Remove(Sound xiSound)
+        {
+            Instance.CurrentBoard.Sounds.Remove(xiSound);
+        }
         #endregion
     }
 }

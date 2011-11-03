@@ -60,6 +60,12 @@ namespace SoundBoard
                 BoardHandler.Add(sound);
             }
         }
+
+        private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
+        {
+            Sound sound = SoundsList.SelectedItem as Sound;
+            BoardHandler.Remove(sound);
+        }
         #endregion
     }
 }

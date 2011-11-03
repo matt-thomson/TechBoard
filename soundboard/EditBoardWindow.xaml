@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Height="24" Margin="2" Content="Add..." Click="HandleAddButtonClick" />
-            <Button Grid.Column="1" Height="24" Margin="2" Content="Remove"/>
+            <Button Grid.Column="1" Height="24" Margin="2" Content="Remove" Click="HandleRemoveButtonClick" />
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
