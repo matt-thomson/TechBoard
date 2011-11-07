@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using Microsoft.Win32;
 using SoundBoard.Model;
+using SoundBoard.Controller;
 
 namespace SoundBoard
 {

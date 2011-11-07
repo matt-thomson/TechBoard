@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
+using SoundBoard.Model;
 
-namespace SoundBoard.Model
+namespace SoundBoard.Controller
 {
     public class BoardHandler : INotifyPropertyChanged
     {

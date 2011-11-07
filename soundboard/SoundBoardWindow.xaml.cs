@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
+using SoundBoard.Controller;
 using SoundBoard.Model;
 
 namespace SoundBoard.WPF
