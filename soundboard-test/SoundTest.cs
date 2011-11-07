@@ -12,6 +12,8 @@ namespace SoundBoard.Model.Test
         private const string TITLE = "Sound Title";
         private const string TITLE_NEW = "New Sound Title";
         private const string FILE_NAME = "sound.mp3";
+        private const double VOLUME = 0.5;
+        private const double VOLUME_NEW = 0.8;
         #endregion
 
         #region Private properties
@@ -57,6 +59,24 @@ namespace SoundBoard.Model.Test
         public void TestFileName()
         {
             Assert.AreEqual(FILE_NAME, Sound.FileName);
+        }
+
+        [Test]
+        public void TestVolume()
+        {
+            // Check the default volume.
+            Assert.AreEqual(VOLUME, Sound.Volume);
+
+            // Check that no property changes have been received so far.
+            Assert.AreEqual(0, ReceivedPropertyChangedEvents.Count);
+
+            // Now change the volume.
+            Sound.Volume = VOLUME_NEW;
+            Assert.AreEqual(Sound.Volume, VOLUME_NEW);
+
+            // This triggers a property change event.
+            Assert.AreEqual(1, ReceivedPropertyChangedEvents.Count);
+            Assert.AreEqual("Volume", ReceivedPropertyChangedEvents[0]);
         }
         #endregion
 

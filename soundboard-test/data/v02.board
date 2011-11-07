@@ -4,7 +4,7 @@
     <Sound>
       <Title>Sound Title</Title>
       <FileName>sound.mp3</FileName>
-      <Volume>0.5</Volume>
+	  <Volume>0.8</Volume>
     </Sound>
   </Sounds>
 </Board>
