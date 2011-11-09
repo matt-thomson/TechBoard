@@ -20,7 +20,7 @@ namespace SoundBoard
         public EditBoardWindow()
         {
             InitializeComponent();
-            SoundsList.DataContext = BoardHandler.Instance;
+            SoundsList.DataContext = BoardController.Instance;
         }
         #endregion
 
@@ -58,14 +58,14 @@ namespace SoundBoard
                 string title = fileNameSplit[fileNameSplit.Length - 1];
 
                 Sound sound = new Sound(title, fileName);
-                BoardHandler.Add(sound);
+                BoardController.Add(sound);
             }
         }
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
         {
             Sound sound = SoundsList.SelectedItem as Sound;
-            BoardHandler.Remove(sound);
+            BoardController.Remove(sound);
         }
         #endregion
     }

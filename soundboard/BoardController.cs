@@ -3,21 +3,21 @@ using SoundBoard.Model;
 
 namespace SoundBoard.Controller
 {
-    public class BoardHandler : INotifyPropertyChanged
+    public class BoardController : INotifyPropertyChanged
     {
         #region Private members
-        private static BoardHandler mInstance;
+        private static BoardController mInstance;
         private Board mCurrentBoard = new Board();
         #endregion
 
         #region Singleton property
-        public static BoardHandler Instance
+        public static BoardController Instance
         {
             get
             {
                 if (mInstance == null)
                 {
-                    mInstance = new BoardHandler();
+                    mInstance = new BoardController();
                 }
 
                 return mInstance;
