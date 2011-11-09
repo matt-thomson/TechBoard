@@ -30,7 +30,7 @@ namespace SoundBoard.WPF
         #region Menu event handlers
         private void HandleMenuOptionNew(object sender, RoutedEventArgs e)
         {
-            MediaElement.Stop();
+            MediaController.Stop();
             BoardController.New();
         }
 
@@ -44,7 +44,7 @@ namespace SoundBoard.WPF
 
             if (result == true)
             {
-                MediaElement.Stop();
+                MediaController.Stop();
                 BoardController.Load(openDialog.FileName);
             }
         }
@@ -80,11 +80,7 @@ namespace SoundBoard.WPF
         {
             Button button = sender as Button;
             Sound sound = button.DataContext as Sound;
-
-            MediaElement.Stop();
-            MediaElement.Source = new Uri(sound.FileName);
-            MediaElement.Volume = sound.Volume;
-            MediaElement.Play();
+            MediaController.Play(sound.FileName, sound.Volume);
         }
         #endregion
     }

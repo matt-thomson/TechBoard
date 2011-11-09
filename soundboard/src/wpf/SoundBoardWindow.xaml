@@ -49,6 +49,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <MediaElement Name="MediaElement" LoadedBehavior="Manual" />
     </DockPanel>
 </Window>

@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="src\controller\MediaController.cs" />
     <Compile Include="src\model\Board.cs" />
     <Compile Include="src\controller\BoardController.cs" />
     <Compile Include="src\wpf\EditBoardWindow.xaml.cs">
