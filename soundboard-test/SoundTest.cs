@@ -26,7 +26,7 @@ namespace SoundBoard.Model.Test
 
         #region Initialization
         [SetUp]
-        public void Init()
+        public void TestInit()
         {
             // Set up the object under test.
             Sound = new Sound(TITLE, FILE_NAME);

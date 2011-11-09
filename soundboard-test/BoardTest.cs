@@ -2,6 +2,7 @@
 
 namespace SoundBoard.Model.Test
 {
+    [TestFixture]
     public class BoardTest
     {
         #region Constants
@@ -28,7 +29,7 @@ namespace SoundBoard.Model.Test
 
         #region Initialization
         [SetUp]
-        public void Init()
+        public void TestInit()
         {
             // Set up the object under test.
             Board = new Board();
