@@ -54,56 +54,59 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="src\wpf\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Board.cs" />
-    <Compile Include="BoardController.cs" />
-    <Compile Include="EditBoardWindow.xaml.cs">
+    <Compile Include="src\model\Board.cs" />
+    <Compile Include="src\controller\BoardController.cs" />
+    <Compile Include="src\wpf\EditBoardWindow.xaml.cs">
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sound.cs" />
-    <Page Include="EditBoardWindow.xaml">
+    <Compile Include="src\model\Sound.cs" />
+    <Page Include="src\wpf\EditBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SoundBoardWindow.xaml">
+    <Page Include="src\wpf\SoundBoardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="src\wpf\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SoundBoardWindow.xaml.cs">
+    <Compile Include="src\wpf\SoundBoardWindow.xaml.cs">
       <DependentUpon>SoundBoardWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
+    <Compile Include="src\properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="src\properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Include="src\properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="src\properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
+    <None Include="src\properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
