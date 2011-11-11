@@ -3,40 +3,24 @@ using System.Windows.Media;
 
 namespace SoundBoard.Controller
 {
-    public class MediaController
+    public class MediaController : IMediaController
     {
         #region Private members
-        private static MediaController mInstance;
         private MediaPlayer mMediaPlayer = new MediaPlayer();
         #endregion
-
-        #region Singleton property
-        public static MediaController Instance
-        {
-            get
-            {
-                if (mInstance == null)
-                {
-                    mInstance = new MediaController();
-                }
-
-                return mInstance;
-            }
-        }
-        #endregion
-
+        
         #region Public methods
-        public static void Play(string xiFileName, double xiVolume)
+        public void Play(string xiFileName, double xiVolume)
         {
-            Instance.mMediaPlayer.Stop();
-            Instance.mMediaPlayer.Volume = xiVolume;
-            Instance.mMediaPlayer.Open(new Uri(xiFileName));
-            Instance.mMediaPlayer.Play();
+            mMediaPlayer.Stop();
+            mMediaPlayer.Volume = xiVolume;
+            mMediaPlayer.Open(new Uri(xiFileName));
+            mMediaPlayer.Play();
         }
 
-        public static void Stop()
+        public void Stop()
         {
-            Instance.mMediaPlayer.Stop();
+            mMediaPlayer.Stop();
         }
         #endregion
     }

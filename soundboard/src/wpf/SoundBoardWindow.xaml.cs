@@ -12,11 +12,16 @@ namespace SoundBoard.WPF
     /// </summary>
     public partial class SoundBoardWindow : Window
     {
+        #region Private properties
+        private IMediaController mMediaController;
+        #endregion
+
         #region Constructor
         public SoundBoardWindow()
         {
             InitializeComponent();
             SoundsList.DataContext = BoardController.Instance;
+            mMediaController = new MediaController();
         }
         #endregion
 
@@ -30,7 +35,7 @@ namespace SoundBoard.WPF
         #region Menu event handlers
         private void HandleMenuOptionNew(object sender, RoutedEventArgs e)
         {
-            MediaController.Stop();
+            mMediaController.Stop();
             BoardController.New();
         }
 
@@ -44,7 +49,7 @@ namespace SoundBoard.WPF
 
             if (result == true)
             {
-                MediaController.Stop();
+                mMediaController.Stop();
                 BoardController.Load(openDialog.FileName);
             }
         }
@@ -80,7 +85,7 @@ namespace SoundBoard.WPF
         {
             Button button = sender as Button;
             Sound sound = button.DataContext as Sound;
-            MediaController.Play(sound.FileName, sound.Volume);
+            mMediaController.Play(sound.FileName, sound.Volume);
         }
         #endregion
     }
