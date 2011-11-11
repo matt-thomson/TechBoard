@@ -17,11 +17,11 @@ namespace SoundBoard.WPF
         #endregion
 
         #region Constructor
-        public SoundBoardWindow()
+        public SoundBoardWindow(MediaController xiMediaController)
         {
             InitializeComponent();
             SoundsList.DataContext = BoardController.Instance;
-            mMediaController = new MediaController();
+            mMediaController = xiMediaController;
         }
         #endregion
 
