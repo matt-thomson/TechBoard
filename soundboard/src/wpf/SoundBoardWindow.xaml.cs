@@ -19,9 +19,13 @@ namespace SoundBoard.WPF
         #region Constructor
         public SoundBoardWindow(MediaController xiMediaController)
         {
+            // Initialize.
             InitializeComponent();
-            SoundsList.DataContext = BoardController.Instance;
             mMediaController = xiMediaController;
+
+            // Create and add the sound block.
+            SoundBlock block = new SoundBlock(mMediaController);
+            mDockPanel.Children.Add(block);
         }
         #endregion
 
@@ -77,15 +81,6 @@ namespace SoundBoard.WPF
         private void HandleMenuOptionEditor(object sender, RoutedEventArgs e)
         {
             EditBoardWindow.Open();
-        }
-        #endregion
-
-        #region Button event handlers
-        private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            Sound sound = button.DataContext as Sound;
-            mMediaController.Play(sound.FileName, sound.Volume);
         }
         #endregion
     }

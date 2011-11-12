@@ -6,7 +6,7 @@
         SizeToContent="Height" 
         ResizeMode="CanMinimize" 
         Topmost="{Binding ElementName=MenuItemStayOnTop, Path=IsChecked}" Closed="HandleWindowClosed">
-    <DockPanel>
+    <DockPanel Name="mDockPanel">
         <Menu DockPanel.Dock="Top"
               Height="22"
               Width="294" 
@@ -34,20 +34,5 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <ListView Name="SoundsList" 
-                  ItemsSource="{Binding Path=CurrentBoard.Sounds}" 
-                  BorderBrush="Transparent"                  
-                  BorderThickness="0"
-                  HorizontalContentAlignment="Stretch">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Button Width="288" 
-                            Height="30" 
-                            FontSize="18" 
-                            Content="{Binding Title}"
-                            Click="HandleSoundButtonClick" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
     </DockPanel>
 </Window>
