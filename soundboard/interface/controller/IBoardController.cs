@@ -3,14 +3,10 @@ using SoundBoard.Model;
 
 namespace SoundBoard.Controller
 {
-	public interface IBoardController
+	public interface IBoardController : INotifyPropertyChanged
     {
         #region Properties
         Board CurrentBoard { get; }
-        #endregion
-
-        #region Events
-        event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region Methods

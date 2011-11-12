@@ -3,7 +3,7 @@ using SoundBoard.Model;
 
 namespace SoundBoard.Controller
 {
-    public class BoardController : INotifyPropertyChanged, IBoardController
+    public class BoardController : IBoardController
     {
         #region Private members
         private Board mCurrentBoard = new Board();
