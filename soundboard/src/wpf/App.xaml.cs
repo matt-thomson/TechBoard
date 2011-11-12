@@ -10,11 +10,18 @@ namespace SoundBoard.WPF
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            MediaController controller = new MediaController();
-            SoundBoardWindow window = new SoundBoardWindow(controller);
+            // Initialize controllers.
+            BoardController boardController = new BoardController();
+            MediaController mediaController = new MediaController();
 
+            // Create the main window.
+            SoundBoardWindow window = new SoundBoardWindow(boardController,
+                                                           mediaController);
+
+            // Call into the base class.
             base.OnStartup(e);
 
+            // Show the window.
             window.Show();
         }
     }

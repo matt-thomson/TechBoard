@@ -1,7 +1,7 @@
-﻿using System.Windows.Controls;
-using System.Windows;
-using SoundBoard.Model;
+﻿using System.Windows;
+using System.Windows.Controls;
 using SoundBoard.Controller;
+using SoundBoard.Model;
 
 namespace SoundBoard.WPF
 {
@@ -11,17 +11,20 @@ namespace SoundBoard.WPF
     public partial class SoundBlock : ListView
     {
         #region Private properties
+        IBoardController mBoardController;
         IMediaController mMediaController;
         #endregion
 
-        public SoundBlock(IMediaController xiMediaController)
+        public SoundBlock(IBoardController xiBoardController,
+                          IMediaController xiMediaController)
         {
             // Initialize.
             InitializeComponent();
+            mBoardController = xiBoardController;
             mMediaController = xiMediaController;
 
             // Set the data context for this block.
-            DataContext = BoardController.Instance;
+            DataContext = mBoardController;
         }
 
         #region Button event handlers

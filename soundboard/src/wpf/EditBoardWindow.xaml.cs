@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Windows;
 using Microsoft.Win32;
-using SoundBoard.Model;
 using SoundBoard.Controller;
+using SoundBoard.Model;
 
-namespace SoundBoard
+namespace SoundBoard.WPF
 {
     /// <summary>
     /// Interaction logic for EditBoardWindow.xaml
@@ -13,34 +13,26 @@ namespace SoundBoard
     public partial class EditBoardWindow : Window
     {
         #region Private members
-        private static EditBoardWindow mInstance;
+        private IBoardController mBoardController;
         #endregion
 
         #region Constructors
-        public EditBoardWindow()
+        public EditBoardWindow(IBoardController xiBoardController)
         {
+            // Initialize.
             InitializeComponent();
-            SoundsList.DataContext = BoardController.Instance;
-        }
-        #endregion
+            mBoardController = xiBoardController;
 
-        #region Static methods
-        public static void Open()
-        {
-            if (mInstance == null)
-            {
-                mInstance = new EditBoardWindow();
-            }
-
-            mInstance.Show();
-            mInstance.Activate();
+            // Set the data context for this window.
+            SoundsList.DataContext = mBoardController;
         }
         #endregion
 
         #region Event handlers
         private void HandleWindowClosing(object sender, CancelEventArgs e)
         {
-            mInstance = null;
+            e.Cancel = true;
+            Hide();
         }
 
         private void HandleAddButtonClick(object sender, RoutedEventArgs e)
@@ -58,14 +50,14 @@ namespace SoundBoard
                 string title = fileNameSplit[fileNameSplit.Length - 1];
 
                 Sound sound = new Sound(title, fileName);
-                BoardController.Add(sound);
+                mBoardController.Add(sound);
             }
         }
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
         {
             Sound sound = SoundsList.SelectedItem as Sound;
-            BoardController.Remove(sound);
+            mBoardController.Remove(sound);
         }
         #endregion
     }

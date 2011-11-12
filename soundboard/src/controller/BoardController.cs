@@ -3,26 +3,10 @@ using SoundBoard.Model;
 
 namespace SoundBoard.Controller
 {
-    public class BoardController : INotifyPropertyChanged
+    public class BoardController : INotifyPropertyChanged, IBoardController
     {
         #region Private members
-        private static BoardController mInstance;
         private Board mCurrentBoard = new Board();
-        #endregion
-
-        #region Singleton property
-        public static BoardController Instance
-        {
-            get
-            {
-                if (mInstance == null)
-                {
-                    mInstance = new BoardController();
-                }
-
-                return mInstance;
-            }
-        }
         #endregion
 
         #region Properties
@@ -49,29 +33,29 @@ namespace SoundBoard.Controller
         #endregion
 
         #region Public methods
-        public static void New()
+        public void New()
         {
-            Instance.CurrentBoard = new Board();
+            CurrentBoard = new Board();
         }
 
-        public static void Load(string xiFileName)
+        public void Load(string xiFileName)
         {
-            Instance.CurrentBoard = Board.Load(xiFileName);
+            CurrentBoard = Board.Load(xiFileName);
         }
 
-        public static void Save(string xiFileName)
+        public void Save(string xiFileName)
         {
-            Instance.CurrentBoard.Save(xiFileName);
+            CurrentBoard.Save(xiFileName);
         }
 
-        public static void Add(Sound xiSound)
+        public void Add(Sound xiSound)
         {
-            Instance.CurrentBoard.Sounds.Add(xiSound);
+            CurrentBoard.Sounds.Add(xiSound);
         }
 
-        public static void Remove(Sound xiSound)
+        public void Remove(Sound xiSound)
         {
-            Instance.CurrentBoard.Sounds.Remove(xiSound);
+            CurrentBoard.Sounds.Remove(xiSound);
         }
         #endregion
     }

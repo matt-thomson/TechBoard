@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using Microsoft.Win32;
 using SoundBoard.Controller;
-using SoundBoard.Model;
 
 namespace SoundBoard.WPF
 {
@@ -13,19 +11,26 @@ namespace SoundBoard.WPF
     public partial class SoundBoardWindow : Window
     {
         #region Private properties
+        private IBoardController mBoardController;
         private IMediaController mMediaController;
+        private EditBoardWindow mEditBoardWindow;
         #endregion
 
         #region Constructor
-        public SoundBoardWindow(MediaController xiMediaController)
+        public SoundBoardWindow(IBoardController xiBoardController,
+                                IMediaController xiMediaController)
         {
             // Initialize.
             InitializeComponent();
+            mBoardController = xiBoardController;
             mMediaController = xiMediaController;
 
             // Create and add the sound block.
-            SoundBlock block = new SoundBlock(mMediaController);
+            SoundBlock block = new SoundBlock(mBoardController, mMediaController);
             mDockPanel.Children.Add(block);
+
+            // Create the edit board window.
+            mEditBoardWindow = new EditBoardWindow(mBoardController);
         }
         #endregion
 
@@ -40,7 +45,7 @@ namespace SoundBoard.WPF
         private void HandleMenuOptionNew(object sender, RoutedEventArgs e)
         {
             mMediaController.Stop();
-            BoardController.New();
+            mBoardController.New();
         }
 
         private void HandleMenuOptionOpen(object sender, RoutedEventArgs e)
@@ -54,7 +59,7 @@ namespace SoundBoard.WPF
             if (result == true)
             {
                 mMediaController.Stop();
-                BoardController.Load(openDialog.FileName);
+                mBoardController.Load(openDialog.FileName);
             }
         }
 
@@ -69,7 +74,7 @@ namespace SoundBoard.WPF
 
             if (result == true)
             {
-                BoardController.Save(saveDialog.FileName);
+                mBoardController.Save(saveDialog.FileName);
             }
         }
 
@@ -80,7 +85,8 @@ namespace SoundBoard.WPF
 
         private void HandleMenuOptionEditor(object sender, RoutedEventArgs e)
         {
-            EditBoardWindow.Open();
+            mEditBoardWindow.Show();
+            mEditBoardWindow.Activate();
         }
         #endregion
     }
