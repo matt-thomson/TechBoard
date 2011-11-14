@@ -10,10 +10,10 @@
     <ListView.ItemTemplate>
         <DataTemplate>
             <Button Width="288" 
-                            Height="30" 
-                            FontSize="18" 
-                            Content="{Binding Title}"
-                            Click="HandleSoundButtonClick" />
+                    Height="30" 
+                    FontSize="18"
+                    Content="{Binding Title}"
+                    Click="HandleSoundButtonClick" />
         </DataTemplate>
     </ListView.ItemTemplate>
 </ListView>
