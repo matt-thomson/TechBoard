@@ -11,20 +11,13 @@ namespace SoundBoard.WPF
     public partial class SoundBlockView : ListView
     {
         #region Private properties
-        IBoardController mBoardController;
-        IMediaController mMediaController;
+        public static IMediaController MediaController;
         #endregion
 
-        public SoundBlockView(IBoardController xiBoardController,
-                              IMediaController xiMediaController)
+        public SoundBlockView()
         {
             // Initialize.
             InitializeComponent();
-            mBoardController = xiBoardController;
-            mMediaController = xiMediaController;
-
-            // Set the data context for this block.
-            DataContext = mBoardController;
         }
 
         #region Button event handlers
@@ -32,7 +25,7 @@ namespace SoundBoard.WPF
         {
             Button button = sender as Button;
             Sound sound = button.DataContext as Sound;
-            mMediaController.Play(sound.FileName, sound.Volume);
+            MediaController.Play(sound.FileName, sound.Volume);
         }
         #endregion
     }

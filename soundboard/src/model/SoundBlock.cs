@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Xml.Linq;
+using SoundBoard.WPF;
 
 namespace SoundBoard.Model
 {
@@ -8,7 +10,27 @@ namespace SoundBoard.Model
         #region Public properties
         public ObservableCollection<Sound> Sounds { get; private set; }
         #endregion
-        
+
+        #region Static properties
+        public static DataTemplate DataTemplate
+        {
+            get
+            {
+                if (mDataTemplate == null)
+                {
+                    mDataTemplate = new DataTemplate();
+                    mDataTemplate.VisualTree = new FrameworkElementFactory(typeof(SoundBlockView));
+                }
+
+                return mDataTemplate;
+            }
+        }
+        #endregion
+
+        #region Private properties
+        private static DataTemplate mDataTemplate = null;
+        #endregion
+
         #region Constructors
         public SoundBlock() 
         {

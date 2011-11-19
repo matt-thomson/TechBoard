@@ -27,9 +27,6 @@ namespace SoundBoard.Controller.Test
         [TestFixtureSetUp]
         public void Init()
         {
-            // Check the initial board.
-            Assert.AreEqual(0, mBoardController.CurrentBoard.Blocks.Count);
-
             // Register to be notified of property changes.
             mBoardController.PropertyChanged += HandlePropertyChanged;
         }
@@ -37,6 +34,9 @@ namespace SoundBoard.Controller.Test
         [SetUp]
         public void TestInit()
         {
+            // Create a new board.
+            mBoardController.New();
+
             // Set up the list of property changed events.
             ReceivedPropertyChangedEvents = new List<string>();            
         }
@@ -121,7 +121,11 @@ namespace SoundBoard.Controller.Test
         private void HandlePropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             Assert.AreEqual(mBoardController, sender as BoardController);
-            ReceivedPropertyChangedEvents.Add(e.PropertyName);
+
+            if (ReceivedPropertyChangedEvents != null)
+            {
+                ReceivedPropertyChangedEvents.Add(e.PropertyName);
+            }
         }
         #endregion
     }

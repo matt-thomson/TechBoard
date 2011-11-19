@@ -6,7 +6,7 @@ namespace SoundBoard.Controller
     public class BoardController : IBoardController
     {
         #region Private members
-        private Board mCurrentBoard = new Board();
+        private Board mCurrentBoard = null;
         #endregion
 
         #region Properties

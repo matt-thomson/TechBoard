@@ -68,6 +68,7 @@
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\model\Sound.cs" />
+    <Compile Include="src\wpf\TemplateSelector.cs" />
     <Page Include="src\wpf\EditBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
