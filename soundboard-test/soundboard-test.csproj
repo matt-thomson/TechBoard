@@ -45,14 +45,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\controller\BoardControllerTest.cs" />
     <Compile Include="src\model\BoardTest.cs" />
+    <Compile Include="src\model\SoundBlockTest.cs" />
     <Compile Include="src\model\SoundTest.cs" />
     <Compile Include="src\properties\AssemblyInfo.cs" />
-    <Compile Include="src\wpf\SoundBlockTest.cs" />
+    <Compile Include="src\wpf\SoundBlockViewTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\soundboard\soundboard.csproj">

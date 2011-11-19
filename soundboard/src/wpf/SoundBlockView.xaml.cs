@@ -6,17 +6,17 @@ using SoundBoard.Model;
 namespace SoundBoard.WPF
 {
     /// <summary>
-    /// Interaction logic for SoundBlock.xaml
+    /// Interaction logic for SoundBlockView.xaml
     /// </summary>
-    public partial class SoundBlock : ListView
+    public partial class SoundBlockView : ListView
     {
         #region Private properties
         IBoardController mBoardController;
         IMediaController mMediaController;
         #endregion
 
-        public SoundBlock(IBoardController xiBoardController,
-                          IMediaController xiMediaController)
+        public SoundBlockView(IBoardController xiBoardController,
+                              IMediaController xiMediaController)
         {
             // Initialize.
             InitializeComponent();

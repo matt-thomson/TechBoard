@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sound>
+  <Title>Sound Title</Title>
+  <FileName>sound.mp3</FileName>
+  <Volume>0.5</Volume>
+</Sound>

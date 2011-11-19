@@ -63,6 +63,7 @@
     <Compile Include="src\controller\MediaController.cs" />
     <Compile Include="src\model\Board.cs" />
     <Compile Include="src\controller\BoardController.cs" />
+    <Compile Include="src\model\SoundBlock.cs" />
     <Compile Include="src\wpf\EditBoardWindow.xaml.cs">
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
@@ -71,7 +72,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\wpf\SoundBlock.xaml">
+    <Page Include="src\wpf\SoundBlockView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,8 +84,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\wpf\SoundBlock.xaml.cs">
-      <DependentUpon>SoundBlock.xaml</DependentUpon>
+    <Compile Include="src\wpf\SoundBlockView.xaml.cs">
+      <DependentUpon>SoundBlockView.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\wpf\SoundBoardWindow.xaml.cs">
       <DependentUpon>SoundBoardWindow.xaml</DependentUpon>

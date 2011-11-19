@@ -26,7 +26,7 @@ namespace SoundBoard.WPF
             mMediaController = xiMediaController;
 
             // Create and add the sound block.
-            SoundBlock block = new SoundBlock(mBoardController, mMediaController);
+            SoundBlockView block = new SoundBlockView(mBoardController, mMediaController);
             mDockPanel.Children.Add(block);
 
             // Create the edit board window.

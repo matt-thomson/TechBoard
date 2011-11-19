@@ -7,13 +7,13 @@ namespace SoundBoard.Model
     public class Board
     {
         #region Public properties
-        public ObservableCollection<Sound> Sounds { get; private set; }
+        public ObservableCollection<SoundBlock> Blocks { get; private set; }
         #endregion
 
         #region Constructors
         public Board() 
         {
-            Sounds = new ObservableCollection<Sound>();
+            Blocks = new ObservableCollection<SoundBlock>();
         }
         #endregion
 
@@ -26,18 +26,16 @@ namespace SoundBoard.Model
             // Load and parse the file.
             XDocument doc = XDocument.Load(xiFileName);
 
-            // Extract the sounds from the file.
-            foreach (XElement soundElement in doc.Descendants("Sound"))
+            // TODO New file format
+            // Extract the blocks from the file.
+            foreach (XElement blockElement in doc.Descendants("Board"))
             {               
-                Sound sound = new Sound(soundElement.Element("Title").Value,
-                                        soundElement.Element("FileName").Value);
-
-                if (soundElement.Element("Volume") != null)
+                // TODO Mapping of block types to plugins
+                foreach (XElement soundsElement in blockElement.Descendants("Sounds"))
                 {
-                    sound.Volume = double.Parse(soundElement.Element("Volume").Value);
+                    SoundBlock block = SoundBlock.FromXElement(soundsElement);
+                    soundBoard.Blocks.Add(block);
                 }
-
-                soundBoard.Sounds.Add(sound);
             }
             
             return soundBoard;
@@ -49,17 +47,13 @@ namespace SoundBoard.Model
         {
             // Create an XML document for this soundboard.
             XElement doc = new XElement("Board");
-                
-            // Format the list of sounds as an XML element.
-            XElement soundList = new XElement("Sounds");
 
-            foreach (Sound sound in Sounds)
+            // Format the list of blocks as an XML element.
+            // TODO New file format                
+            foreach (SoundBlock block in Blocks)
             {
-                soundList.Add(sound.ToXElement());
+                doc.Add(block.ToXElement());
             }
-
-            // Put the list of sounds into the document.
-            doc.Add(soundList);
 
             // Save to file.
             doc.Save(xiFileName);

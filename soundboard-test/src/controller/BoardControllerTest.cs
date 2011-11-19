@@ -9,7 +9,7 @@ namespace SoundBoard.Controller.Test
     public class BoardControllerTest
     {
         #region Constants
-        private const string EXPECTED_BOARD = "..\\..\\data\\expected.board";
+        private const string EXPECTED_BOARD = "..\\..\\data\\BoardControllerTest\\expected.board";
         private const string SAVED_BOARD = "C:\\temp\\output.board";
         private const string TITLE = "Sound Title";
         private const string FILE_NAME = "sound.mp3";
@@ -28,7 +28,7 @@ namespace SoundBoard.Controller.Test
         public void Init()
         {
             // Check the initial board.
-            Assert.AreEqual(0, mBoardController.CurrentBoard.Sounds.Count);
+            Assert.AreEqual(0, mBoardController.CurrentBoard.Blocks.Count);
 
             // Register to be notified of property changes.
             mBoardController.PropertyChanged += HandlePropertyChanged;
@@ -57,7 +57,8 @@ namespace SoundBoard.Controller.Test
             Assert.AreEqual("CurrentBoard", ReceivedPropertyChangedEvents[0]);
 
             // Check the new board.
-            Assert.AreEqual(0, mBoardController.CurrentBoard.Sounds.Count);
+            Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks.Count);
+            Assert.AreEqual(0, mBoardController.CurrentBoard.Blocks[0].Sounds.Count);
         }
 
         [Test]
@@ -74,7 +75,8 @@ namespace SoundBoard.Controller.Test
             Assert.AreEqual("CurrentBoard", ReceivedPropertyChangedEvents[0]);
 
             // Check the loaded board.
-            Assert.AreEqual(1, mBoardController.CurrentBoard.Sounds.Count);
+            Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks.Count);
+            Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks[0].Sounds.Count);
 
             // Now save the board.
             mBoardController.Save(SAVED_BOARD);
@@ -87,21 +89,31 @@ namespace SoundBoard.Controller.Test
         }
 
         [Test]
+        // TODO move to SoundBlockView tests
         public void TestAddRemove()
-        {
+        {            
+            // Create a new board.
+            mBoardController.New();
+
+            // This triggers a property changed event.
+            Assert.AreEqual(1, ReceivedPropertyChangedEvents.Count);
+            Assert.AreEqual("CurrentBoard", ReceivedPropertyChangedEvents[0]);
+
             // Create a sound.
             Sound sound = new Sound(TITLE, FILE_NAME);
 
             // Add the sound to the board.
             mBoardController.Add(sound);
-            Assert.AreEqual(1, mBoardController.CurrentBoard.Sounds.Count);
+            Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks.Count);
+            Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks[0].Sounds.Count);
 
             // Now remove the sound.
             mBoardController.Remove(sound);
-            Assert.AreEqual(0, mBoardController.CurrentBoard.Sounds.Count);
+            Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks.Count);
+            Assert.AreEqual(0, mBoardController.CurrentBoard.Blocks[0].Sounds.Count);
 
-            // Check that no property changes were received during the test.
-            Assert.AreEqual(0, ReceivedPropertyChangedEvents.Count);
+            // Check that no more property changed events were received during the test.
+            Assert.AreEqual(1, ReceivedPropertyChangedEvents.Count);
         }
         #endregion
 

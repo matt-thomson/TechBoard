@@ -11,7 +11,7 @@ using SoundBoard.Model;
 namespace SoundBoard.WPF.Test
 {
     [TestFixture, RequiresSTA]
-    public class SoundBlockTest
+    public class SoundBlockViewTest
     {
         #region Constants
         // Properties of a sound.
@@ -22,7 +22,7 @@ namespace SoundBoard.WPF.Test
 
         #region Private properties
         // Object under test.
-        SoundBlock mSoundBlock;
+        SoundBlockView mSoundBlockView;
 
         // Mock objects.
         private Mock<IBoardController> mMockBoardController;
@@ -40,13 +40,13 @@ namespace SoundBoard.WPF.Test
             mMockBoardController = new Mock<IBoardController>(MockBehavior.Strict);
             mMockMediaController = new Mock<IMediaController>(MockBehavior.Strict);
 
-            // Create the sound block.
-            mSoundBlock = new SoundBlock(mMockBoardController.Object,
-                                         mMockMediaController.Object);
+            // Create the sound block view.
+            mSoundBlockView = new SoundBlockView(mMockBoardController.Object,
+                                                 mMockMediaController.Object);
 
-            // Create a window, and add the sound block to it.
+            // Create a window, and add the view to it.
             mWindow = new Window();
-            mWindow.Content = mSoundBlock;
+            mWindow.Content = mSoundBlockView;
 
             // Show the window to activate the bindings.
             mWindow.Show();
@@ -65,7 +65,7 @@ namespace SoundBoard.WPF.Test
         [Test]
         public void TestDataContext()
         {
-            Assert.AreEqual(mSoundBlock.DataContext, mMockBoardController.Object);
+            Assert.AreEqual(mSoundBlockView.DataContext, mMockBoardController.Object);
         }
 
         [Test]
@@ -75,9 +75,13 @@ namespace SoundBoard.WPF.Test
             Sound sound = new Sound(TITLE, FILE_NAME);
             sound.Volume = VOLUME;
 
-            // Create a board, and add the sound to it.
+            // Create a sound block, and add the sound to it.
+            SoundBlock block = new SoundBlock();
+            block.Sounds.Add(sound);
+
+            // Create a board, and add the sound block to it.
             Board board = new Board();
-            board.Sounds.Add(sound);
+            board.Blocks.Add(block);
 
             // The BoardController will return this board.
             mMockBoardController.Setup(c => c.CurrentBoard).Returns(board);
@@ -88,7 +92,7 @@ namespace SoundBoard.WPF.Test
                                        new PropertyChangedEventArgs("CurrentBoard"));
 
             // Check the board is loaded.
-            Assert.AreEqual(1, mSoundBlock.Items.Count);
+            Assert.AreEqual(1, mSoundBlockView.Items.Count);
 
             // Check the button text.
             Button button = GetButton(0);
@@ -111,15 +115,22 @@ namespace SoundBoard.WPF.Test
                                        new PropertyChangedEventArgs("CurrentBoard"));
 
             // Check the block is empty.
-            Assert.AreEqual(0, mSoundBlock.Items.Count);
+            Assert.AreEqual(0, mSoundBlockView.Items.Count);
 
-            // Create a sound, and add it to the board.
+            // Create a sound block, and add it to the board.
+            SoundBlock block = new SoundBlock();
+            board.Blocks.Add(block);
+
+            // Check the block is empty.
+            Assert.AreEqual(0, mSoundBlockView.Items.Count);
+
+            // Create a sound, and add it to the block.
             Sound sound = new Sound(TITLE, FILE_NAME);
             sound.Volume = VOLUME;
-            board.Sounds.Add(sound);
+            block.Sounds.Add(sound);
 
             // Check the sound is added to the block.
-            Assert.AreEqual(1, mSoundBlock.Items.Count);
+            Assert.AreEqual(1, mSoundBlockView.Items.Count);
 
             // Check the button text.
             Button button = GetButton(0);
@@ -127,10 +138,10 @@ namespace SoundBoard.WPF.Test
             Assert.AreEqual(TITLE, button.Content);
 
             // Remove the sound from the board.
-            board.Sounds.Remove(sound);
+            board.Blocks[0].Sounds.Remove(sound);
 
             // Check the block is empty.
-            Assert.AreEqual(0, mSoundBlock.Items.Count);
+            Assert.AreEqual(0, mSoundBlockView.Items.Count);
         }
 
         [Test]
@@ -155,10 +166,10 @@ namespace SoundBoard.WPF.Test
         private Button GetButton(int xiIndex)
         {
             // Update the layout.
-            mSoundBlock.UpdateLayout();
+            mSoundBlockView.UpdateLayout();
 
             // Find the ListViewItem for the specified index.
-            ListViewItem item = (ListViewItem)mSoundBlock.ItemContainerGenerator.ContainerFromIndex(xiIndex);
+            ListViewItem item = (ListViewItem)mSoundBlockView.ItemContainerGenerator.ContainerFromIndex(xiIndex);
 
             // Create a stack of framework elements.
             Stack<FrameworkElement> tree = new Stack<FrameworkElement>();

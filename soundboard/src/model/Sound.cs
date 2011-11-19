@@ -67,8 +67,28 @@ namespace SoundBoard.Model
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-        #region Internal methods
-        internal XElement ToXElement()
+        #region Static methods
+        public static Sound FromXElement(XElement xiXElement)
+        {
+            // Extract the sound properties from the XML element.
+            string title = xiXElement.Element("Title").Value;
+            string fileName = xiXElement.Element("FileName").Value;
+
+            // Create a new sound.
+            Sound sound = new Sound(title, fileName);
+
+            // Set the volume, if it was supplied.
+            if (xiXElement.Element("Volume") != null)
+            {
+                sound.Volume = double.Parse(xiXElement.Element("Volume").Value);
+            }
+
+            return sound;
+        }
+        #endregion
+
+        #region Public methods
+        public XElement ToXElement()
         {
             XElement element = new XElement("Sound",
                                    new XElement("Title", Title),
