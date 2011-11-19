@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <ListBox Name="SoundsList" 
-                 ItemsSource="{Binding Path=CurrentBoard.Blocks[0].Sounds}" 
+                 ItemsSource="{Binding Path=CurrentBoard.Blocks}" 
                  Grid.Row="0"
                  Margin="2">
             <ListBox.ItemTemplate>

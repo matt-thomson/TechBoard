@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Board>
-  <Sounds>
-    <Sound>
-      <Title>Sound Title</Title>
-      <FileName>sound.mp3</FileName>
-    </Sound>
-  </Sounds>
-</Board>
+<Sound>
+  <Title>Sound Title</Title>
+  <FileName>sound.mp3</FileName>
+</Sound>

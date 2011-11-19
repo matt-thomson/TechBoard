@@ -16,6 +16,7 @@ namespace SoundBoard.WPF.Test
         #region Constants
         // Properties of a sound.
         private const string TITLE = "Sound Title";
+        private const string TITLE_NEW = "New Sound Title";
         private const string FILE_NAME = "sound.mp3";
         private const double VOLUME = 0.8;
         #endregion
@@ -37,7 +38,8 @@ namespace SoundBoard.WPF.Test
         public void TestInit()
         {
             // Create a sound block for this view.
-            mSoundBlock = new SoundBlock();
+            mSoundBlock = new SoundBlock(TITLE, FILE_NAME);
+            mSoundBlock.Volume = VOLUME;
 
             // Create mock objects.
             mMockMediaController = new Mock<IMediaController>(MockBehavior.Strict);
@@ -66,104 +68,25 @@ namespace SoundBoard.WPF.Test
 
         #region Test cases
         [Test]
-        public void TestLoadBoard()
+        public void TestButtonText()
         {
-            // Check that the block is empty.
-            Assert.AreEqual(0, mSoundBlockView.Items.Count);
-
-            // Create a sound.
-            Sound sound = new Sound(TITLE, FILE_NAME);
-            sound.Volume = VOLUME;
-
-            // Add the sound to the block.
-            mSoundBlock.Sounds.Add(sound);
-
-            // Check the block is loaded.
-            Assert.AreEqual(1, mSoundBlockView.Items.Count);
-
             // Check the button text.
-            Button button = GetButton(0);
-            Assert.IsNotNull(button);
-            Assert.AreEqual(TITLE, button.Content);
+            Assert.AreEqual(TITLE, mSoundBlockView.Content);
+
+            // Change the sound title, and check that the button text is updated.
+            mSoundBlock.Title = TITLE_NEW;
+            Assert.AreEqual(TITLE_NEW, mSoundBlockView.Content);
         }
-
-        [Test]
-        public void TestAddRemoveSounds()
-        {
-            // Check the block is empty.
-            Assert.AreEqual(0, mSoundBlockView.Items.Count);
-
-            // Create a sound, and add it to the block.
-            Sound sound = new Sound(TITLE, FILE_NAME);
-            sound.Volume = VOLUME;
-            mSoundBlock.Sounds.Add(sound);
-
-            // Check the sound is added to the view.
-            Assert.AreEqual(1, mSoundBlockView.Items.Count);
-
-            // Check the button text.
-            Button button = GetButton(0);
-            Assert.IsNotNull(button);
-            Assert.AreEqual(TITLE, button.Content);
-
-            // Remove the sound from the block.
-            mSoundBlock.Sounds.Remove(sound);
-
-            // Check the block is empty.
-            Assert.AreEqual(0, mSoundBlockView.Items.Count);
-        }
-
+        
         [Test]
         public void TestClickButton()
         {
-            // Set up a board with one button.
-            TestLoadBoard();
-
-            // Find the button.
-            Button button = GetButton(0);
-
-            // Clicking the button will play the sound.
+            // Clicking the button will play the soundBlock.
             mMockMediaController.Setup(c => c.Play(FILE_NAME, VOLUME));
 
             // Click on the button.
-            RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, button);
-            button.RaiseEvent(args);
-        }
-        #endregion
-
-        #region Utility functions
-        private Button GetButton(int xiIndex)
-        {
-            // Update the layout.
-            mSoundBlockView.UpdateLayout();
-
-            // Find the ListViewItem for the specified index.
-            ListViewItem item = (ListViewItem)mSoundBlockView.ItemContainerGenerator.ContainerFromIndex(xiIndex);
-
-            // Create a stack of framework elements.
-            Stack<FrameworkElement> tree = new Stack<FrameworkElement>();
-            tree.Push(item);
-
-            while (tree.Count > 0)
-            {
-                FrameworkElement current = tree.Pop();
-                if (current is Button) 
-                {
-                    return current as Button;
-                }
-
-                int count = VisualTreeHelper.GetChildrenCount(current);
-                for (int i = 0; i < count; ++i)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(current, i);
-                    if (child is FrameworkElement)
-                    {
-                        tree.Push((FrameworkElement)child);
-                    }
-                }
-            }
-
-            return null;
+            RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mSoundBlockView);
+            mSoundBlockView.RaiseEvent(args);
         }
         #endregion
     }

@@ -31,10 +31,15 @@ namespace SoundBoard.Model
             foreach (XElement blockElement in doc.Descendants("Board"))
             {               
                 // TODO Mapping of block types to plugins
-                foreach (XElement soundsElement in blockElement.Descendants("Sounds"))
+                XElement soundsElement = blockElement.Element("Sounds");
+
+                if (soundsElement != null)
                 {
-                    SoundBlock block = SoundBlock.FromXElement(soundsElement);
-                    soundBoard.Blocks.Add(block);
+                    foreach (XElement soundElement in soundsElement.Descendants("Sound"))
+                    {
+                        SoundBlock block = SoundBlock.FromXElement(soundElement);
+                        soundBoard.Blocks.Add(block);
+                    }
                 }
             }
             
@@ -48,11 +53,14 @@ namespace SoundBoard.Model
             // Create an XML document for this soundboard.
             XElement doc = new XElement("Board");
 
+            // TODO New file format
+            XElement soundsElement = new XElement("Sounds");
+            doc.Add(soundsElement);
+
             // Format the list of blocks as an XML element.
-            // TODO New file format                
             foreach (SoundBlock block in Blocks)
             {
-                doc.Add(block.ToXElement());
+                soundsElement.Add(block.ToXElement());
             }
 
             // Save to file.

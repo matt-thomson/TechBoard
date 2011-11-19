@@ -13,8 +13,8 @@ namespace SoundBoard.Controller
         void New();
         void Load(string xiFileName);
         void Save(string xiFileName);
-        void Add(Sound xiSound);
-        void Remove(Sound xiSound);
+        void Add(SoundBlock xiSound);
+        void Remove(SoundBlock xiSound);
         #endregion
     }
 }

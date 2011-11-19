@@ -8,7 +8,7 @@ namespace SoundBoard.WPF
     /// <summary>
     /// Interaction logic for SoundBlockView.xaml
     /// </summary>
-    public partial class SoundBlockView : ListView
+    public partial class SoundBlockView : Button
     {
         #region Private properties
         public static IMediaController MediaController;
@@ -23,9 +23,8 @@ namespace SoundBoard.WPF
         #region Button event handlers
         private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            Sound sound = button.DataContext as Sound;
-            MediaController.Play(sound.FileName, sound.Volume);
+            SoundBlock soundBlock = DataContext as SoundBlock;
+            MediaController.Play(soundBlock.FileName, soundBlock.Volume);
         }
         #endregion
     }

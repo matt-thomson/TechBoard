@@ -49,14 +49,14 @@ namespace SoundBoard.WPF
                 string[] fileNameSplit = fileName.Split('\\');
                 string title = fileNameSplit[fileNameSplit.Length - 1];
 
-                Sound sound = new Sound(title, fileName);
+                SoundBlock sound = new SoundBlock(title, fileName);
                 mBoardController.Add(sound);
             }
         }
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
         {
-            Sound sound = SoundsList.SelectedItem as Sound;
+            SoundBlock sound = SoundsList.SelectedItem as SoundBlock;
             mBoardController.Remove(sound);
         }
         #endregion

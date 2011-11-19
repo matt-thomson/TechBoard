@@ -36,10 +36,6 @@ namespace SoundBoard.Controller
         public void New()
         {
             CurrentBoard = new Board();
-
-            // TODO Shouldn't need this eventually...
-            SoundBlock block = new SoundBlock();
-            CurrentBoard.Blocks.Add(block);
         }
 
         public void Load(string xiFileName)
@@ -52,16 +48,14 @@ namespace SoundBoard.Controller
             CurrentBoard.Save(xiFileName);
         }
 
-        // TODO should be in the SoundBlockView plugin
-        public void Add(Sound xiSound)
+        public void Add(SoundBlock xiSound)
         {
-            CurrentBoard.Blocks[0].Sounds.Add(xiSound);
+            CurrentBoard.Blocks.Add(xiSound);
         }
 
-        // TODO should be in the SoundBlockView plugin
-        public void Remove(Sound xiSound)
+        public void Remove(SoundBlock xiSound)
         {
-            CurrentBoard.Blocks[0].Sounds.Remove(xiSound);
+            CurrentBoard.Blocks.Remove(xiSound);
         }
         #endregion
     }

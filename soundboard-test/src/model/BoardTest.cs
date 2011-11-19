@@ -34,13 +34,9 @@ namespace SoundBoard.Model.Test
             Board = new Board();
 
             // Create a sound block.
-            SoundBlock block = new SoundBlock();
+            SoundBlock block = new SoundBlock(TITLE, FILE_NAME);
 
-            // Create a sound.
-            Sound sound = new Sound(TITLE, FILE_NAME);
-
-            // Add it to the block, and add that to the board.
-            block.Sounds.Add(sound);
+            // Add it to the board.
             Board.Blocks.Add(block);
         }
         #endregion
@@ -49,13 +45,13 @@ namespace SoundBoard.Model.Test
         [Test]
         public void TestBoardContents()
         {
-            Assert.AreEqual(1, Board.Blocks[0].Sounds.Count);
+            Assert.AreEqual(1, Board.Blocks.Count);
 
-            Sound sound = Board.Blocks[0].Sounds[0];
+            SoundBlock soundBlock = Board.Blocks[0];
 
-            Assert.AreEqual(TITLE, sound.Title);
-            Assert.AreEqual(FILE_NAME, sound.FileName);
-            Assert.AreEqual(VOLUME_DEFAULT, sound.Volume);
+            Assert.AreEqual(TITLE, soundBlock.Title);
+            Assert.AreEqual(FILE_NAME, soundBlock.FileName);
+            Assert.AreEqual(VOLUME_DEFAULT, soundBlock.Volume);
         }
 
         [Test]
