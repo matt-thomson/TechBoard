@@ -6,14 +6,17 @@ using SoundBoard.WPF;
 
 namespace SoundBoard.Model
 {
-    public class SoundBlock : INotifyPropertyChanged
+    public class SoundBlock : DependencyObject
     {
         #region Private members
-        private string mTitle;
-        private double mVolume;
-
         // TODO shouldn't be in the model
         private static DataTemplate mDataTemplate = null;
+        private static DependencyProperty TitleProperty = DependencyProperty.Register("Title",
+                                                                                      typeof(string),
+                                                                                      typeof(SoundBlock));
+        private static DependencyProperty VolumeProperty = DependencyProperty.Register("Volume",
+                                                                                       typeof(double),
+                                                                                       typeof(SoundBlock));
         #endregion
 
         #region Public properties
@@ -21,16 +24,11 @@ namespace SoundBoard.Model
         {
             get
             {
-                return mTitle;
+                return (string)GetValue(TitleProperty);
             }
             set
             {
-                mTitle = value;
-
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Title"));
-                }
+                SetValue(TitleProperty, value);
             }
         }
 
@@ -38,16 +36,11 @@ namespace SoundBoard.Model
         {
             get
             {
-                return mVolume;
+                return (double)GetValue(VolumeProperty);
             }
             set
             {
-                mVolume = value;
-
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Volume"));
-                }
+                SetValue(VolumeProperty, value);
             }
         }
 
@@ -73,7 +66,7 @@ namespace SoundBoard.Model
 
         #region Constructors
         public SoundBlock(string xiTitle,
-                          string xiFileName) 
+                          string xiFileName)
         {
             Title = xiTitle;
             FileName = xiFileName;
@@ -81,10 +74,6 @@ namespace SoundBoard.Model
         }
         #endregion
 
-        #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
-        
         #region Static methods
         public static SoundBlock FromXElement(XElement xiXElement)
         {

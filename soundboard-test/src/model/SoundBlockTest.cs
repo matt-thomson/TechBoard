@@ -27,10 +27,7 @@ namespace SoundBoard.Model.Test
 
         #region Private properties
         // The object under test.
-        private SoundBlock SoundBlock { get; set; }
-
-        // Received property changed events.
-        private List<string> ReceivedPropertyChangedEvents { get; set; }
+        private SoundBlock SoundBlock { get; set; }        
         #endregion
 
         #region Initialization
@@ -39,10 +36,6 @@ namespace SoundBoard.Model.Test
         {
             // Set up the object under test.
             SoundBlock = new SoundBlock(TITLE, FILE_NAME);
-
-            // Set up the list of received events, and register to receive events into it.
-            ReceivedPropertyChangedEvents = new List<string>();
-            SoundBlock.PropertyChanged += HandlePropertyChanged;
         }
         #endregion
 
@@ -52,16 +45,9 @@ namespace SoundBoard.Model.Test
         {
             Assert.AreEqual(TITLE, SoundBlock.Title);
 
-            // Check that no property changes have been received so far.
-            Assert.AreEqual(0, ReceivedPropertyChangedEvents.Count);
-
             // Now change the title.
             SoundBlock.Title = TITLE_NEW;
             Assert.AreEqual(SoundBlock.Title, TITLE_NEW);
-
-            // This triggers a property change event.
-            Assert.AreEqual(1, ReceivedPropertyChangedEvents.Count);
-            Assert.AreEqual("Title", ReceivedPropertyChangedEvents[0]);
         }
 
         [Test]
@@ -76,16 +62,9 @@ namespace SoundBoard.Model.Test
             // Check the default volume.
             Assert.AreEqual(VOLUME, SoundBlock.Volume);
 
-            // Check that no property changes have been received so far.
-            Assert.AreEqual(0, ReceivedPropertyChangedEvents.Count);
-
             // Now change the volume.
             SoundBlock.Volume = VOLUME_NEW;
             Assert.AreEqual(SoundBlock.Volume, VOLUME_NEW);
-
-            // This triggers a property change event.
-            Assert.AreEqual(1, ReceivedPropertyChangedEvents.Count);
-            Assert.AreEqual("Volume", ReceivedPropertyChangedEvents[0]);
         }
 
         [Test]
@@ -123,14 +102,6 @@ namespace SoundBoard.Model.Test
             Assert.AreEqual(TITLE, block.Title);
             Assert.AreEqual(FILE_NAME, block.FileName);
             Assert.AreEqual(VOLUME_NEW, block.Volume);
-        }
-        #endregion
-
-        #region Event handlers
-        private void HandlePropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            Assert.AreEqual(SoundBlock, sender as SoundBlock);
-            ReceivedPropertyChangedEvents.Add(e.PropertyName);
         }
         #endregion
     }

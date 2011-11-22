@@ -1,12 +1,15 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using SoundBoard.Model;
 
 namespace SoundBoard.Controller
 {
-    public class BoardController : IBoardController
+    public class BoardController : DependencyObject, IBoardController
     {
         #region Private members
-        private Board mCurrentBoard = null;
+        private static DependencyProperty CurrentBoardProperty = DependencyProperty.Register("CurrentBoard",
+                                                                                             typeof(Board),
+                                                                                             typeof(BoardController));
         #endregion
 
         #region Properties
@@ -14,22 +17,13 @@ namespace SoundBoard.Controller
         {
             get
             {
-                return mCurrentBoard;
+                return (Board)GetValue(CurrentBoardProperty);
             }
             private set
             {
-                mCurrentBoard = value;
-
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("CurrentBoard"));
-                }
+                SetValue(CurrentBoardProperty, value);
             }
         }
-        #endregion
-
-        #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         #region Public methods
