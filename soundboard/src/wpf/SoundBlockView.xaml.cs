@@ -8,7 +8,7 @@ namespace SoundBoard.WPF
     /// <summary>
     /// Interaction logic for SoundBlockView.xaml
     /// </summary>
-    public partial class SoundBlockView : Button
+    public partial class SoundBlockView : UserControl
     {
         #region Private properties
         public static IMediaController MediaController;

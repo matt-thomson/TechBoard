@@ -31,6 +31,7 @@ namespace SoundBoard.WPF.Test
         // Other objects.
         private SoundBlock mSoundBlock;
         private Window mWindow;
+        private Button mButton;
         #endregion
 
         #region Initialization
@@ -48,6 +49,9 @@ namespace SoundBoard.WPF.Test
             // Create the sound block view, and set the data context.
             mSoundBlockView = new SoundBlockView();
             mSoundBlockView.DataContext = mSoundBlock;
+        
+            // Get a reference to the button.
+            mButton = mSoundBlockView.Content as Button;
 
             // Create a window, and add the view to it.
             mWindow = new Window();
@@ -71,11 +75,11 @@ namespace SoundBoard.WPF.Test
         public void TestButtonText()
         {
             // Check the button text.
-            Assert.AreEqual(TITLE, mSoundBlockView.Content);
+            Assert.AreEqual(TITLE, mButton.Content);
 
             // Change the sound title, and check that the button text is updated.
             mSoundBlock.Title = TITLE_NEW;
-            Assert.AreEqual(TITLE_NEW, mSoundBlockView.Content);
+            Assert.AreEqual(TITLE_NEW, mButton.Content);
         }
         
         [Test]
@@ -85,8 +89,8 @@ namespace SoundBoard.WPF.Test
             mMockMediaController.Setup(c => c.Play(FILE_NAME, VOLUME));
 
             // Click on the button.
-            RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mSoundBlockView);
-            mSoundBlockView.RaiseEvent(args);
+            RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mButton);
+            mButton.RaiseEvent(args);
         }
         #endregion
     }
