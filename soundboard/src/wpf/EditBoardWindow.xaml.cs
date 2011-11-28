@@ -24,7 +24,7 @@ namespace SoundBoard.WPF
             mBoardController = xiBoardController;
 
             // Set the data context for this window.
-            SoundsList.DataContext = mBoardController;
+            BlocksList.DataContext = mBoardController;
         }
         #endregion
 
@@ -56,7 +56,7 @@ namespace SoundBoard.WPF
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
         {
-            SoundBlock sound = SoundsList.SelectedItem as SoundBlock;
+            SoundBlock sound = BlocksList.SelectedItem as SoundBlock;
             mBoardController.Remove(sound);
         }
         #endregion

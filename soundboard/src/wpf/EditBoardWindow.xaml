@@ -1,19 +1,22 @@
 ﻿<Window x:Class="SoundBoard.WPF.EditBoardWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:SoundBoard.WPF"
         Title="Edit Board" 
         Height="300" 
         Width="250" 
         ResizeMode="CanMinimize" 
         Closing="HandleWindowClosing">
-    <Grid>
+    <Window.Resources>
+        <l:EditBoardPropertyConverter x:Key="PropertyConverter" />
+    </Window.Resources>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListBox Name="SoundsList" 
+        <ListBox Name="BlocksList" 
                  ItemsSource="{Binding Path=CurrentBoard.Blocks}" 
                  Grid.Row="0"
                  Margin="2">
@@ -31,34 +34,18 @@
             <Button Grid.Column="0" Height="24" Margin="2" Content="Add..." Click="HandleAddButtonClick" />
             <Button Grid.Column="1" Height="24" Margin="2" Content="Remove" Click="HandleRemoveButtonClick" />
         </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Title" />
-            <TextBox Grid.Column="1" 
-                     Height="24" 
-                     Margin="2"
-                     Text="{Binding ElementName=SoundsList, 
-                                    Path=SelectedItem.Title,
-                                    UpdateSourceTrigger=PropertyChanged}" />
-        </Grid>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Volume" />
-            <Slider Grid.Column="1" 
-                    Margin="2" 
-                    Minimum="0"
-                    Maximum="1" 
-                    IsSnapToTickEnabled="True"
-                    TickFrequency="0.1"
-                    TickPlacement="TopLeft" 
-                    IsMoveToPointEnabled="True"
-                    Value="{Binding ElementName=SoundsList, Path=SelectedItem.Volume}" />
-        </Grid>
+        <ListView Grid.Row="2"                  
+                  BorderBrush="Transparent"                  
+                  BorderThickness="0"
+                  HorizontalContentAlignment="Stretch"
+                  ItemsSource="{Binding ElementName=BlocksList, 
+                                        Path=SelectedItem,
+                                        Converter={StaticResource PropertyConverter}}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <l:TextEditorPropertyView />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

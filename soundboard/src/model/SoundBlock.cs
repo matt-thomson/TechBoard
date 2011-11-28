@@ -20,28 +20,18 @@ namespace SoundBoard.Model
         #endregion
 
         #region Public properties
+        [EditorProperty]
         public string Title
         {
-            get
-            {
-                return (string)GetValue(TitleProperty);
-            }
-            set
-            {
-                SetValue(TitleProperty, value);
-            }
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
         }
 
+        [EditorProperty]
         public double Volume
         {
-            get
-            {
-                return (double)GetValue(VolumeProperty);
-            }
-            set
-            {
-                SetValue(VolumeProperty, value);
-            }
+            get { return (double)GetValue(VolumeProperty); }
+            set { SetValue(VolumeProperty, value); }
         }
 
         public string FileName { get; set; }
