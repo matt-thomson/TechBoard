@@ -63,12 +63,16 @@
     <Compile Include="src\controller\MediaController.cs" />
     <Compile Include="src\model\Board.cs" />
     <Compile Include="src\controller\BoardController.cs" />
+    <Compile Include="src\model\FileEditorPropertyAttribute.cs" />
     <Compile Include="src\model\EditorPropertyViewAttribute.cs" />
     <Compile Include="src\model\PropertyMapping.cs" />
     <Compile Include="src\model\RangeEditorPropertyAttribute.cs" />
     <Compile Include="src\model\EditorPropertyAttribute.cs" />
     <Compile Include="src\model\SoundBlock.cs" />
     <Compile Include="src\model\TextEditorPropertyAttribute.cs" />
+    <Compile Include="src\wpf\FileEditorPropertyView.xaml.cs">
+      <DependentUpon>FileEditorPropertyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\wpf\EditorPropertyTemplateSelector.cs" />
     <Compile Include="src\wpf\RangeEditorPropertyView.xaml.cs">
       <DependentUpon>RangeEditorPropertyView.xaml</DependentUpon>
@@ -81,6 +85,10 @@
     <Compile Include="src\wpf\TextEditorPropertyView.xaml.cs">
       <DependentUpon>TextEditorPropertyView.xaml</DependentUpon>
     </Compile>
+    <Page Include="src\wpf\FileEditorPropertyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="src\wpf\RangeEditorPropertyView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

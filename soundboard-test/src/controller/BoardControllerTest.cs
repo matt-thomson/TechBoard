@@ -64,7 +64,7 @@ namespace SoundBoard.Controller.Test
             mBoardController.New();
 
             // Create a sound block.
-            SoundBlock soundBlock = new SoundBlock(TITLE, FILE_NAME);
+            SoundBlock soundBlock = new SoundBlock();
 
             // Add the sound block to the board.
             mBoardController.Add(soundBlock);

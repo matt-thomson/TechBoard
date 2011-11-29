@@ -39,7 +39,9 @@ namespace SoundBoard.WPF.Test
         public void TestInit()
         {
             // Create a sound block for this view.
-            mSoundBlock = new SoundBlock(TITLE, FILE_NAME);
+            mSoundBlock = new SoundBlock();
+            mSoundBlock.Title = TITLE;
+            mSoundBlock.FileName = FILE_NAME;
             mSoundBlock.Volume = VOLUME;
 
             // Create mock objects.

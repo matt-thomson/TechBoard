@@ -35,7 +35,9 @@ namespace SoundBoard.Model.Test
         public void TestInit()
         {
             // Set up the object under test.
-            SoundBlock = new SoundBlock(TITLE, FILE_NAME);
+            SoundBlock = new SoundBlock();
+            SoundBlock.Title = TITLE;
+            SoundBlock.FileName = FILE_NAME;
         }
         #endregion
 
@@ -65,43 +67,6 @@ namespace SoundBoard.Model.Test
             // Now change the volume.
             SoundBlock.Volume = VOLUME_NEW;
             Assert.AreEqual(SoundBlock.Volume, VOLUME_NEW);
-        }
-
-        [Test]
-        public void TestToXElement()    
-        {
-            // Save the XElement representation of the soundBlock block to disk.
-            XElement element = SoundBlock.ToXElement();
-            element.Save(SAVED_BLOCK);
-
-            // Compare the output XElement with the expected one.
-            FileAssert.AreEqual(EXPECTED_BLOCK, SAVED_BLOCK);
-        }
-
-        [Test]
-        public void TestFromXElementV01()
-        {
-            // Load the V0.1 format sound block from disk.
-            XElement element = XElement.Load(V01_BLOCK);
-            SoundBlock block = SoundBlock.FromXElement(element);
-
-            // Check the sound block attributes.            
-            Assert.AreEqual(TITLE, block.Title);
-            Assert.AreEqual(FILE_NAME, block.FileName);
-            Assert.AreEqual(VOLUME, block.Volume);
-        }
-
-        [Test]
-        public void TestFromXElementV02()
-        {
-            // Load the V0.2 format sound block from disk.
-            XElement element = XElement.Load(V02_BLOCK);
-            SoundBlock block = SoundBlock.FromXElement(element);
-
-            // Check the sound block attributes.            
-            Assert.AreEqual(TITLE, block.Title);
-            Assert.AreEqual(FILE_NAME, block.FileName);
-            Assert.AreEqual(VOLUME_NEW, block.Volume);
         }
         #endregion
     }

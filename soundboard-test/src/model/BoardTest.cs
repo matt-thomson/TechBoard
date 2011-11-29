@@ -7,7 +7,7 @@ namespace SoundBoard.Model.Test
     {
         #region Constants
         // Location of test boards.
-        private const string V01_BOARD = "..\\..\\data\\BoardTest\\v01.board";
+        private const string V03_BOARD = "..\\..\\data\\BoardTest\\v03.board";
         private const string EXPECTED_BOARD = "..\\..\\data\\BoardTest\\expected.board";
         private const string EMPTY_BOARD = "..\\..\\data\\BoardTest\\empty.board";
 
@@ -34,7 +34,9 @@ namespace SoundBoard.Model.Test
             Board = new Board();
 
             // Create a sound block.
-            SoundBlock block = new SoundBlock(TITLE, FILE_NAME);
+            SoundBlock block = new SoundBlock();
+            block.Title = TITLE;
+            block.FileName = FILE_NAME;
 
             // Add it to the board.
             Board.Blocks.Add(block);
@@ -65,10 +67,10 @@ namespace SoundBoard.Model.Test
         }
 
         [Test]
-        public void TestLoadBoardV01()
+        public void TestLoadBoardV03()
         {
             // Load the board from disk.
-            Board = Board.Load(V01_BOARD);
+            Board = Board.Load(V03_BOARD);
 
             // Verify the board contents.
             TestBoardContents();

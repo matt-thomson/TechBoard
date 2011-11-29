@@ -37,21 +37,9 @@ namespace SoundBoard.WPF
 
         private void HandleAddButtonClick(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            openDialog.Filter = "Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*";
-
-            Nullable<bool> result = openDialog.ShowDialog();
-
-            if (result == true)
-            {
-                string fileName = openDialog.FileName;
-                string[] fileNameSplit = fileName.Split('\\');
-                string title = fileNameSplit[fileNameSplit.Length - 1];
-
-                SoundBlock sound = new SoundBlock(title, fileName);
-                mBoardController.Add(sound);
-            }
+            SoundBlock sound = new SoundBlock();
+            mBoardController.Add(sound);
+            BlocksList.SelectedItem = sound;
         }
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)

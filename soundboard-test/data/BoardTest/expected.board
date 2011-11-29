@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Board>
-  <Sounds>
-    <Sound>
-      <Title>Sound Title</Title>
+  <Blocks>
+    <Block>
       <FileName>sound.mp3</FileName>
+      <Title>Sound Title</Title>
       <Volume>0.5</Volume>
-    </Sound>
-  </Sounds>
+    </Block>
+  </Blocks>
 </Board>

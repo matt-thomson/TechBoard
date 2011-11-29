@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace SoundBoard.Model
 {
@@ -26,18 +28,34 @@ namespace SoundBoard.Model
             // Load and parse the file.
             XDocument doc = XDocument.Load(xiFileName);
 
-            // TODO New file format
             // Extract the blocks from the file.
-            foreach (XElement blockElement in doc.Descendants("Board"))
+            foreach (XElement boardElement in doc.Descendants("Board"))
             {               
                 // TODO Mapping of block types to plugins
-                XElement soundsElement = blockElement.Element("Sounds");
+                XElement blocksElement = boardElement.Element("Blocks");
 
-                if (soundsElement != null)
+                if (blocksElement != null)
                 {
-                    foreach (XElement soundElement in soundsElement.Descendants("Sound"))
+                    foreach (XElement blockElement in blocksElement.Descendants("Block"))
                     {
-                        SoundBlock block = SoundBlock.FromXElement(soundElement);
+                        SoundBlock block = new SoundBlock();
+                        Type blockType = block.GetType();
+
+                        foreach (XElement propertyElement in blocksElement.Descendants())
+                        {
+                            PropertyInfo propInfo = blockType.GetProperty(propertyElement.Name.ToString());
+
+                            if (propInfo != null)
+                            {
+                                // Find the editor property attribute.  This contains the function to convert
+                                // the saved string to the property value.
+                                object[] attrs = propInfo.GetCustomAttributes(typeof(EditorPropertyAttribute), false);
+                                EditorPropertyAttribute attr = attrs[0] as EditorPropertyAttribute;
+
+                                propInfo.SetValue(block, attr.FromString(propertyElement.Value), null);
+                            }
+                        }
+
                         soundBoard.Blocks.Add(block);
                     }
                 }
@@ -53,14 +71,19 @@ namespace SoundBoard.Model
             // Create an XML document for this soundboard.
             XElement doc = new XElement("Board");
 
-            // TODO New file format
-            XElement soundsElement = new XElement("Sounds");
-            doc.Add(soundsElement);
+            XElement blocksElement = new XElement("Blocks");
+            doc.Add(blocksElement);
 
             // Format the list of blocks as an XML element.
             foreach (SoundBlock block in Blocks)
             {
-                soundsElement.Add(block.ToXElement());
+                // TODO block type as GUID
+                XElement blockElement = new XElement("Block");
+                var properties = from p in block.GetType().GetProperties()
+                                 where p.IsDefined(typeof(EditorPropertyAttribute), false)
+                                 select new XElement(p.Name, p.GetValue(block, null));
+                blockElement.Add(properties);
+                blocksElement.Add(blockElement);
             }
 
             // Save to file.

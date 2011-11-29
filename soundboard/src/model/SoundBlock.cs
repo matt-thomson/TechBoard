@@ -17,9 +17,19 @@ namespace SoundBoard.Model
         private static DependencyProperty VolumeProperty = DependencyProperty.Register("Volume",
                                                                                        typeof(double),
                                                                                        typeof(SoundBlock));
+        private static DependencyProperty FileNameProperty = DependencyProperty.Register("FileName",
+                                                                                         typeof(string),
+                                                                                         typeof(SoundBlock));
         #endregion
 
         #region Public properties
+        [FileNameEditorProperty]
+        public string FileName
+        {
+            get { return (string)GetValue(FileNameProperty); }
+            set { SetValue(FileNameProperty, value); }
+        }
+
         [TextEditorProperty]
         public string Title
         {
@@ -33,8 +43,6 @@ namespace SoundBoard.Model
             get { return (double)GetValue(VolumeProperty); }
             set { SetValue(VolumeProperty, value); }
         }
-
-        public string FileName { get; set; }
         #endregion
 
         #region Static properties
@@ -55,43 +63,11 @@ namespace SoundBoard.Model
         #endregion
 
         #region Constructors
-        public SoundBlock(string xiTitle,
-                          string xiFileName)
+        public SoundBlock()
         {
-            Title = xiTitle;
-            FileName = xiFileName;
+            Title = "New Sound";
+            FileName = "";
             Volume = 0.5;
-        }
-        #endregion
-
-        #region Static methods
-        public static SoundBlock FromXElement(XElement xiXElement)
-        {
-            // Extract the soundBlock properties from the XML element.
-            string title = xiXElement.Element("Title").Value;
-            string fileName = xiXElement.Element("FileName").Value;
-
-            // Create a new sound block.
-            SoundBlock soundBlock = new SoundBlock(title, fileName);
-
-            // Set the volume, if it was supplied.
-            if (xiXElement.Element("Volume") != null)
-            {
-                soundBlock.Volume = double.Parse(xiXElement.Element("Volume").Value);
-            }
-
-            return soundBlock;
-        }
-        #endregion
-
-        #region Public methods
-        public XElement ToXElement()
-        {
-            XElement element = new XElement("Sound",
-                                   new XElement("Title", Title),
-                                   new XElement("FileName", FileName),
-                                   new XElement("Volume", Volume));
-            return element;
         }
         #endregion
     }
