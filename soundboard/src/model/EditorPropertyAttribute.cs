@@ -3,7 +3,7 @@
 namespace SoundBoard.Model
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class EditorPropertyAttribute : Attribute
+    public abstract class EditorPropertyAttribute : Attribute
     {
     }
 }

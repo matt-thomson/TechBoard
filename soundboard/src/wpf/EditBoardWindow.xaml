@@ -9,6 +9,7 @@
         Closing="HandleWindowClosing">
     <Window.Resources>
         <l:EditBoardPropertyConverter x:Key="PropertyConverter" />
+        <l:EditorPropertyTemplateSelector x:Key="PropertyTemplateSelector" />
     </Window.Resources>
         <Grid>
         <Grid.RowDefinitions>
@@ -41,12 +42,8 @@
                   HorizontalContentAlignment="Stretch"
                   ItemsSource="{Binding ElementName=BlocksList, 
                                         Path=SelectedItem,
-                                        Converter={StaticResource PropertyConverter}}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <l:TextEditorPropertyView />
-                </DataTemplate>
-            </ListView.ItemTemplate>
+                                        Converter={StaticResource PropertyConverter}}"
+                  ItemTemplateSelector="{StaticResource PropertyTemplateSelector}">
         </ListView>
     </Grid>
 </Window>

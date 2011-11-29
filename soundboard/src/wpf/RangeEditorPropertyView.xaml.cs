@@ -6,11 +6,11 @@ using SoundBoard.Model;
 namespace SoundBoard.WPF
 {
     /// <summary>
-    /// Interaction logic for TextEditorPropertyView.xaml
+    /// Interaction logic for RangeEditorPropertyView.xaml
     /// </summary>
-    public partial class TextEditorPropertyView : UserControl
+    public partial class RangeEditorPropertyView : UserControl
     {
-        public TextEditorPropertyView()
+        public RangeEditorPropertyView()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace SoundBoard.WPF
                     UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
                 };
 
-                Field.SetBinding(TextBox.TextProperty, binding);
+                Field.SetBinding(Slider.ValueProperty, binding);
             }
         }
     }

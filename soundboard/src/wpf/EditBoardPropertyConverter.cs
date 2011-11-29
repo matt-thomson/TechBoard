@@ -19,7 +19,7 @@ namespace SoundBoard.WPF
             {
                 result = from p in xiValue.GetType().GetProperties()
                          where p.IsDefined(typeof(EditorPropertyAttribute), false)
-                         select new { Property = p, Target = xiValue };
+                         select new PropertyMapping(p, xiValue);
             }
 
             return result;
