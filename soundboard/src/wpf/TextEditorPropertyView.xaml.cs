@@ -18,9 +18,8 @@ namespace SoundBoard.WPF
         {
             dynamic context = DataContext;
 
-            // @@@ Ugly hack to avoid exception when disconnecting - can we do better?
-            if ((context != null) &&
-                (!context.GetType().FullName.Equals("MS.Internal.NamedObject")))
+            // Only set up the binding once.
+            if ((context != null) && (e.OldValue == null))
             {
                 Binding binding = new Binding
                 {
