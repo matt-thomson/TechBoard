@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using NUnit.Framework;
-using SoundBoard.Model;
+﻿using NUnit.Framework;
+using SoundBoard.WPF;
 
 namespace SoundBoard.Controller.Test
 {
-    [TestFixture]
+    [TestFixture, RequiresSTA]
     public class BoardControllerTest
     {
         #region Constants
@@ -57,7 +55,7 @@ namespace SoundBoard.Controller.Test
         }
 
         [Test]
-        // TODO move to SoundBlockView tests
+        // TODO move to SoundBlock tests
         public void TestAddRemove()
         {            
             // Create a new board.

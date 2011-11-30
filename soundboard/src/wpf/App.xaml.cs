@@ -15,7 +15,7 @@ namespace SoundBoard.WPF
 
             // TODO remove this!
             MediaController mediaController = new MediaController();
-            SoundBlockView.MediaController = mediaController;
+            SoundBlock.MediaController = mediaController;
 
             // Create the main window.
             SoundBoardWindow window = new SoundBoardWindow(boardController,

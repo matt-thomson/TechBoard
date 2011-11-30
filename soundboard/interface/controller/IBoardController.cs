@@ -1,5 +1,5 @@
-﻿using System.ComponentModel;
-using SoundBoard.Model;
+﻿using SoundBoard.Model;
+using SoundBoard.WPF;
 
 namespace SoundBoard.Controller
 {

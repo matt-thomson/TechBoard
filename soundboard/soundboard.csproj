@@ -68,7 +68,6 @@
     <Compile Include="src\model\PropertyMapping.cs" />
     <Compile Include="src\model\RangeEditorPropertyAttribute.cs" />
     <Compile Include="src\model\EditorPropertyAttribute.cs" />
-    <Compile Include="src\model\SoundBlock.cs" />
     <Compile Include="src\model\TextEditorPropertyAttribute.cs" />
     <Compile Include="src\wpf\FileEditorPropertyView.xaml.cs">
       <DependentUpon>FileEditorPropertyView.xaml</DependentUpon>
@@ -81,7 +80,6 @@
     <Compile Include="src\wpf\EditBoardWindow.xaml.cs">
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\wpf\TemplateSelector.cs" />
     <Compile Include="src\wpf\TextEditorPropertyView.xaml.cs">
       <DependentUpon>TextEditorPropertyView.xaml</DependentUpon>
     </Compile>
@@ -97,7 +95,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\wpf\SoundBlockView.xaml">
+    <Page Include="src\wpf\SoundBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,8 +107,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\wpf\SoundBlockView.xaml.cs">
-      <DependentUpon>SoundBlockView.xaml</DependentUpon>
+    <Compile Include="src\wpf\SoundBlock.xaml.cs">
+      <DependentUpon>SoundBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\wpf\SoundBoardWindow.xaml.cs">
       <DependentUpon>SoundBoardWindow.xaml</DependentUpon>

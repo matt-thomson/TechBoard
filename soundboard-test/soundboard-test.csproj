@@ -51,9 +51,8 @@
   <ItemGroup>
     <Compile Include="src\controller\BoardControllerTest.cs" />
     <Compile Include="src\model\BoardTest.cs" />
-    <Compile Include="src\model\SoundBlockTest.cs" />
     <Compile Include="src\properties\AssemblyInfo.cs" />
-    <Compile Include="src\wpf\SoundBlockViewTest.cs" />
+    <Compile Include="src\wpf\SoundBlockTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\soundboard\soundboard.csproj">

@@ -7,9 +7,6 @@
         Width="300"
         ResizeMode="CanMinimize" 
         Topmost="{Binding ElementName=MenuItemStayOnTop, Path=IsChecked}" Closed="HandleWindowClosed">
-    <Window.Resources>
-        <local:TemplateSelector x:Key="TemplateSelector" />
-    </Window.Resources>
     <DockPanel Name="mDockPanel">
         <Menu DockPanel.Dock="Top"
               Height="22"
@@ -39,7 +36,6 @@
             </MenuItem>
         </Menu>
         <ListView ItemsSource="{Binding Path=CurrentBoard.Blocks}" 
-                  ItemTemplateSelector="{StaticResource TemplateSelector}"
                   BorderBrush="Transparent"                  
                   BorderThickness="0"
                   HorizontalContentAlignment="Stretch">

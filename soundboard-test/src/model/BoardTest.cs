@@ -1,8 +1,9 @@
 ﻿using NUnit.Framework;
+using SoundBoard.WPF;
 
 namespace SoundBoard.Model.Test
 {
-    [TestFixture]
+    [TestFixture, RequiresSTA]
     public class BoardTest
     {
         #region Constants

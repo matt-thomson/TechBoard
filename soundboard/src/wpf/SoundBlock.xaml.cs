@@ -1,16 +1,16 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows;
-using System.Xml.Linq;
-using SoundBoard.WPF;
+﻿using System.Windows;
+using System.Windows.Controls;
+using SoundBoard.Controller;
+using SoundBoard.Model;
 
-namespace SoundBoard.Model
+namespace SoundBoard.WPF
 {
-    public class SoundBlock : DependencyObject
+    /// <summary>
+    /// Interaction logic for SoundBlock.xaml
+    /// </summary>
+    public partial class SoundBlock : UserControl
     {
-        #region Private members
-        // TODO shouldn't be in the model
-        private static DataTemplate mDataTemplate = null;
+        #region Dependency properties
         private static DependencyProperty TitleProperty = DependencyProperty.Register("Title",
                                                                                       typeof(string),
                                                                                       typeof(SoundBlock));
@@ -20,6 +20,10 @@ namespace SoundBoard.Model
         private static DependencyProperty FileNameProperty = DependencyProperty.Register("FileName",
                                                                                          typeof(string),
                                                                                          typeof(SoundBlock));
+        #endregion
+
+        #region Private properties
+        public static IMediaController MediaController;
         #endregion
 
         #region Public properties
@@ -45,29 +49,21 @@ namespace SoundBoard.Model
         }
         #endregion
 
-        #region Static properties
-        // TODO shouldn't be in the model
-        public static DataTemplate DataTemplate
-        {
-            get
-            {
-                if (mDataTemplate == null)
-                {
-                    mDataTemplate = new DataTemplate();
-                    mDataTemplate.VisualTree = new FrameworkElementFactory(typeof(SoundBlockView));
-                }
-
-                return mDataTemplate;
-            }
-        }
-        #endregion
-
-        #region Constructors
         public SoundBlock()
         {
-            Title = "New Sound";
+            // Initialize.
+            InitializeComponent();
+
+            // Set up the default properties.            
             FileName = "";
+            Title = "New Sound";
             Volume = 0.5;
+        }
+
+        #region Button event handlers
+        private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
+        {
+            MediaController.Play(FileName, Volume);
         }
         #endregion
     }

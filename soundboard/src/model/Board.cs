@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Xml.Linq;
 using System.Reflection;
+using System.Xml.Linq;
+using SoundBoard.WPF;
 
 namespace SoundBoard.Model
 {
