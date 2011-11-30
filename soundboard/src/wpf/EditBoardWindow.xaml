@@ -9,7 +9,7 @@
         Closing="HandleWindowClosing">
     <Window.Resources>
         <l:EditBoardPropertyConverter x:Key="PropertyConverter" />
-        <l:EditorPropertyTemplateSelector x:Key="PropertyTemplateSelector" />
+        <l:BlockPropertyEditorSelector x:Key="PropertyTemplateSelector" />
     </Window.Resources>
         <Grid>
         <Grid.RowDefinitions>

@@ -2,11 +2,11 @@
 
 namespace SoundBoard.Model
 {
-    public class EditorPropertyViewAttribute : Attribute
+    public class BlockPropertyEditorAttribute : Attribute
     {
         public Type ViewType { get; private set; }
 
-        public EditorPropertyViewAttribute(Type xiType)
+        public BlockPropertyEditorAttribute(Type xiType)
         {
             ViewType = xiType;
         }

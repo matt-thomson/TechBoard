@@ -6,11 +6,11 @@ using SoundBoard.Model;
 namespace SoundBoard.WPF
 {
     /// <summary>
-    /// Interaction logic for RangeEditorPropertyView.xaml
+    /// Interaction logic for RangeBlockPropertyEditor.xaml
     /// </summary>
-    public partial class RangeEditorPropertyView : UserControl
+    public partial class RangeBlockPropertyEditor : UserControl
     {
-        public RangeEditorPropertyView()
+        public RangeBlockPropertyEditor()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace SoundBoard.WPF
                 Binding binding = new Binding
                 {
                     Source = context.Target,
-                    Path = new PropertyPath(context.Property),
+                    Path = new PropertyPath(context.Property.Name, null),
                     UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
                 };
 

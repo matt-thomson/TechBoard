@@ -2,8 +2,8 @@
 
 namespace SoundBoard.Model
 {
-    [EditorPropertyView(typeof(RangeEditorPropertyView))]
-    public class RangeEditorPropertyAttribute : EditorPropertyAttribute
+    [BlockPropertyEditor(typeof(RangeBlockPropertyEditor))]
+    public class RangeBlockPropertyAttribute : BlockPropertyAttribute
     {
         public override object FromString(string xiValue)
         {

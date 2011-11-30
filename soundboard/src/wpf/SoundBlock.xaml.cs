@@ -27,21 +27,21 @@ namespace SoundBoard.WPF
         #endregion
 
         #region Public properties
-        [FileNameEditorProperty]
+        [FileBlockProperty]
         public string FileName
         {
             get { return (string)GetValue(FileNameProperty); }
             set { SetValue(FileNameProperty, value); }
         }
 
-        [TextEditorProperty]
+        [TextBlockProperty]
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
 
-        [RangeEditorProperty]
+        [RangeBlockProperty]
         public double Volume
         {
             get { return (double)GetValue(VolumeProperty); }

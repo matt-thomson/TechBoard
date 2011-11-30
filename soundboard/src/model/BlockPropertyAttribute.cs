@@ -3,7 +3,7 @@
 namespace SoundBoard.Model
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public abstract class EditorPropertyAttribute : Attribute
+    public abstract class BlockPropertyAttribute : Attribute
     {
         public virtual object FromString(string xiValue)
         {

@@ -18,7 +18,7 @@ namespace SoundBoard.WPF
             if (xiValue != null)
             {
                 result = from p in xiValue.GetType().GetProperties()
-                         where p.IsDefined(typeof(EditorPropertyAttribute), false)
+                         where p.IsDefined(typeof(BlockPropertyAttribute), false)
                          select new PropertyMapping(p, xiValue);
             }
 

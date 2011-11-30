@@ -1,18 +1,16 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using Microsoft.Win32;
 using SoundBoard.Model;
 
 namespace SoundBoard.WPF
 {
     /// <summary>
-    /// Interaction logic for FileEditorPropertyView.xaml
+    /// Interaction logic for TextBlockPropertyEditor.xaml
     /// </summary>
-    public partial class FileEditorPropertyView : UserControl
+    public partial class TextBlockPropertyEditor : UserControl
     {
-        public FileEditorPropertyView()
+        public TextBlockPropertyEditor()
         {
             InitializeComponent();
         }
@@ -27,25 +25,11 @@ namespace SoundBoard.WPF
                 Binding binding = new Binding
                 {
                     Source = context.Target,
-                    Path = new PropertyPath(context.Property),
+                    Path = new PropertyPath(context.Property.Name, null),
                     UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
                 };
 
                 Field.SetBinding(TextBox.TextProperty, binding);
-            }
-        }
-
-        private void HandleFileButtonClick(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openDialog = new OpenFileDialog();
-
-            openDialog.Filter = "Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*";
-
-            Nullable<bool> result = openDialog.ShowDialog();
-
-            if (result == true)
-            {
-                Field.Text = openDialog.FileName;
             }
         }
     }

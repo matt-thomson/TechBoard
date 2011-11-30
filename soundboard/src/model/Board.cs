@@ -50,8 +50,8 @@ namespace SoundBoard.Model
                             {
                                 // Find the editor property attribute.  This contains the function to convert
                                 // the saved string to the property value.
-                                object[] attrs = propInfo.GetCustomAttributes(typeof(EditorPropertyAttribute), false);
-                                EditorPropertyAttribute attr = attrs[0] as EditorPropertyAttribute;
+                                object[] attrs = propInfo.GetCustomAttributes(typeof(BlockPropertyAttribute), false);
+                                BlockPropertyAttribute attr = attrs[0] as BlockPropertyAttribute;
 
                                 propInfo.SetValue(block, attr.FromString(propertyElement.Value), null);
                             }
@@ -81,7 +81,7 @@ namespace SoundBoard.Model
                 // TODO block type as GUID
                 XElement blockElement = new XElement("Block");
                 var properties = from p in block.GetType().GetProperties()
-                                 where p.IsDefined(typeof(EditorPropertyAttribute), false)
+                                 where p.IsDefined(typeof(BlockPropertyAttribute), false)
                                  select new XElement(p.Name, p.GetValue(block, null));
                 blockElement.Add(properties);
                 blocksElement.Add(blockElement);
