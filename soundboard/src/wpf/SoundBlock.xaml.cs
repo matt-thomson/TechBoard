@@ -78,10 +78,16 @@ namespace SoundBoard.WPF
         }
         #endregion
 
-        #region Button event handlers
+        #region Event handlers
         private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
         {
             mMediaController.Play(FileName, Volume);
+        }
+
+        private void HandleUnloaded(object sender, RoutedEventArgs e)
+        {
+            // TODO - stop the sound if it's playing.
+            throw new NotImplementedException();
         }
         #endregion
     }
