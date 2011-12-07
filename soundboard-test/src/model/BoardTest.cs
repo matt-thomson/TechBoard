@@ -50,7 +50,7 @@ namespace SoundBoard.Model.Test
         {
             Assert.AreEqual(1, Board.Blocks.Count);
 
-            SoundBlock soundBlock = Board.Blocks[0];
+            SoundBlock soundBlock = Board.Blocks[0] as SoundBlock;
 
             Assert.AreEqual(TITLE, soundBlock.Title);
             Assert.AreEqual(FILE_NAME, soundBlock.FileName);

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Controls;
 using System.Xml.Linq;
 using SoundBoard.WPF;
 
@@ -9,14 +11,22 @@ namespace SoundBoard.Model
 {
     public class Board
     {
+        #region Static properties
+        public static Dictionary<Guid, Type> BlockTypes { get; private set; }
+        #endregion
+
         #region Public properties
-        public ObservableCollection<SoundBlock> Blocks { get; private set; }
+        public ObservableCollection<UserControl> Blocks { get; private set; }
         #endregion
 
         #region Constructors
         public Board() 
         {
-            Blocks = new ObservableCollection<SoundBlock>();
+            Blocks = new ObservableCollection<UserControl>();
+            BlockTypes = new Dictionary<Guid, Type>();
+
+            // TODO populate dynamically
+            BlockTypes.Add(new Guid("{13EBEAD3-3B03-4897-AFB9-3238632A3735}"), typeof(SoundBlock));
         }
         #endregion
 
@@ -32,15 +42,16 @@ namespace SoundBoard.Model
             // Extract the blocks from the file.
             foreach (XElement boardElement in doc.Descendants("Board"))
             {               
-                // TODO Mapping of block types to plugins
                 XElement blocksElement = boardElement.Element("Blocks");
 
                 if (blocksElement != null)
                 {
                     foreach (XElement blockElement in blocksElement.Descendants("Block"))
                     {
-                        SoundBlock block = new SoundBlock();
-                        Type blockType = block.GetType();
+                        // Find the relevant type by looking up the GUID.
+                        Guid guid = new Guid(blockElement.Attribute("Guid").Value);
+                        Type blockType = BlockTypes[guid];
+                        UserControl block = Activator.CreateInstance(blockType) as UserControl;
 
                         foreach (XElement propertyElement in blocksElement.Descendants())
                         {
@@ -76,7 +87,7 @@ namespace SoundBoard.Model
             doc.Add(blocksElement);
 
             // Format the list of blocks as an XML element.
-            foreach (SoundBlock block in Blocks)
+            foreach (UserControl block in Blocks)
             {                
                 XElement blockElement = new XElement("Block");
                 
