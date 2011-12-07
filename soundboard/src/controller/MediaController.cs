@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Media;
+using SoundBoard.WPF;
 
 namespace SoundBoard.Controller
 {
@@ -29,11 +30,11 @@ namespace SoundBoard.Controller
         #endregion
         
         #region Public methods
-        public void Play(string xiFileName, double xiVolume)
+        public void Play(SoundBlock xiBlock)
         {
             mMediaPlayer.Stop();
-            mMediaPlayer.Volume = xiVolume;
-            mMediaPlayer.Open(new Uri(xiFileName));
+            mMediaPlayer.Volume = xiBlock.Volume;
+            mMediaPlayer.Open(new Uri(xiBlock.FileName));
             mMediaPlayer.Play();
         }
 

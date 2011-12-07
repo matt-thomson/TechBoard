@@ -83,7 +83,7 @@ namespace SoundBoard.WPF
         {
             if (!string.IsNullOrEmpty(FileName))
             {
-                mMediaController.Play(FileName, Volume);
+                mMediaController.Play(this);
             }
         }
 

@@ -1,9 +1,11 @@
-﻿namespace SoundBoard.Controller
+﻿using SoundBoard.WPF;
+
+namespace SoundBoard.Controller
 {
 	public interface IMediaController
     {
         #region Methods
-        void Play(string xiFileName, double xiVolume);
+        void Play(SoundBlock xiSoundBlock);
         void Stop();
         #endregion
     }

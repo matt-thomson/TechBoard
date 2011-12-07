@@ -108,13 +108,9 @@ namespace SoundBoard.WPF.Test
         
         [Test]
         public void TestClickButton()
-        {
-            // Set some properties on the sound block.
-            mSoundBlock.FileName = FILE_NAME_NEW;
-            mSoundBlock.Volume = VOLUME_NEW;
-
+        {       
             // Clicking the button will play the sound.
-            mMockMediaController.Setup(c => c.Play(FILE_NAME_NEW, VOLUME_NEW));
+            mMockMediaController.Setup(c => c.Play(mSoundBlock));
 
             // Click on the button.
             RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mButton);
@@ -124,9 +120,8 @@ namespace SoundBoard.WPF.Test
         [Test]
         public void TestClickButtonNoFileName()
         {
-            // Set some properties on the sound block.
+            // Clear the file name on the block.
             mSoundBlock.FileName = string.Empty;
-            mSoundBlock.Volume = VOLUME_NEW;
 
             // Click on the button.  Nothing will happen.
             RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mButton);
