@@ -42,8 +42,7 @@ namespace SoundBoard.WPF
         {
             // Find the filter from the property.
             PropertyMapping mapping = DataContext as PropertyMapping;
-            object[] attrs = mapping.Property.GetCustomAttributes(typeof(FileBlockPropertyAttribute), false);
-            FileBlockPropertyAttribute attr = attrs[0] as FileBlockPropertyAttribute;
+            FileBlockPropertyAttribute attr = mapping.Attribute as FileBlockPropertyAttribute;
 
             string filename = mController.OpenFile(attr.Filter);
 
