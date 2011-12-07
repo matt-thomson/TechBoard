@@ -1,6 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using SoundBoard.Model;
-using SoundBoard.WPF;
 
 namespace SoundBoard.Controller
 {
@@ -42,14 +42,14 @@ namespace SoundBoard.Controller
             CurrentBoard.Save(xiFileName);
         }
 
-        public void Add(SoundBlock xiSound)
+        public void Add(UserControl xiBlock)
         {
-            CurrentBoard.Blocks.Add(xiSound);
+            CurrentBoard.Blocks.Add(xiBlock);
         }
 
-        public void Remove(SoundBlock xiSound)
+        public void Remove(UserControl xiBlock)
         {
-            CurrentBoard.Blocks.Remove(xiSound);
+            CurrentBoard.Blocks.Remove(xiBlock);
         }
         #endregion
     }

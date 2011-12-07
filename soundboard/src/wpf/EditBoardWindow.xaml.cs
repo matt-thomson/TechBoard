@@ -1,9 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
-using Microsoft.Win32;
+using System.Windows.Controls;
 using SoundBoard.Controller;
-using SoundBoard.Model;
 
 namespace SoundBoard.WPF
 {
@@ -44,7 +42,7 @@ namespace SoundBoard.WPF
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
         {
-            SoundBlock sound = BlocksList.SelectedItem as SoundBlock;
+            UserControl sound = BlocksList.SelectedItem as UserControl;
             mBoardController.Remove(sound);
         }
         #endregion
