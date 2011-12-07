@@ -120,6 +120,18 @@ namespace SoundBoard.WPF.Test
             RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mButton);
             mButton.RaiseEvent(args);
         }
+
+        [Test]
+        public void TestClickButtonNoFileName()
+        {
+            // Set some properties on the sound block.
+            mSoundBlock.FileName = string.Empty;
+            mSoundBlock.Volume = VOLUME_NEW;
+
+            // Click on the button.  Nothing will happen.
+            RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mButton);
+            mButton.RaiseEvent(args);
+        }
         #endregion
     }
 }

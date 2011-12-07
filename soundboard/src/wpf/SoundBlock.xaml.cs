@@ -81,7 +81,10 @@ namespace SoundBoard.WPF
         #region Event handlers
         private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
         {
-            mMediaController.Play(FileName, Volume);
+            if (!string.IsNullOrEmpty(FileName))
+            {
+                mMediaController.Play(FileName, Volume);
+            }
         }
 
         private void HandleUnloaded(object sender, RoutedEventArgs e)
