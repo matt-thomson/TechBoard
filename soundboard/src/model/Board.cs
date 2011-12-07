@@ -77,13 +77,21 @@ namespace SoundBoard.Model
 
             // Format the list of blocks as an XML element.
             foreach (SoundBlock block in Blocks)
-            {
-                // TODO block type as GUID
+            {                
                 XElement blockElement = new XElement("Block");
+                
+                // Find the GUID for the block type, and add it to the element.
+                object[] attrs = block.GetType().GetCustomAttributes(typeof(BlockAttribute), false);
+                BlockAttribute attr = attrs[0] as BlockAttribute;
+                blockElement.SetAttributeValue("Guid", attr.Guid);
+
+                // Add the properties to the block.
                 var properties = from p in block.GetType().GetProperties()
                                  where p.IsDefined(typeof(BlockPropertyAttribute), false)
                                  select new XElement(p.Name, p.GetValue(block, null));
                 blockElement.Add(properties);
+
+                // Add the block to the list.
                 blocksElement.Add(blockElement);
             }
 

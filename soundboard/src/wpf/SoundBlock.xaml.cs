@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using SoundBoard.Controller;
 using SoundBoard.Model;
@@ -8,6 +9,7 @@ namespace SoundBoard.WPF
     /// <summary>
     /// Interaction logic for SoundBlock.xaml
     /// </summary>
+    [Block("{13EBEAD3-3B03-4897-AFB9-3238632A3735}")]
     public partial class SoundBlock : UserControl
     {
         #region Dependency properties

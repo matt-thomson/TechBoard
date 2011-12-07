@@ -63,6 +63,7 @@
     <Compile Include="interface\controller\IBoardController.cs" />
     <Compile Include="src\controller\FileDialogController.cs" />
     <Compile Include="src\controller\MediaController.cs" />
+    <Compile Include="src\model\BlockAttribute.cs" />
     <Compile Include="src\model\Board.cs" />
     <Compile Include="src\controller\BoardController.cs" />
     <Compile Include="src\model\FileBlockPropertyAttribute.cs" />

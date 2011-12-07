@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Board>
   <Blocks>
-    <Block>
+    <Block Guid="13ebead3-3b03-4897-afb9-3238632a3735">
       <FileName>sound.mp3</FileName>
       <Title>Sound Title</Title>
       <Volume>0.5</Volume>
