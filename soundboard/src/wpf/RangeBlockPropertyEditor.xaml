@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Slider Name="Field"
             Margin="2" 
-            Minimum="0"
-            Maximum="1" 
+            Minimum="{Binding Attribute.Minimum}"
+            Maximum="{Binding Attribute.Maximum}" 
             IsSnapToTickEnabled="True"
-            TickFrequency="0.1"
+            TickFrequency="{Binding Attribute.Step}"
             TickPlacement="TopLeft" 
             IsMoveToPointEnabled="True" 
             Value="{Binding PropertyValue}"/>

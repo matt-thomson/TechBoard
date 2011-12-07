@@ -17,13 +17,19 @@ namespace SoundBoard.WPF.Test
         #endregion
 
         #region Constants
-        private const double VALUE_1 = 0.3;
-        private const double VALUE_2 = 0.8;
+        // Values for the range.
+        private const double VALUE_1 = 13;
+        private const double VALUE_2 = 18;
+
+        // Properties of the scale.
+        private const double MINIMUM = 10;
+        private const double MAXIMUM = 20;
+        private const double STEP = 0.2;
         #endregion
 
         #region Public properties
         // Property for the editor to bind to.
-        [TextBlockProperty]
+        [RangeBlockProperty(MINIMUM, MAXIMUM, STEP)]
         public double MyProperty
         {
             get { return (double)GetValue(DepProperty); }
@@ -82,6 +88,14 @@ namespace SoundBoard.WPF.Test
             mSlider.Value = VALUE_2;
             Assert.AreEqual(VALUE_2, MyProperty);
 
+        }
+
+        [Test]
+        public void TestScale()
+        {
+            Assert.AreEqual(MINIMUM, mSlider.Minimum);
+            Assert.AreEqual(MAXIMUM, mSlider.Maximum);
+            Assert.AreEqual(STEP, mSlider.TickFrequency);
         }
         #endregion
 

@@ -41,7 +41,7 @@ namespace SoundBoard.WPF
             set { SetValue(TitleProperty, value); }
         }
 
-        [RangeBlockProperty]
+        [RangeBlockProperty(0.0, 1.0, 0.1)]
         public double Volume
         {
             get { return (double)GetValue(VolumeProperty); }
