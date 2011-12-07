@@ -27,7 +27,7 @@ namespace SoundBoard.WPF
         #endregion
 
         #region Public properties
-        [FileBlockProperty]
+        [FileBlockProperty("Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*")]
         public string FileName
         {
             get { return (string)GetValue(FileNameProperty); }

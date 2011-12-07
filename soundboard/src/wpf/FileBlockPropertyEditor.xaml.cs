@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using SoundBoard.Controller;
+using SoundBoard.Model;
 
 namespace SoundBoard.WPF
 {
@@ -39,8 +40,12 @@ namespace SoundBoard.WPF
 
         private void HandleFileButtonClick(object sender, RoutedEventArgs e)
         {
-            // TODO need to be able to pick filter
-            string filename = mController.OpenFile("Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*");
+            // Find the filter from the property.
+            PropertyMapping mapping = DataContext as PropertyMapping;
+            object[] attrs = mapping.Property.GetCustomAttributes(typeof(FileBlockPropertyAttribute), false);
+            FileBlockPropertyAttribute attr = attrs[0] as FileBlockPropertyAttribute;
+
+            string filename = mController.OpenFile(attr.Filter);
 
             if (filename != null)
             {

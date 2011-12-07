@@ -18,14 +18,14 @@ namespace SoundBoard.WPF.Test
         #endregion
 
         #region Constants
-        private const string FILTER = "Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*";
+        private const string FILTER = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
         private const string FILENAME_1 = "file.txt";
         private const string FILENAME_2 = "other_file.txt";
         #endregion
 
         #region Public properties
         // Property for the editor to bind to.
-        [FileBlockProperty]
+        [FileBlockProperty(FILTER)]
         public string MyProperty
         {
             get { return (string)GetValue(DepProperty); }
