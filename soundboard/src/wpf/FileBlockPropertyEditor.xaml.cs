@@ -10,10 +10,6 @@ namespace SoundBoard.WPF
     /// </summary>
     public partial class FileBlockPropertyEditor : UserControl
     {
-        #region Static properties
-        private static IFileDialogController mStaticController;
-        #endregion
-
         #region Private properties
         private IFileDialogController mController;
         #endregion
@@ -23,12 +19,7 @@ namespace SoundBoard.WPF
         {
             InitializeComponent();
 
-            if (mStaticController == null)
-            {
-                mStaticController = new FileDialogController();
-            }
-
-            mController = mStaticController;
+            mController = FileDialogController.StaticInstance;
         }
 
         public FileBlockPropertyEditor(IFileDialogController xiController)
