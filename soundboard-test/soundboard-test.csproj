@@ -53,7 +53,6 @@
     <Compile Include="src\model\BoardTest.cs" />
     <Compile Include="src\model\PropertyMappingTest.cs" />
     <Compile Include="src\properties\AssemblyInfo.cs" />
-    <Compile Include="src\test\TestBlockPropertyAttribute.cs" />
     <Compile Include="src\wpf\FileBlockPropertyEditorTest.cs" />
     <Compile Include="src\wpf\RangeBlockPropertyEditorTest.cs" />
     <Compile Include="src\wpf\SoundBlockTest.cs" />
@@ -67,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="src\test\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SoundBoard.WPF;
+using SoundBoard.Test;
 
 namespace SoundBoard.Model.Test
 {
@@ -15,11 +16,8 @@ namespace SoundBoard.Model.Test
         // Location to save board to.
         private const string SAVED_BOARD = "C:\\temp\\output.board";
 
-        // Properties of a sound.
-        private const string TITLE = "Sound Title";
-        private const string FILE_NAME = "sound.mp3";
-        private const double VOLUME_DEFAULT = 0.5;
-        private const double VOLUME = 0.8;
+        // Properties of a block.
+        private const string TEXT = "Some text";
         #endregion
 
         #region Private properties
@@ -34,10 +32,9 @@ namespace SoundBoard.Model.Test
             // Set up the object under test.
             Board = new Board();
 
-            // Create a sound block.
-            SoundBlock block = new SoundBlock();
-            block.Title = TITLE;
-            block.FileName = FILE_NAME;
+            // Create a new block.
+            TestBlock block = new TestBlock();
+            block.MyProperty = TEXT;
 
             // Add it to the board.
             Board.Blocks.Add(block);
@@ -50,11 +47,9 @@ namespace SoundBoard.Model.Test
         {
             Assert.AreEqual(1, Board.Blocks.Count);
 
-            SoundBlock soundBlock = Board.Blocks[0] as SoundBlock;
+            TestBlock block = Board.Blocks[0] as TestBlock;
 
-            Assert.AreEqual(TITLE, soundBlock.Title);
-            Assert.AreEqual(FILE_NAME, soundBlock.FileName);
-            Assert.AreEqual(VOLUME_DEFAULT, soundBlock.Volume);
+            Assert.AreEqual(TEXT, block.MyProperty);
         }
 
         [Test]

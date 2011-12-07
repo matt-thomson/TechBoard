@@ -72,6 +72,8 @@
     <Compile Include="src\model\RangeBlockPropertyAttribute.cs" />
     <Compile Include="src\model\BlockPropertyAttribute.cs" />
     <Compile Include="src\model\TextBlockPropertyAttribute.cs" />
+    <Compile Include="src\test\TestBlock.cs" />
+    <Compile Include="src\test\TestBlockPropertyAttribute.cs" />
     <Compile Include="src\wpf\FileBlockPropertyEditor.xaml.cs">
       <DependentUpon>FileBlockPropertyEditor.xaml</DependentUpon>
     </Compile>

@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SoundBoard.WPF;
+using SoundBoard.Test;
 
 namespace SoundBoard.Controller.Test
 {
@@ -9,8 +9,6 @@ namespace SoundBoard.Controller.Test
         #region Constants
         private const string EXPECTED_BOARD = "..\\..\\data\\BoardControllerTest\\expected.board";
         private const string SAVED_BOARD = "C:\\temp\\output.board";
-        private const string TITLE = "Sound Title";
-        private const string FILE_NAME = "soundBlock.mp3";
         #endregion
 
         #region Private properties
@@ -61,15 +59,15 @@ namespace SoundBoard.Controller.Test
             // Create a new board.
             mBoardController.New();
 
-            // Create a sound block.
-            SoundBlock soundBlock = new SoundBlock();
+            // Create a block.
+            TestBlock block = new TestBlock();
 
-            // Add the sound block to the board.
-            mBoardController.Add(soundBlock);
+            // Add the block to the board.
+            mBoardController.Add(block);
             Assert.AreEqual(1, mBoardController.CurrentBoard.Blocks.Count);
 
-            // Now remove the soundBlock.
-            mBoardController.Remove(soundBlock);
+            // Now remove the block.
+            mBoardController.Remove(block);
             Assert.AreEqual(0, mBoardController.CurrentBoard.Blocks.Count);
         }
         #endregion

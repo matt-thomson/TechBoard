@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Windows.Controls;
 using System.Xml.Linq;
 using SoundBoard.WPF;
+using SoundBoard.Test;
 
 namespace SoundBoard.Model
 {
@@ -27,6 +28,7 @@ namespace SoundBoard.Model
 
             // TODO populate dynamically
             BlockTypes.Add(new Guid("{13EBEAD3-3B03-4897-AFB9-3238632A3735}"), typeof(SoundBlock));
+            BlockTypes.Add(new Guid("{018C517C-973E-4954-BAA1-9D0A3ADA375F}"), typeof(TestBlock));
         }
         #endregion
 
