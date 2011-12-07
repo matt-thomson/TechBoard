@@ -35,15 +35,14 @@ namespace SoundBoard.WPF.Test
         [SetUp]
         public void TestInit()
         {
+            // Create mock objects.
+            mMockMediaController = new Mock<IMediaController>(MockBehavior.Strict);
+
             // Create a sound block.
-            mSoundBlock = new SoundBlock();
+            mSoundBlock = new SoundBlock(mMockMediaController.Object);
 
             // Set the data context for the sound block.
             mSoundBlock.DataContext = mSoundBlock;
-
-            // Create mock objects.
-            mMockMediaController = new Mock<IMediaController>(MockBehavior.Strict);
-            SoundBlock.MediaController = mMockMediaController.Object;
         
             // Get a reference to the button.
             mButton = mSoundBlock.Content as Button;

@@ -12,18 +12,15 @@ namespace SoundBoard.WPF
     {
         #region Private properties
         private IBoardController mBoardController;
-        private IMediaController mMediaController;
         private EditBoardWindow mEditBoardWindow;
         #endregion
 
         #region Constructor
-        public SoundBoardWindow(IBoardController xiBoardController,
-                                IMediaController xiMediaController)
+        public SoundBoardWindow(IBoardController xiBoardController)
         {
             // Initialize.
             InitializeComponent();
             mBoardController = xiBoardController;
-            mMediaController = xiMediaController;
 
             // Create a new board.
             mBoardController.New();
@@ -46,7 +43,6 @@ namespace SoundBoard.WPF
         #region Menu event handlers
         private void HandleMenuOptionNew(object sender, RoutedEventArgs e)
         {
-            mMediaController.Stop();
             mBoardController.New();
         }
 
@@ -60,7 +56,6 @@ namespace SoundBoard.WPF
 
             if (result == true)
             {
-                mMediaController.Stop();
                 mBoardController.Load(openDialog.FileName);
             }
         }

@@ -25,7 +25,7 @@ namespace SoundBoard.WPF
         #endregion
 
         #region Private properties
-        public static IMediaController MediaController;
+        private IMediaController mMediaController;
         #endregion
 
         #region Public properties
@@ -51,7 +51,22 @@ namespace SoundBoard.WPF
         }
         #endregion
 
+        #region Constructors
         public SoundBlock()
+        {
+            mMediaController = MediaController.StaticInstance;
+            Init();
+        }
+
+        public SoundBlock(IMediaController xiMediaController)
+        {
+            mMediaController = xiMediaController;
+            Init();
+        }
+        #endregion
+
+        #region Initialization
+        private void Init()
         {
             // Initialize.
             InitializeComponent();
@@ -61,11 +76,12 @@ namespace SoundBoard.WPF
             Title = "New Sound";
             Volume = 0.5;
         }
+        #endregion
 
         #region Button event handlers
         private void HandleSoundButtonClick(object sender, RoutedEventArgs e)
         {
-            MediaController.Play(FileName, Volume);
+            mMediaController.Play(FileName, Volume);
         }
         #endregion
     }
