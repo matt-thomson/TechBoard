@@ -17,7 +17,6 @@ namespace SoundBoard.WPF.Test
         #endregion
 
         #region Constants
-        private const string LABEL = "MyProperty";
         private const string TEXT_1 = "Some text";
         private const string TEXT_2 = "Some other text";
         #endregion
@@ -38,7 +37,6 @@ namespace SoundBoard.WPF.Test
 
         // Other objects.
         private Window mWindow;
-        private Label mLabel;
         private TextBox mTextBox;
         #endregion
 
@@ -58,9 +56,7 @@ namespace SoundBoard.WPF.Test
             mEditor.DataContext = mapping;
 
             // Get references to the controls in the editor.
-            Grid grid = mEditor.Content as Grid;
-            mLabel = grid.Children[0] as Label;
-            mTextBox = grid.Children[1] as TextBox;
+            mTextBox = mEditor.Content as TextBox;
 
             // Create a window, and add the editor to it.
             mWindow = new Window();
@@ -72,12 +68,6 @@ namespace SoundBoard.WPF.Test
         #endregion
 
         #region Test cases
-        [Test]
-        public void TestLabel()
-        {
-            Assert.AreEqual(LABEL, mLabel.Content);
-        }
-
         [Test]
         public void TestTextBox()
         {
@@ -91,7 +81,6 @@ namespace SoundBoard.WPF.Test
             // Edit the textbox, and check that the property is updated.
             mTextBox.Text = TEXT_1;
             Assert.AreEqual(TEXT_1, MyProperty);
-
         }
         #endregion
 

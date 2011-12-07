@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using Microsoft.Win32;
-using SoundBoard.Model;
 
 namespace SoundBoard.WPF
 {
@@ -15,24 +13,6 @@ namespace SoundBoard.WPF
         public FileBlockPropertyEditor()
         {
             InitializeComponent();
-        }
-
-        private void HandleDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            PropertyMapping context = DataContext as PropertyMapping;
-
-            // Only set up the binding once.
-            if ((context != null) && (e.OldValue == null))
-            {
-                Binding binding = new Binding
-                {
-                    Source = context.Target,
-                    Path = new PropertyPath(context.Property.Name, null),
-                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-                };
-
-                Field.SetBinding(TextBox.TextProperty, binding);
-            }
         }
 
         private void HandleFileButtonClick(object sender, RoutedEventArgs e)

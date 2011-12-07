@@ -42,8 +42,21 @@
                   HorizontalContentAlignment="Stretch"
                   ItemsSource="{Binding ElementName=BlocksList, 
                                         Path=SelectedItem,
-                                        Converter={StaticResource PropertyConverter}}"
-                  ItemTemplateSelector="{StaticResource PropertyTemplateSelector}">
+                                        Converter={StaticResource PropertyConverter}}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="238">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Name="Label" Grid.Column="0" Content="{Binding Property.Name}"/>
+                        <UserControl Grid.Column="1"
+                                     Content="{Binding}"
+                                     ContentTemplateSelector="{StaticResource PropertyTemplateSelector}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListView>
     </Grid>
 </Window>

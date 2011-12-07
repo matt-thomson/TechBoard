@@ -17,7 +17,6 @@ namespace SoundBoard.WPF.Test
         #endregion
 
         #region Constants
-        private const string LABEL = "MyProperty";
         private const double VALUE_1 = 0.3;
         private const double VALUE_2 = 0.8;
         #endregion
@@ -38,7 +37,6 @@ namespace SoundBoard.WPF.Test
 
         // Other objects.
         private Window mWindow;
-        private Label mLabel;
         private Slider mSlider;
         #endregion
 
@@ -58,9 +56,7 @@ namespace SoundBoard.WPF.Test
             mEditor.DataContext = mapping;
 
             // Get references to the controls in the editor.
-            Grid grid = mEditor.Content as Grid;
-            mLabel = grid.Children[0] as Label;
-            mSlider = grid.Children[1] as Slider;
+            mSlider = mEditor.Content as Slider;
 
             // Create a window, and add the editor to it.
             mWindow = new Window();
@@ -72,12 +68,6 @@ namespace SoundBoard.WPF.Test
         #endregion
 
         #region Test cases
-        [Test]
-        public void TestLabel()
-        {
-            Assert.AreEqual(LABEL, mLabel.Content);
-        }
-
         [Test]
         public void TestSlider()
         {
