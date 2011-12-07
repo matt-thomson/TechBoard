@@ -53,6 +53,7 @@
     <Compile Include="src\model\BoardTest.cs" />
     <Compile Include="src\model\PropertyMappingTest.cs" />
     <Compile Include="src\properties\AssemblyInfo.cs" />
+    <Compile Include="src\wpf\FileBlockPropertyEditorTest.cs" />
     <Compile Include="src\wpf\RangeBlockPropertyEditorTest.cs" />
     <Compile Include="src\wpf\SoundBlockTest.cs" />
     <Compile Include="src\wpf\TextBlockPropertyEditorTest.cs" />

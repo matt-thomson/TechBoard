@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using Microsoft.Win32;
+using SoundBoard.Controller;
 
 namespace SoundBoard.WPF
 {
@@ -10,23 +9,42 @@ namespace SoundBoard.WPF
     /// </summary>
     public partial class FileBlockPropertyEditor : UserControl
     {
+        #region Static properties
+        private static IFileDialogController mStaticController;
+        #endregion
+
+        #region Private properties
+        private IFileDialogController mController;
+        #endregion
+
+        #region Constructors
         public FileBlockPropertyEditor()
         {
             InitializeComponent();
+
+            if (mStaticController == null)
+            {
+                mStaticController = new FileDialogController();
+            }
+
+            mController = mStaticController;
         }
+
+        public FileBlockPropertyEditor(IFileDialogController xiController)
+        {
+            InitializeComponent();
+            mController = xiController;
+        }
+        #endregion
 
         private void HandleFileButtonClick(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
+            // TODO need to be able to pick filter
+            string filename = mController.OpenFile("Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*");
 
-            // TODO needs to be a parameter
-            openDialog.Filter = "Sounds (*.mp3;*.wav)|*.mp3;*.wav|All files (*.*)|*.*";
-
-            Nullable<bool> result = openDialog.ShowDialog();
-
-            if (result == true)
+            if (filename != null)
             {
-                Field.Text = openDialog.FileName;
+                Field.Text = filename;
             }
         }
     }

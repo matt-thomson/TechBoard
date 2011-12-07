@@ -58,8 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="interface\controller\IFileDialogController.cs" />
     <Compile Include="interface\controller\IMediaController.cs" />
     <Compile Include="interface\controller\IBoardController.cs" />
+    <Compile Include="src\controller\FileDialogController.cs" />
     <Compile Include="src\controller\MediaController.cs" />
     <Compile Include="src\model\Board.cs" />
     <Compile Include="src\controller\BoardController.cs" />
