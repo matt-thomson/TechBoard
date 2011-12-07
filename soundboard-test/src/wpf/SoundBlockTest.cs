@@ -127,6 +127,29 @@ namespace SoundBoard.WPF.Test
             RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mButton);
             mButton.RaiseEvent(args);
         }
+
+        [Test]
+        public void TestUnloadPlaying()
+        {
+            // Set the current sound to be this sound block.  It will be stopped when we unload.
+            mMockMediaController.Setup(c => c.CurrentSoundBlock).Returns(mSoundBlock);
+            mMockMediaController.Setup(c => c.Stop());
+
+            // Unload the sound block.
+            RoutedEventArgs args = new RoutedEventArgs(UserControl.UnloadedEvent, mSoundBlock);
+            mSoundBlock.RaiseEvent(args);
+        }
+
+        [Test]
+        public void TestUnloadNotPlaying()
+        {
+            // No sound is playing.
+            mMockMediaController.Setup(c => c.CurrentSoundBlock).Returns<SoundBlock>(null);
+
+            // Unload the sound block.
+            RoutedEventArgs args = new RoutedEventArgs(UserControl.UnloadedEvent, mSoundBlock);
+            mSoundBlock.RaiseEvent(args);
+        }
         #endregion
     }
 }

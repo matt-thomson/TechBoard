@@ -89,8 +89,11 @@ namespace SoundBoard.WPF
 
         private void HandleUnloaded(object sender, RoutedEventArgs e)
         {
-            // TODO - stop the sound if it's playing.
-            throw new NotImplementedException();
+            // If this sound is currently playing, then stop it.
+            if (mMediaController.CurrentSoundBlock == this)
+            {
+                mMediaController.Stop();
+            }
         }
         #endregion
     }
