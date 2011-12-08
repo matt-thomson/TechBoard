@@ -8,7 +8,7 @@
     <ProjectGuid>{C9A89E8B-E94C-431A-8235-5DE603A7927D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoundBoard</RootNamespace>
+    <RootNamespace>SoundBoard.App</RootNamespace>
     <AssemblyName>soundboard</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>..\..\output\bin\Debug\</OutputPath>
-	<IntermediateOutputPath>..\..\output\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>..\..\output\obj\Debug\</IntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,7 +30,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>..\..\output\bin\Release\</OutputPath>
-	<IntermediateOutputPath>..\..\output\obj\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>..\..\output\obj\Release\</IntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -56,75 +56,34 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="wpf\App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="interface\controller\IFileDialogController.cs" />
-    <Compile Include="interface\controller\IMediaController.cs" />
-    <Compile Include="interface\controller\IBoardController.cs" />
-    <Compile Include="controller\FileDialogController.cs" />
-    <Compile Include="controller\MediaController.cs" />
-    <Compile Include="model\BlockAttribute.cs" />
-    <Compile Include="model\Board.cs" />
-    <Compile Include="controller\BoardController.cs" />
-    <Compile Include="model\FileBlockPropertyAttribute.cs" />
-    <Compile Include="model\BlockPropertyEditorAttribute.cs" />
-    <Compile Include="model\PropertyMapping.cs" />
-    <Compile Include="model\RangeBlockPropertyAttribute.cs" />
-    <Compile Include="model\BlockPropertyAttribute.cs" />
-    <Compile Include="model\TextBlockPropertyAttribute.cs" />
-    <Compile Include="test\TestBlock.cs" />
-    <Compile Include="test\TestBlockPropertyAttribute.cs" />
-    <Compile Include="wpf\FileBlockPropertyEditor.xaml.cs">
-      <DependentUpon>FileBlockPropertyEditor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="wpf\BlockPropertyEditorSelector.cs" />
-    <Compile Include="wpf\RangeBlockPropertyEditor.xaml.cs">
-      <DependentUpon>RangeBlockPropertyEditor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="wpf\EditBoardPropertyConverter.cs" />
-    <Compile Include="wpf\EditBoardWindow.xaml.cs">
+    <Compile Include="IBoardController.cs" />
+    <Compile Include="Board.cs" />
+    <Compile Include="BoardController.cs" />
+    <Compile Include="BlockPropertyEditorSelector.cs" />
+    <Compile Include="EditBoardPropertyConverter.cs" />
+    <Compile Include="EditBoardWindow.xaml.cs">
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="wpf\TextBlockPropertyEditor.xaml.cs">
-      <DependentUpon>TextBlockPropertyEditor.xaml</DependentUpon>
-    </Compile>
-    <Page Include="wpf\FileBlockPropertyEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="wpf\RangeBlockPropertyEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="wpf\EditBoardWindow.xaml">
+    <Page Include="EditBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="wpf\SoundBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="wpf\SoundBoardWindow.xaml">
+    <Page Include="SoundBoardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="wpf\App.xaml.cs">
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="wpf\SoundBlock.xaml.cs">
-      <DependentUpon>SoundBlock.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="wpf\SoundBoardWindow.xaml.cs">
+    <Compile Include="SoundBoardWindow.xaml.cs">
       <DependentUpon>SoundBoardWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="wpf\TextBlockPropertyEditor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="properties\AssemblyInfo.cs">
@@ -151,7 +110,18 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\lib\soundboard-lib.csproj">
+      <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
+      <Name>soundboard-lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\plugins\sounds\soundboard-plugin-sounds.csproj">
+      <Project>{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}</Project>
+      <Name>soundboard-plugin-sounds</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\plugins\test\soundboard-plugin-test.csproj">
+      <Project>{91591B58-4819-4EE3-95CA-F0162687BAC6}</Project>
+      <Name>soundboard-plugin-test</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="SoundBoard.RangeBlockPropertyEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Slider Name="Field"
+            Margin="2" 
+            Minimum="{Binding Attribute.Minimum}"
+            Maximum="{Binding Attribute.Maximum}" 
+            IsSnapToTickEnabled="True"
+            TickFrequency="{Binding Attribute.Step}"
+            TickPlacement="TopLeft" 
+            IsMoveToPointEnabled="True" 
+            Value="{Binding PropertyValue}"/>
+</UserControl>

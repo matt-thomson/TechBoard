@@ -1,5 +1,0 @@
-﻿<UserControl x:Class="SoundBoard.WPF.TextBlockPropertyEditor"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <TextBox Margin="2" Text="{Binding PropertyValue, UpdateSourceTrigger=PropertyChanged}"/>
-</UserControl>

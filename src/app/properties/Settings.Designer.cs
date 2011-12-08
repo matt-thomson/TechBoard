@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SoundBoard.src.properties {
+namespace SoundBoard.App.properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
