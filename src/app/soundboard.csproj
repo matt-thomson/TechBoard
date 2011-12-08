@@ -118,10 +118,6 @@
       <Project>{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}</Project>
       <Name>soundboard-plugin-sounds</Name>
     </ProjectReference>
-    <ProjectReference Include="..\plugins\test\soundboard-plugin-test.csproj">
-      <Project>{91591B58-4819-4EE3-95CA-F0162687BAC6}</Project>
-      <Name>soundboard-plugin-test</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

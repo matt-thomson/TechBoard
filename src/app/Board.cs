@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Controls;
 using System.Xml.Linq;
-using SoundBoard.Plugins.Sounds;
-using SoundBoard.Plugins.Test;
 
 namespace SoundBoard.App
 {
@@ -24,11 +23,21 @@ namespace SoundBoard.App
         public Board() 
         {
             Blocks = new ObservableCollection<UserControl>();
-            BlockTypes = new Dictionary<Guid, Type>();
 
-            // TODO populate dynamically
-            BlockTypes.Add(new Guid("{13EBEAD3-3B03-4897-AFB9-3238632A3735}"), typeof(SoundBlock));
-            BlockTypes.Add(new Guid("{018C517C-973E-4954-BAA1-9D0A3ADA375F}"), typeof(TestBlock));
+            if (BlockTypes == null)
+            {
+                // Populate the list of block types by looking at the DLLs in the plugins directory.
+                BlockTypes = new Dictionary<Guid, Type>();
+
+                foreach (string dll in Directory.GetFiles("plugins\\", "*.dll"))
+                {
+                    // Don't load the soundboard library DLL, as we've already loaded it.
+                    if (dll != "plugins\\soundboard-lib.dll")
+                    {
+                        LoadBlocksFromDll(dll);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -110,6 +119,38 @@ namespace SoundBoard.App
 
             // Save to file.
             doc.Save(xiFileName);
+        }
+        #endregion
+
+        #region Private methods
+        private void LoadBlocksFromDll(string path)
+        {
+            Assembly asm = null;
+
+            try
+            {
+                asm = Assembly.LoadFrom(path);
+            }
+            catch (FileLoadException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            if (asm != null)
+            {
+                var blockTypes = from t in asm.GetTypes()
+                                 where ((t.IsClass) &&
+                                        (t.IsDefined(typeof(BlockAttribute), false)))
+                                 select t;
+
+                foreach (Type blockType in blockTypes)
+                {
+                    // Find the block attribute, and extract the GUID from it.
+                    object[] attrs = blockType.GetCustomAttributes(typeof(BlockAttribute), false);
+                    BlockAttribute attr = attrs[0] as BlockAttribute;
+                    BlockTypes.Add(attr.Guid, blockType);
+                }
+            }
         }
         #endregion
     }
