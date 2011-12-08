@@ -64,7 +64,7 @@ namespace SoundBoard.App
                         Type blockType = BlockTypes[guid];
                         UserControl block = Activator.CreateInstance(blockType) as UserControl;
 
-                        foreach (XElement propertyElement in blocksElement.Descendants())
+                        foreach (XElement propertyElement in blockElement.Descendants())
                         {
                             PropertyInfo propInfo = blockType.GetProperty(propertyElement.Name.ToString());
 

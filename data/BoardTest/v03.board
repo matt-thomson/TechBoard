@@ -2,7 +2,10 @@
 <Board>
   <Blocks>
     <Block Guid="018c517c-973e-4954-baa1-9d0a3ada375f">
-      <MyProperty>Some text</MyProperty>
+      <MyProperty>Some text 1</MyProperty>
+    </Block>	
+    <Block Guid="018c517c-973e-4954-baa1-9d0a3ada375f">
+      <MyProperty>Some text 2</MyProperty>
     </Block>
   </Blocks>
 </Board>

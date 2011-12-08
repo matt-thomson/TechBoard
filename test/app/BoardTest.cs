@@ -16,7 +16,8 @@ namespace SoundBoard.App.Test
         private const string SAVED_BOARD = "C:\\temp\\output.board";
 
         // Properties of a block.
-        private const string TEXT = "Some text";
+        private const string TEXT_1 = "Some text 1";
+        private const string TEXT_2 = "Some text 2";
         #endregion
 
         #region Private properties
@@ -31,11 +32,13 @@ namespace SoundBoard.App.Test
             // Set up the object under test.
             Board = new Board();
 
-            // Create a new block.
+            // Create two blocks, and add them to the board.
             TestBlock block = new TestBlock();
-            block.MyProperty = TEXT;
+            block.MyProperty = TEXT_1;
+            Board.Blocks.Add(block);
 
-            // Add it to the board.
+            block = new TestBlock();
+            block.MyProperty = TEXT_2;
             Board.Blocks.Add(block);
         }
         #endregion
@@ -44,11 +47,13 @@ namespace SoundBoard.App.Test
         [Test]
         public void TestBoardContents()
         {
-            Assert.AreEqual(1, Board.Blocks.Count);
+            Assert.AreEqual(2, Board.Blocks.Count);
 
             TestBlock block = Board.Blocks[0] as TestBlock;
+            Assert.AreEqual(TEXT_1, block.MyProperty);
 
-            Assert.AreEqual(TEXT, block.MyProperty);
+            block = Board.Blocks[1] as TestBlock;
+            Assert.AreEqual(TEXT_2, block.MyProperty);
         }
 
         [Test]
