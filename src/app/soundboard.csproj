@@ -18,7 +18,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\output\bin\Debug\</OutputPath>
+	<IntermediateOutputPath>..\..\output\obj\Debug\</IntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -28,7 +29,8 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\output\bin\Release\</OutputPath>
+	<IntermediateOutputPath>..\..\output\obj\Release\</IntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -54,95 +56,95 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="src\wpf\App.xaml">
+    <ApplicationDefinition Include="wpf\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="interface\controller\IFileDialogController.cs" />
     <Compile Include="interface\controller\IMediaController.cs" />
     <Compile Include="interface\controller\IBoardController.cs" />
-    <Compile Include="src\controller\FileDialogController.cs" />
-    <Compile Include="src\controller\MediaController.cs" />
-    <Compile Include="src\model\BlockAttribute.cs" />
-    <Compile Include="src\model\Board.cs" />
-    <Compile Include="src\controller\BoardController.cs" />
-    <Compile Include="src\model\FileBlockPropertyAttribute.cs" />
-    <Compile Include="src\model\BlockPropertyEditorAttribute.cs" />
-    <Compile Include="src\model\PropertyMapping.cs" />
-    <Compile Include="src\model\RangeBlockPropertyAttribute.cs" />
-    <Compile Include="src\model\BlockPropertyAttribute.cs" />
-    <Compile Include="src\model\TextBlockPropertyAttribute.cs" />
-    <Compile Include="src\test\TestBlock.cs" />
-    <Compile Include="src\test\TestBlockPropertyAttribute.cs" />
-    <Compile Include="src\wpf\FileBlockPropertyEditor.xaml.cs">
+    <Compile Include="controller\FileDialogController.cs" />
+    <Compile Include="controller\MediaController.cs" />
+    <Compile Include="model\BlockAttribute.cs" />
+    <Compile Include="model\Board.cs" />
+    <Compile Include="controller\BoardController.cs" />
+    <Compile Include="model\FileBlockPropertyAttribute.cs" />
+    <Compile Include="model\BlockPropertyEditorAttribute.cs" />
+    <Compile Include="model\PropertyMapping.cs" />
+    <Compile Include="model\RangeBlockPropertyAttribute.cs" />
+    <Compile Include="model\BlockPropertyAttribute.cs" />
+    <Compile Include="model\TextBlockPropertyAttribute.cs" />
+    <Compile Include="test\TestBlock.cs" />
+    <Compile Include="test\TestBlockPropertyAttribute.cs" />
+    <Compile Include="wpf\FileBlockPropertyEditor.xaml.cs">
       <DependentUpon>FileBlockPropertyEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\wpf\BlockPropertyEditorSelector.cs" />
-    <Compile Include="src\wpf\RangeBlockPropertyEditor.xaml.cs">
+    <Compile Include="wpf\BlockPropertyEditorSelector.cs" />
+    <Compile Include="wpf\RangeBlockPropertyEditor.xaml.cs">
       <DependentUpon>RangeBlockPropertyEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\wpf\EditBoardPropertyConverter.cs" />
-    <Compile Include="src\wpf\EditBoardWindow.xaml.cs">
+    <Compile Include="wpf\EditBoardPropertyConverter.cs" />
+    <Compile Include="wpf\EditBoardWindow.xaml.cs">
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\wpf\TextBlockPropertyEditor.xaml.cs">
+    <Compile Include="wpf\TextBlockPropertyEditor.xaml.cs">
       <DependentUpon>TextBlockPropertyEditor.xaml</DependentUpon>
     </Compile>
-    <Page Include="src\wpf\FileBlockPropertyEditor.xaml">
+    <Page Include="wpf\FileBlockPropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\wpf\RangeBlockPropertyEditor.xaml">
+    <Page Include="wpf\RangeBlockPropertyEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\wpf\EditBoardWindow.xaml">
+    <Page Include="wpf\EditBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\wpf\SoundBlock.xaml">
+    <Page Include="wpf\SoundBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\wpf\SoundBoardWindow.xaml">
+    <Page Include="wpf\SoundBoardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="src\wpf\App.xaml.cs">
+    <Compile Include="wpf\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\wpf\SoundBlock.xaml.cs">
+    <Compile Include="wpf\SoundBlock.xaml.cs">
       <DependentUpon>SoundBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\wpf\SoundBoardWindow.xaml.cs">
+    <Compile Include="wpf\SoundBoardWindow.xaml.cs">
       <DependentUpon>SoundBoardWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="src\wpf\TextBlockPropertyEditor.xaml">
+    <Page Include="wpf\TextBlockPropertyEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\properties\AssemblyInfo.cs">
+    <Compile Include="properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\properties\Resources.Designer.cs">
+    <Compile Include="properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\properties\Settings.Designer.cs">
+    <Compile Include="properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="src\properties\Resources.resx">
+    <EmbeddedResource Include="properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="src\properties\Settings.settings">
+    <None Include="properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>

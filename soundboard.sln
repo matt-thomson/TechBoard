@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test", "soundboard-test\soundboard-test.csproj", "{73729A0D-A270-4A87-9DD1-B2461356AC59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test", "test\app\soundboard-test.csproj", "{73729A0D-A270-4A87-9DD1-B2461356AC59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard", "soundboard\soundboard.csproj", "{C9A89E8B-E94C-431A-8235-5DE603A7927D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard", "src\app\soundboard.csproj", "{C9A89E8B-E94C-431A-8235-5DE603A7927D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

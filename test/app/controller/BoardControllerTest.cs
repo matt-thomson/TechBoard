@@ -7,7 +7,7 @@ namespace SoundBoard.Controller.Test
     public class BoardControllerTest
     {
         #region Constants
-        private const string EXPECTED_BOARD = "..\\..\\data\\BoardControllerTest\\expected.board";
+        private const string EXPECTED_BOARD = "..\\..\\..\\data\\BoardControllerTest\\expected.board";
         private const string SAVED_BOARD = "C:\\temp\\output.board";
         #endregion
 

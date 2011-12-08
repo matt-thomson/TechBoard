@@ -9,9 +9,9 @@ namespace SoundBoard.Model.Test
     {
         #region Constants
         // Location of test boards.
-        private const string V03_BOARD = "..\\..\\data\\BoardTest\\v03.board";
-        private const string EXPECTED_BOARD = "..\\..\\data\\BoardTest\\expected.board";
-        private const string EMPTY_BOARD = "..\\..\\data\\BoardTest\\empty.board";
+        private const string V03_BOARD = "..\\..\\..\\data\\BoardTest\\v03.board";
+        private const string EXPECTED_BOARD = "..\\..\\..\\data\\BoardTest\\expected.board";
+        private const string EMPTY_BOARD = "..\\..\\..\\data\\BoardTest\\empty.board";
 
         // Location to save board to.
         private const string SAVED_BOARD = "C:\\temp\\output.board";
