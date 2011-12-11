@@ -7,7 +7,7 @@ namespace SoundBoard.App
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class SoundBoardWindow : Window
+    public partial class MainWindow : Window
     {
         #region Private properties
         private IBoardController mBoardController;
@@ -15,7 +15,7 @@ namespace SoundBoard.App
         #endregion
 
         #region Constructor
-        public SoundBoardWindow(IBoardController xiBoardController)
+        public MainWindow(IBoardController xiBoardController)
         {
             // Initialize.
             InitializeComponent();

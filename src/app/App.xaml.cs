@@ -13,7 +13,7 @@ namespace SoundBoard.App
             BoardController boardController = new BoardController();
 
             // Create the main window.
-            SoundBoardWindow window = new SoundBoardWindow(boardController);
+            MainWindow window = new MainWindow(boardController);
 
             // Call into the base class.
             base.OnStartup(e);
