@@ -25,6 +25,13 @@ namespace SoundBoard.App
         }
         #endregion
 
+        #region Constructor
+        public BoardController()
+        {
+            New();
+        }
+        #endregion
+
         #region Public methods
         public void New()
         {

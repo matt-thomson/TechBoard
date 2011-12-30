@@ -16,8 +16,7 @@ namespace SoundBoard
         public FileBlockPropertyEditor()
         {
             InitializeComponent();
-
-            mController = FileDialogController.StaticInstance;
+            mController = new FileDialogController();
         }
 
         public FileBlockPropertyEditor(IFileDialogController xiController)

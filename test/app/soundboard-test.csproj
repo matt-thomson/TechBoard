@@ -53,6 +53,7 @@
     <Compile Include="BlockPropertyEditorSelectorTest.cs" />
     <Compile Include="BoardControllerTest.cs" />
     <Compile Include="BoardTest.cs" />
+    <Compile Include="MainWindowTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\app\soundboard.csproj">

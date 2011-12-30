@@ -9,20 +9,24 @@ namespace SoundBoard.App
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Constants
+        private const string FILTER = "SoundBoards (*.board)|*.board|All files (*.*)|*.*";
+        #endregion
+
         #region Private properties
         private IBoardController mBoardController;
+        private IFileDialogController mFileDialogController;
         private EditBoardWindow mEditBoardWindow;
         #endregion
 
         #region Constructor
-        public MainWindow(IBoardController xiBoardController)
+        public MainWindow(IBoardController xiBoardController,
+                          IFileDialogController xiFileDialogController)
         {
             // Initialize.
             InitializeComponent();
             mBoardController = xiBoardController;
-
-            // Create a new board.
-            mBoardController.New();
+            mFileDialogController = xiFileDialogController;
 
             // Set the data context.
             DataContext = mBoardController;
@@ -47,30 +51,21 @@ namespace SoundBoard.App
 
         private void HandleMenuOptionOpen(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
+            string filename = mFileDialogController.OpenFile(FILTER);
 
-            openDialog.Filter = "SoundBoards (*.board)|*.board|All files (*.*)|*.*";
-
-            Nullable<bool> result = openDialog.ShowDialog();
-
-            if (result == true)
+            if (filename != null)
             {
-                mBoardController.Load(openDialog.FileName);
+                mBoardController.Load(filename);
             }
         }
 
         private void HandleMenuOptionSave(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveDialog = new SaveFileDialog();
+            string filename = mFileDialogController.SaveFile(FILTER);
 
-            saveDialog.FileName = "untitled";
-            saveDialog.Filter = "SoundBoards (*.board)|*.board|All files (*.*)|*.*";
-
-            Nullable<bool> result = saveDialog.ShowDialog();
-
-            if (result == true)
+            if (filename != null)
             {
-                mBoardController.Save(saveDialog.FileName);
+                mBoardController.Save(filename);
             }
         }
 

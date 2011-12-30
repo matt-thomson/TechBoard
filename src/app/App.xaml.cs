@@ -11,9 +11,11 @@ namespace SoundBoard.App
         {
             // Initialize controllers.
             BoardController boardController = new BoardController();
+            FileDialogController fileDialogController = new FileDialogController();
 
             // Create the main window.
-            MainWindow window = new MainWindow(boardController);
+            MainWindow window = new MainWindow(boardController,
+                                               fileDialogController);
 
             // Call into the base class.
             base.OnStartup(e);

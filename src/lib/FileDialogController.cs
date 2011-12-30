@@ -5,25 +5,6 @@ namespace SoundBoard
 {
     public class FileDialogController : IFileDialogController
     {
-        #region Public properties
-        public static FileDialogController StaticInstance
-        {
-            get
-            {
-                if (mStaticInstance == null)
-                {
-                    mStaticInstance = new FileDialogController();
-                }
-
-                return mStaticInstance;
-            }
-        }
-        #endregion
-
-        #region Static properties
-        private static FileDialogController mStaticInstance;
-        #endregion
-
         #region Public methods
         public string OpenFile(string xiFilter)
         {
@@ -37,6 +18,24 @@ namespace SoundBoard
             if (result == true)
             {
                 filename = openDialog.FileName;
+            }
+
+            return filename;
+        }
+
+        public string SaveFile(string xiFilter)
+        {
+            string filename = null;
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = xiFilter;
+            saveDialog.FileName = "untitled";
+
+            Nullable<bool> result = saveDialog.ShowDialog();
+
+            if (result == true)
+            {
+                filename = saveDialog.FileName;
             }
 
             return filename;
