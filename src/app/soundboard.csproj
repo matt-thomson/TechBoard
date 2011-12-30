@@ -60,6 +60,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddBlockWindow.xaml.cs">
+      <DependentUpon>AddBlockWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IBoardController.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="BoardController.cs" />
@@ -68,6 +71,10 @@
     <Compile Include="EditBoardWindow.xaml.cs">
       <DependentUpon>EditBoardWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddBlockWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,10 +120,6 @@
     <ProjectReference Include="..\lib\soundboard-lib.csproj">
       <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
       <Name>soundboard-lib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\plugins\sounds\soundboard-plugin-sounds.csproj">
-      <Project>{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}</Project>
-      <Name>soundboard-plugin-sounds</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

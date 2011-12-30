@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using SoundBoard.Plugins.Sounds;
 
 namespace SoundBoard.App
 {
@@ -35,9 +35,18 @@ namespace SoundBoard.App
 
         private void HandleAddButtonClick(object sender, RoutedEventArgs e)
         {
-            SoundBlock sound = new SoundBlock();
-            mBoardController.Add(sound);
-            BlocksList.SelectedItem = sound;
+            // Show the add block window.
+            AddBlockWindow window = new AddBlockWindow(mBoardController);
+            Nullable<bool> result = window.ShowDialog();
+
+            // If the user clicked 'OK', then add a block of the requested type.
+            if (result == true)
+            {
+                Type blockType = window.BlockTypesList.SelectedItem as Type;
+                UserControl block = Activator.CreateInstance(blockType) as UserControl;
+                mBoardController.Add(block);
+                BlocksList.SelectedItem = block;
+            }
         }
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
