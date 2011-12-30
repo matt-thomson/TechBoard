@@ -6,15 +6,7 @@ namespace SoundBoard.App.Test
     [TestFixture, RequiresSTA]
     public class BoardTest
     {
-        #region Constants
-        // Location of test boards.
-        private const string V03_BOARD = "..\\..\\..\\data\\BoardTest\\v03.board";
-        private const string EXPECTED_BOARD = "..\\..\\..\\data\\BoardTest\\expected.board";
-        private const string EMPTY_BOARD = "..\\..\\..\\data\\BoardTest\\empty.board";
-
-        // Location to save board to.
-        private const string SAVED_BOARD = "C:\\temp\\output.board";
-
+        #region Constants        
         // Properties of a block.
         private const string TEXT_1 = "Some text 1";
         private const string TEXT_2 = "Some text 2";
@@ -54,36 +46,6 @@ namespace SoundBoard.App.Test
 
             block = Board.Blocks[1] as TestBlock;
             Assert.AreEqual(TEXT_2, block.MyProperty);
-        }
-
-        [Test]
-        public void TestSave()
-        {
-            // Save the board to disk.
-            Board.Save(SAVED_BOARD);
-
-            // Verify the file contents.
-            FileAssert.AreEqual(EXPECTED_BOARD, SAVED_BOARD);
-        }
-
-        [Test]
-        public void TestLoadBoardV03()
-        {
-            // Load the board from disk.
-            Board = Board.Load(V03_BOARD);
-
-            // Verify the board contents.
-            TestBoardContents();
-        }
-
-        [Test]
-        public void TestLoadEmptyBoard()
-        {
-            // Load the board from disk.
-            Board = Board.Load(EMPTY_BOARD);
-
-            // Verify the board contents.
-            Assert.AreEqual(0, Board.Blocks.Count);
         }
         #endregion
     }

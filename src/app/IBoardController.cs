@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace SoundBoard.App
 {
@@ -6,6 +8,7 @@ namespace SoundBoard.App
     {
         #region Properties
         Board CurrentBoard { get; }
+        Dictionary<Guid, Type> BlockTypes { get; }
         #endregion
 
         #region Methods

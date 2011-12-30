@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
-using System.Xml.Linq;
 
 namespace SoundBoard.App
 {
     public class Board
     {
-        #region Static properties
-        public static Dictionary<Guid, Type> BlockTypes { get; private set; }
-        #endregion
-
         #region Public properties
         public ObservableCollection<UserControl> Blocks { get; private set; }
         #endregion
@@ -23,134 +13,6 @@ namespace SoundBoard.App
         public Board() 
         {
             Blocks = new ObservableCollection<UserControl>();
-
-            if (BlockTypes == null)
-            {
-                // Populate the list of block types by looking at the DLLs in the plugins directory.
-                BlockTypes = new Dictionary<Guid, Type>();
-
-                foreach (string dll in Directory.GetFiles("plugins\\", "*.dll"))
-                {
-                    // Don't load the soundboard library DLL, as we've already loaded it.
-                    if (dll != "plugins\\soundboard-lib.dll")
-                    {
-                        LoadBlocksFromDll(dll);
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region Static methods
-        public static Board Load(string xiFileName)
-        {
-            // Create a new board.
-            Board soundBoard = new Board();
-
-            // Load and parse the file.
-            XDocument doc = XDocument.Load(xiFileName);
-
-            // Extract the blocks from the file.
-            foreach (XElement boardElement in doc.Descendants("Board"))
-            {               
-                XElement blocksElement = boardElement.Element("Blocks");
-
-                if (blocksElement != null)
-                {
-                    foreach (XElement blockElement in blocksElement.Descendants("Block"))
-                    {
-                        // Find the relevant type by looking up the GUID.
-                        Guid guid = new Guid(blockElement.Attribute("Guid").Value);
-                        Type blockType = BlockTypes[guid];
-                        UserControl block = Activator.CreateInstance(blockType) as UserControl;
-
-                        foreach (XElement propertyElement in blockElement.Descendants())
-                        {
-                            PropertyInfo propInfo = blockType.GetProperty(propertyElement.Name.ToString());
-
-                            if (propInfo != null)
-                            {
-                                // Find the editor property attribute.  This contains the function to convert
-                                // the saved string to the property value.
-                                object[] attrs = propInfo.GetCustomAttributes(typeof(BlockPropertyAttribute), false);
-                                BlockPropertyAttribute attr = attrs[0] as BlockPropertyAttribute;
-
-                                propInfo.SetValue(block, attr.FromString(propertyElement.Value), null);
-                            }
-                        }
-
-                        soundBoard.Blocks.Add(block);
-                    }
-                }
-            }
-            
-            return soundBoard;
-        }
-        #endregion
-
-        #region Public methods
-        public void Save(String xiFileName)
-        {
-            // Create an XML document for this soundboard.
-            XElement doc = new XElement("Board");
-
-            XElement blocksElement = new XElement("Blocks");
-            doc.Add(blocksElement);
-
-            // Format the list of blocks as an XML element.
-            foreach (UserControl block in Blocks)
-            {                
-                XElement blockElement = new XElement("Block");
-                
-                // Find the GUID for the block type, and add it to the element.
-                object[] attrs = block.GetType().GetCustomAttributes(typeof(BlockAttribute), false);
-                BlockAttribute attr = attrs[0] as BlockAttribute;
-                blockElement.SetAttributeValue("Guid", attr.Guid);
-
-                // Add the properties to the block.
-                var properties = from p in block.GetType().GetProperties()
-                                 where p.IsDefined(typeof(BlockPropertyAttribute), false)
-                                 select new XElement(p.Name, p.GetValue(block, null));
-                blockElement.Add(properties);
-
-                // Add the block to the list.
-                blocksElement.Add(blockElement);
-            }
-
-            // Save to file.
-            doc.Save(xiFileName);
-        }
-        #endregion
-
-        #region Private methods
-        private void LoadBlocksFromDll(string path)
-        {
-            Assembly asm = null;
-
-            try
-            {
-                asm = Assembly.LoadFrom(path);
-            }
-            catch (FileLoadException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            if (asm != null)
-            {
-                var blockTypes = from t in asm.GetTypes()
-                                 where ((t.IsClass) &&
-                                        (t.IsDefined(typeof(BlockAttribute), false)))
-                                 select t;
-
-                foreach (Type blockType in blockTypes)
-                {
-                    // Find the block attribute, and extract the GUID from it.
-                    object[] attrs = blockType.GetCustomAttributes(typeof(BlockAttribute), false);
-                    BlockAttribute attr = attrs[0] as BlockAttribute;
-                    BlockTypes.Add(attr.Guid, blockType);
-                }
-            }
         }
         #endregion
     }
