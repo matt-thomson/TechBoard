@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace SoundBoard.Plugins.Basic
 {
     /// <summary>
-    /// Interaction logic for SoundBlock.xaml
+    /// Interaction logic for TextBlock.xaml
     /// </summary>
     [Block("{6A2910EE-BDD9-453A-87F4-7994AF4223AD}")]
     public partial class TextBlock : UserControl
