@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-soun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-lib", "test\lib\soundboard-test-lib.csproj", "{2646A297-F22F-4192-AEAD-3F4B16402F2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-timers", "src\plugins\timers\soundboard-plugin-timers.csproj", "{6012D348-88C3-4B17-9F90-BF1C7C12B480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-basic", "src\plugins\basic\soundboard-plugin-basic.csproj", "{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +96,26 @@ Global
 		{2646A297-F22F-4192-AEAD-3F4B16402F2C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2646A297-F22F-4192-AEAD-3F4B16402F2C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2646A297-F22F-4192-AEAD-3F4B16402F2C}.Release|x86.ActiveCfg = Release|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6012D348-88C3-4B17-9F90-BF1C7C12B480}.Release|x86.ActiveCfg = Release|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
