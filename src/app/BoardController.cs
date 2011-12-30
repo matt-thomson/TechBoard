@@ -92,7 +92,9 @@ namespace SoundBoard.App
                                 object[] attrs = propInfo.GetCustomAttributes(typeof(BlockPropertyAttribute), false);
                                 BlockPropertyAttribute attr = attrs[0] as BlockPropertyAttribute;
 
-                                propInfo.SetValue(block, attr.FromString(propertyElement.Value), null);
+                                propInfo.SetValue(block, 
+                                                  attr.FromFile(xiFileName, propertyElement.Value), 
+                                                  null);
                             }
                         }
 
@@ -123,8 +125,18 @@ namespace SoundBoard.App
                 // Add the properties to the block.
                 var properties = from p in block.GetType().GetProperties()
                                  where p.IsDefined(typeof(BlockPropertyAttribute), false)
-                                 select new XElement(p.Name, p.GetValue(block, null));
-                blockElement.Add(properties);
+                                 select p;
+
+                foreach (PropertyInfo prop in properties)
+                {
+                    // Find the editor property attribute.  This contains the function to convert
+                    // the saved string to the property value.
+                    attrs = prop.GetCustomAttributes(typeof(BlockPropertyAttribute), false);
+                    BlockPropertyAttribute propAttr = attrs[0] as BlockPropertyAttribute;
+                    string value = propAttr.ToFile(xiFileName, prop.GetValue(block, null));
+
+                    blockElement.Add(new XElement(prop.Name, value));
+                }
 
                 // Add the block to the list.
                 blocksElement.Add(blockElement);

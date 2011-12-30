@@ -21,7 +21,8 @@
         #endregion
 
         #region Public methods
-        public override object FromString(string xiValue)
+        public override object FromFile(string xiFileName,
+                                        string xiValue)
         {
             return double.Parse(xiValue);
         }

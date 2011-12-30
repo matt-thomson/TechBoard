@@ -5,9 +5,17 @@ namespace SoundBoard
     [AttributeUsage(AttributeTargets.Property)]
     public abstract class BlockPropertyAttribute : Attribute
     {
-        public virtual object FromString(string xiValue)
+        public virtual object FromFile(string xiFileName,
+                                       string xiValue)
         {
             return xiValue;
+        }
+
+        public virtual string ToFile(string xiFileName,
+                                     object xiValue)
+        {
+            Console.WriteLine(xiValue.ToString());
+            return xiValue.ToString();
         }
     }
 }
