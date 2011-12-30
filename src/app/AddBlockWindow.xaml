@@ -29,8 +29,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Height="24" Margin="2" Content="OK" Click="HandleOKButtonClick" />
-            <Button Grid.Column="1" Height="24" Margin="2" Content="Cancel" Click="HandleCancelButtonClick" />
+            <Button Grid.Column="0" Height="24" Margin="2" Content="OK" Click="HandleOKButtonClick" IsDefault="True" />
+            <Button Grid.Column="1" Height="24" Margin="2" Content="Cancel" Click="HandleCancelButtonClick" IsCancel="True" />
         </Grid>
     </Grid>
 </Window>

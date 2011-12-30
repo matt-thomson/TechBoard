@@ -40,9 +40,10 @@ namespace SoundBoard.App
             Nullable<bool> result = window.ShowDialog();
 
             // If the user clicked 'OK', then add a block of the requested type.
-            if (result == true)
+            Type blockType = window.BlockTypesList.SelectedItem as Type;
+
+            if ((result == true) && (blockType != null))
             {
-                Type blockType = window.BlockTypesList.SelectedItem as Type;
                 UserControl block = Activator.CreateInstance(blockType) as UserControl;
                 mBoardController.Add(block);
                 BlocksList.SelectedItem = block;
