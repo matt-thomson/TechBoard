@@ -63,6 +63,8 @@
     <Compile Include="AddBlockWindow.xaml.cs">
       <DependentUpon>AddBlockWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BlockTypeNameConverter.cs" />
+    <Compile Include="PropertyNameConverter.cs" />
     <Compile Include="IBoardController.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="BoardController.cs" />

@@ -9,6 +9,8 @@
         Closing="HandleWindowClosing">
     <Window.Resources>
         <l:EditBoardPropertyConverter x:Key="PropertyConverter" />
+        <l:PropertyNameConverter x:Key="PropertyNameConverter" />
+        <l:BlockTypeNameConverter x:Key="BlockTypeNameConverter" />
         <l:BlockPropertyEditorSelector x:Key="PropertyTemplateSelector" />
     </Window.Resources>
         <Grid>
@@ -24,7 +26,7 @@
                  Margin="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Title}" />
+                    <Label Content="{Binding Converter={StaticResource BlockTypeNameConverter}}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -50,7 +52,8 @@
                             <ColumnDefinition Width="70"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Name="Label" Grid.Column="0" Content="{Binding Property.Name}"/>
+                        <Label Name="Label" Grid.Column="0" Content="{Binding Property.Name,
+                                                Converter={StaticResource PropertyNameConverter}}"/>
                         <UserControl Grid.Column="1"
                                      Content="{Binding}"
                                      ContentTemplateSelector="{StaticResource PropertyTemplateSelector}"/>

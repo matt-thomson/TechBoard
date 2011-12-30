@@ -1,10 +1,14 @@
 ﻿<Window x:Class="SoundBoard.App.AddBlockWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:SoundBoard.App"
         Title="Add Block" 
         Height="250"
         Width="250" 
         ResizeMode="CanMinimize">
+    <Window.Resources>
+        <l:BlockTypeNameConverter x:Key="NameConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,6 +18,11 @@
                  ItemsSource="{Binding BlockTypes.Values}" 
                  Grid.Row="0"
                  Margin="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Converter={StaticResource NameConverter}}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
