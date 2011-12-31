@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-timers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-basic", "src\plugins\basic\soundboard-plugin-basic.csproj", "{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-dev", "src\plugins\dev\soundboard-plugin-dev.csproj", "{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,16 @@ Global
 		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}.Release|x86.ActiveCfg = Release|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
