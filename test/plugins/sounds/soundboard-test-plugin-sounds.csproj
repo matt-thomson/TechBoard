@@ -50,6 +50,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SoundControlsBlockTest.cs" />
     <Compile Include="SoundBlockTest.cs" />
   </ItemGroup>
   <ItemGroup>

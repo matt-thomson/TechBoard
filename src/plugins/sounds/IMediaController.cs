@@ -9,6 +9,7 @@
         #region Methods
         void Play(SoundBlock xiSoundBlock);
         void Stop();
+        void Fade();
         #endregion
     }
 }

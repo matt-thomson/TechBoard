@@ -51,9 +51,16 @@
     <Compile Include="SoundBlock.xaml.cs">
       <DependentUpon>SoundBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SoundControlsBlock.xaml.cs">
+      <DependentUpon>SoundControlsBlock.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="SoundBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SoundControlsBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
