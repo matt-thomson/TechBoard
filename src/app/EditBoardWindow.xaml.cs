@@ -52,8 +52,20 @@ namespace SoundBoard.App
 
         private void HandleRemoveButtonClick(object sender, RoutedEventArgs e)
         {
-            UserControl sound = BlocksList.SelectedItem as UserControl;
-            mBoardController.Remove(sound);
+            UserControl block = BlocksList.SelectedItem as UserControl;
+            mBoardController.Remove(block);
+        }
+
+        private void HandleMoveUpButtonClick(object sender, RoutedEventArgs e)
+        {
+            UserControl block = BlocksList.SelectedItem as UserControl;
+            mBoardController.MoveUp(block);
+        }
+
+        private void HandleMoveDownButtonClick(object sender, RoutedEventArgs e)
+        {
+            UserControl block = BlocksList.SelectedItem as UserControl;
+            mBoardController.MoveDown(block);
         }
         #endregion
     }

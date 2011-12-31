@@ -17,6 +17,8 @@ namespace SoundBoard.App
         void Save(string xiFileName);
         void Add(UserControl xiBlock);
         void Remove(UserControl xiBlock);
+        void MoveUp(UserControl xiBlock);
+        void MoveDown(UserControl xiBlock);
         #endregion
     }
 }

@@ -155,6 +155,26 @@ namespace SoundBoard.App
         {
             CurrentBoard.Blocks.Remove(xiBlock);
         }
+
+        public void MoveUp(UserControl xiBlock)
+        {
+            int index = CurrentBoard.Blocks.IndexOf(xiBlock);
+
+            if (index > 0)
+            {
+                CurrentBoard.Blocks.Move(index, index - 1);
+            }
+        }
+
+        public void MoveDown(UserControl xiBlock)
+        {
+            int index = CurrentBoard.Blocks.IndexOf(xiBlock);
+
+            if (index < CurrentBoard.Blocks.Count - 1)
+            {
+                CurrentBoard.Blocks.Move(index, index + 1);
+            }
+        }
         #endregion
 
         #region Private methods

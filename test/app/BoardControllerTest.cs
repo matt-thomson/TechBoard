@@ -109,6 +109,46 @@ namespace SoundBoard.App.Test
             // Verify the file contents.
             FileAssert.AreEqual(EXPECTED_BOARD, SAVED_BOARD);
         }
+
+        [Test]
+        public void TestMoveUp()
+        {
+            // Load a board with two blocks.
+            TestLoadBoardV03();
+            Board board = mBoardController.CurrentBoard;
+            TestBlock block1 = board.Blocks[0] as TestBlock;
+            TestBlock block2 = board.Blocks[1] as TestBlock;
+
+            // Move block 2 up.  This swaps the blocks over.
+            mBoardController.MoveUp(block2);
+            Assert.AreEqual(board.Blocks[0], block2);
+            Assert.AreEqual(board.Blocks[1], block1);
+
+            // Move block 2 up again.  This does nothing, as it's already at the top.
+            mBoardController.MoveUp(block2);
+            Assert.AreEqual(board.Blocks[0], block2);
+            Assert.AreEqual(board.Blocks[1], block1);
+        }
+
+        [Test]
+        public void TestMoveDown()
+        {
+            // Load a board with two blocks.
+            TestLoadBoardV03();
+            Board board = mBoardController.CurrentBoard;
+            TestBlock block1 = board.Blocks[0] as TestBlock;
+            TestBlock block2 = board.Blocks[1] as TestBlock;
+
+            // Move block 1 down.  This swaps the blocks over.
+            mBoardController.MoveDown(block1);
+            Assert.AreEqual(board.Blocks[0], block2);
+            Assert.AreEqual(board.Blocks[1], block1);
+
+            // Move block 1 down again.  This does nothing, as it's already at the bottom.
+            mBoardController.MoveDown(block1);
+            Assert.AreEqual(board.Blocks[0], block2);
+            Assert.AreEqual(board.Blocks[1], block1);
+        }
         #endregion
     }
 }

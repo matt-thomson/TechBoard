@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:SoundBoard.App"
         Title="Edit Board" 
-        Height="440" 
-        Width="250" 
+        Height="468" 
+        Width="300" 
         ResizeMode="CanMinimize" 
         Closing="HandleWindowClosing">
     <Window.Resources>
@@ -15,6 +15,7 @@
     </Window.Resources>
         <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -38,7 +39,15 @@
             <Button Grid.Column="0" Height="24" Margin="2" Content="Add..." Click="HandleAddButtonClick" />
             <Button Grid.Column="1" Height="24" Margin="2" Content="Remove" Click="HandleRemoveButtonClick" />
         </Grid>
-        <ItemsControl Grid.Row="2"                  
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Height="24" Margin="2" Content="Move Up" Click="HandleMoveUpButtonClick" />
+            <Button Grid.Column="1" Height="24" Margin="2" Content="Move Down" Click="HandleMoveDownButtonClick" />
+        </Grid>
+        <ItemsControl Grid.Row="3"                  
                       BorderBrush="Transparent"                  
                       BorderThickness="0"
                       HorizontalContentAlignment="Stretch"
@@ -47,9 +56,9 @@
                                             Converter={StaticResource PropertyConverter}}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="238">
+                    <Grid Width="288">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="120"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Name="Label" Grid.Column="0" Content="{Binding Property.Name,
