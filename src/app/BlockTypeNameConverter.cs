@@ -30,7 +30,7 @@ namespace SoundBoard.App
 
             // Convert to camel case.
             result = Regex.Replace(result,
-                                   "([A-Z]+[a-z]*)",
+                                   "([A-Z][a-z]+)",
                                    " $1",
                                    RegexOptions.Compiled).Trim();
             

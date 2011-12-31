@@ -14,7 +14,7 @@ namespace SoundBoard.App
         {            
             string result = xiValue as string;
             result = Regex.Replace(result, 
-                                   "([A-Z]+[a-z]*)",
+                                   "([A-Z][a-z]+)",
                                    " $1", 
                                    RegexOptions.Compiled).Trim();
             return result;
