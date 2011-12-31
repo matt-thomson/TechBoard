@@ -24,6 +24,15 @@ namespace SoundBoard.App
         #endregion
 
         #region Button event handlers
+        public void HandleDoubleClick(object sender, RoutedEventArgs e)
+        {
+            if (BlockTypesList.SelectedItem != null)
+            {
+                DialogResult = true;
+                Close();
+            }
+        }
+
         public void HandleOKButtonClick(object sender, RoutedEventArgs e)
         {
             DialogResult = true;

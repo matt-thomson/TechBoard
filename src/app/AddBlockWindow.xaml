@@ -17,7 +17,8 @@
         <ListBox Name="BlockTypesList" 
                  ItemsSource="{Binding BlockTypes.Values}" 
                  Grid.Row="0"
-                 Margin="2">
+                 Margin="2"
+                 MouseDoubleClick="HandleDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Converter={StaticResource NameConverter}}" />
