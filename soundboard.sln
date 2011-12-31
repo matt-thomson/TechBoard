@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-basic", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-dev", "src\plugins\dev\soundboard-plugin-dev.csproj", "{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-basic", "test\plugins\basic\soundboard-test-plugin-basic.csproj", "{05805BB5-0366-4398-832A-46B953A51050}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,7 @@ Global
 		{91591B58-4819-4EE3-95CA-F0162687BAC6}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{91591B58-4819-4EE3-95CA-F0162687BAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91591B58-4819-4EE3-95CA-F0162687BAC6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{91591B58-4819-4EE3-95CA-F0162687BAC6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{91591B58-4819-4EE3-95CA-F0162687BAC6}.Release|x86.ActiveCfg = Release|Any CPU
 		{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}.Debug|Any CPU.Build.0 = Debug|Any CPU
@@ -128,6 +131,16 @@ Global
 		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}.Release|x86.ActiveCfg = Release|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{05805BB5-0366-4398-832A-46B953A51050}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
