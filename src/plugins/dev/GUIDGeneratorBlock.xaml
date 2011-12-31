@@ -17,11 +17,15 @@
                 Grid.Column="1" 
                 Width="24" 
                 Height="24"
-                Click="HandleGenerateButtonClick" />
+                Click="HandleGenerateButtonClick">
+            <Image Source="/soundboard-plugin-dev;component/gear.png" />
+        </Button>
         <Button Name="CopyButton" 
                 Grid.Column="2" 
                 Width="24"
                 Height="24"
-                Click="HandleCopyButtonClick" />
+                Click="HandleCopyButtonClick">
+            <Image Source="/soundboard-plugin-dev;component/clipboard_empty.png" />
+        </Button>
     </Grid>
 </UserControl>
