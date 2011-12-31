@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}</ProjectGuid>
+    <ProjectGuid>{6012D348-88C3-4B17-9F90-BF1C7C12B480}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SoundBoard.Plugins.Dev</RootNamespace>
-    <AssemblyName>soundboard-plugin-dev</AssemblyName>
+    <RootNamespace>SoundBoard.Plugins.Time</RootNamespace>
+    <AssemblyName>soundboard-plugin-time</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,7 +36,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="GUIDGeneratorBlock.xaml.cs">
-      <DependentUpon>GUIDGeneratorBlock.xaml</DependentUpon>
+    <Compile Include="ClockBlock.xaml.cs">
+      <DependentUpon>ClockBlock.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -58,16 +57,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="GUIDGeneratorBlock.xaml">
+    <Page Include="ClockBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="clipboard_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="gear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -76,6 +69,6 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Copy SourceFiles="$(OutputPath)\soundboard-plugin-dev.dll" DestinationFolder="$(OutputPath)\plugins" />
+    <Copy SourceFiles="$(OutputPath)\soundboard-plugin-time.dll" DestinationFolder="$(OutputPath)\plugins" />
   </Target>
 </Project>
