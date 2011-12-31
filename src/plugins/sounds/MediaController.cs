@@ -8,9 +8,6 @@ namespace SoundBoard.Plugins.Sounds
     public class MediaController : IMediaController
     {
         #region Constants
-        // Fade duration, in milliseconds.
-        private double FADE_DURATION = 3000;
-
         // Fade step, in milliseconds.
         private double FADE_STEP = 10;
         #endregion
@@ -39,6 +36,7 @@ namespace SoundBoard.Plugins.Sounds
         #region Private members
         private MediaPlayer mMediaPlayer;
         private int mFadeStepsDone;
+        private double mFadeDuration;
         private double mFadeOrigVolume;
         private DispatcherTimer mFadeTimer;
         #endregion
@@ -49,13 +47,19 @@ namespace SoundBoard.Plugins.Sounds
             // Set up the media player.
             mMediaPlayer = new MediaPlayer();
             mMediaPlayer.MediaEnded += HandleMediaEnded;
+
+            // Set up the fade timer.
+            mFadeTimer = new DispatcherTimer();
+            mFadeTimer.Interval = TimeSpan.FromMilliseconds(FADE_STEP);
+            mFadeTimer.Tick += HandleFadeTimerTick;
         }
         #endregion
 
         #region Public methods
         public void Play(SoundBlock xiBlock)
         {
-            mMediaPlayer.Stop();
+            Stop();
+
             mMediaPlayer.Volume = xiBlock.Volume;
             mMediaPlayer.Open(new Uri(xiBlock.FileName));
             mMediaPlayer.Play();
@@ -66,19 +70,17 @@ namespace SoundBoard.Plugins.Sounds
         public void Stop()
         {
             mMediaPlayer.Stop();
+            mFadeTimer.IsEnabled = false;
             CurrentSoundBlock = null;
         }
 
-        public void Fade()
+        public void Fade(double xiDuration)
         {
             if (!mFadeTimer.IsEnabled)
             {
                 mFadeStepsDone = 0;
+                mFadeDuration = xiDuration;
                 mFadeOrigVolume = mMediaPlayer.Volume;
-
-                mFadeTimer = new DispatcherTimer();
-                mFadeTimer.Interval = TimeSpan.FromMilliseconds(FADE_STEP);
-                mFadeTimer.Tick += HandleFadeTimerTick;
                 mFadeTimer.IsEnabled = true;
             }
         }
@@ -94,9 +96,9 @@ namespace SoundBoard.Plugins.Sounds
         private void HandleFadeTimerTick(object sender, EventArgs e)
         {
             mFadeStepsDone++;
-            mMediaPlayer.Volume = mFadeOrigVolume - ((FADE_STEP / FADE_DURATION) * mFadeStepsDone);
+            mMediaPlayer.Volume = mFadeOrigVolume - ((FADE_STEP / mFadeDuration) * mFadeStepsDone);
 
-            if (mMediaPlayer.Volume == 0)
+            if (mMediaPlayer.Volume <= 0)
             {
                 Stop();
                 mFadeTimer.IsEnabled = false;

@@ -9,6 +9,11 @@ namespace SoundBoard.Plugins.Sounds.Test
     [TestFixture, RequiresSTA]
     public class SoundControlsBlockTest
     {
+        #region Constants
+        private double FADE_DURATION = 3000;
+        private double FADE_DURATION_NEW = 1500;
+        #endregion
+
         #region Private properties
         // Object under test.
         SoundControlsBlock mSoundControlsBlock;
@@ -72,8 +77,14 @@ namespace SoundBoard.Plugins.Sounds.Test
         [Test]
         public void TestClickFadeButton()
         {
+            // Check the value of the fade duration.
+            Assert.AreEqual(FADE_DURATION, mSoundControlsBlock.FadeDuration);
+
+            // Set the fade duration to a different value.
+            mSoundControlsBlock.FadeDuration = FADE_DURATION_NEW;
+
             // Clicking the button will fade the sound.
-            mMockMediaController.Setup(c => c.Fade());
+            mMockMediaController.Setup(c => c.Fade(FADE_DURATION_NEW));
 
             // Click on the button.
             RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mFadeButton);
