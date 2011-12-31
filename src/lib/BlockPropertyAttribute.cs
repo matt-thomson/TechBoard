@@ -14,7 +14,6 @@ namespace SoundBoard
         public virtual string ToFile(string xiFileName,
                                      object xiValue)
         {
-            Console.WriteLine(xiValue.ToString());
             return xiValue.ToString();
         }
     }
