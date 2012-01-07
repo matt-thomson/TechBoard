@@ -49,6 +49,8 @@
     <Compile Include="ClockBlock.xaml.cs">
       <DependentUpon>ClockBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ITimerController.cs" />
+    <Compile Include="TimerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lib\soundboard-lib.csproj">

@@ -15,13 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-soun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-lib", "test\lib\soundboard-test-lib.csproj", "{2646A297-F22F-4192-AEAD-3F4B16402F2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-timers", "src\plugins\timers\soundboard-plugin-timers.csproj", "{6012D348-88C3-4B17-9F90-BF1C7C12B480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-time", "src\plugins\time\soundboard-plugin-time.csproj", "{6012D348-88C3-4B17-9F90-BF1C7C12B480}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-basic", "src\plugins\basic\soundboard-plugin-basic.csproj", "{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-dev", "src\plugins\dev\soundboard-plugin-dev.csproj", "{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-basic", "test\plugins\basic\soundboard-test-plugin-basic.csproj", "{05805BB5-0366-4398-832A-46B953A51050}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-time", "test\plugins\time\soundboard-test-plugin-time.csproj", "{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,16 @@ Global
 		{05805BB5-0366-4398-832A-46B953A51050}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{05805BB5-0366-4398-832A-46B953A51050}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{05805BB5-0366-4398-832A-46B953A51050}.Release|x86.ActiveCfg = Release|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

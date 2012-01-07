@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Controls;
-using System.Windows.Threading;
 
 namespace SoundBoard.Plugins.Time
 {
@@ -10,30 +9,42 @@ namespace SoundBoard.Plugins.Time
     [Block("{315E02FB-E665-4516-B6E8-871A540B747C}")]
     public partial class ClockBlock : UserControl
     {
-        #region Static members
-        private static DispatcherTimer mTimer = new DispatcherTimer();
+        #region Private members
+        private ITimerController mTimerController;
         #endregion
 
-        #region Constructor
+        #region Constructors
         public ClockBlock()
+        {
+            mTimerController = TimerController.StaticInstance;
+            Init();
+        }
+
+        public ClockBlock(ITimerController xiTimerController)
+        {
+            mTimerController = xiTimerController;
+            Init();
+        }
+        #endregion
+
+        #region Initialization
+        public void Init()
         {
             // Initialize.
             InitializeComponent();
 
-            // Set the timer.
-            mTimer.Interval = new TimeSpan(0, 0, 1);
-            mTimer.Tick += HandleTimerElapsed;
-            mTimer.Start();
+            // Register for timer pops.
+            mTimerController.TimerPop += HandleTimerPop;
 
             // Set the initial time.
-            Time.Content = DateTime.Now.ToString("T");
+            Time.Content = mTimerController.Now.ToString("T");
         }
         #endregion
 
         #region Event handlers
-        private void HandleTimerElapsed(object sender, EventArgs e)
+        private void HandleTimerPop(DateTime xiDateTime)
         {
-            Time.Content = DateTime.Now.ToString("T");
+            Time.Content = xiDateTime.ToString("T");
         }
         #endregion
     }
