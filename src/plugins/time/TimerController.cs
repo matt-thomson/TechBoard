@@ -52,7 +52,7 @@ namespace SoundBoard.Plugins.Time
         {
             if (TimerPop != null)
             {
-                TimerPop(DateTime.Now);
+                TimerPop();
             }
         }
         #endregion

@@ -50,6 +50,9 @@
       <DependentUpon>ClockBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="ITimerController.cs" />
+    <Compile Include="StopWatchBlock.xaml.cs">
+      <DependentUpon>StopWatchBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TimerController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +65,10 @@
     <Page Include="ClockBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StopWatchBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

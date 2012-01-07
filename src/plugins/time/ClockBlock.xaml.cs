@@ -55,9 +55,9 @@ namespace SoundBoard.Plugins.Time
         #endregion
 
         #region Event handlers
-        private void HandleTimerPop(DateTime xiDateTime)
+        private void HandleTimerPop()
         {
-            Time = xiDateTime.ToString("T");
+            Time = mTimerController.Now.ToString("T");
         }
         #endregion
     }

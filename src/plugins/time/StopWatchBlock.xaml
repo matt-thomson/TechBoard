@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="SoundBoard.Plugins.Time.StopWatchBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:SoundBoard.Plugins.Time"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <UserControl.Resources>
+        <l:StartStopButtonConverter x:Key="StartStopButtonConverter" />
+    </UserControl.Resources>
+    <Grid Width="288">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="64"/>
+            <ColumnDefinition Width="64"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="DurationLabel" 
+               Grid.Column="0"
+               FontSize="18"
+               HorizontalContentAlignment="Center"
+               Content="{Binding Duration}"/>
+        <Button Name="StartStopButton" 
+                Grid.Column="1" 
+                Width="60" 
+                Click="HandleStartStopButtonClick"
+                Content="{Binding Stopped, Converter={StaticResource StartStopButtonConverter}}"
+                FontSize="18" />
+        <Button Name="ResetButton" 
+                Grid.Column="2" 
+                Width="60" 
+                Click="HandleResetButtonClick"
+                Content="Reset"
+                FontSize="18" 
+                IsEnabled="{Binding Stopped}"/>
+    </Grid>
+</UserControl>

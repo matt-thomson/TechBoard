@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClockBlockTest.cs" />
+    <Compile Include="StopWatchBlockTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\plugins\time\soundboard-plugin-time.csproj">

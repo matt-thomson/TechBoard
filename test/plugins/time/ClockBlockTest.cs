@@ -36,7 +36,7 @@ namespace SoundBoard.Plugins.Time.Test
             mMockTimerController = new Mock<ITimerController>(MockBehavior.Strict);
 
             // Set up the current time on the mock object.
-            mMockTimerController.Setup(c => c.Now).Returns(INITIAL_TIME);
+            SetTime(INITIAL_TIME);
 
             // Create a clock block.
             mClockBlock = new ClockBlock(mMockTimerController.Object);
@@ -75,10 +75,18 @@ namespace SoundBoard.Plugins.Time.Test
         public void TestTimerPop()
         {
             // Fire the timer.
-            mMockTimerController.Raise(c => c.TimerPop += null, LATER_TIME);
+            SetTime(LATER_TIME);
 
             // Check the label is updated.
             Assert.AreEqual(LATER_TIME_STRING, mLabel.Content);
+        }
+        #endregion
+
+        #region Private methods
+        private void SetTime(DateTime xiDateTime)
+        {
+            mMockTimerController.Setup(c => c.Now).Returns(xiDateTime);
+            mMockTimerController.Raise(c => c.TimerPop += null);
         }
         #endregion
     }

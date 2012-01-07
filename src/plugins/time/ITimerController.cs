@@ -2,7 +2,7 @@
 
 namespace SoundBoard.Plugins.Time
 {
-    public delegate void TimerDelegate(DateTime xiDateTime);
+    public delegate void TimerDelegate();
 
     public interface ITimerController
     {
