@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SoundBoard.Plugins.Time
@@ -9,8 +10,20 @@ namespace SoundBoard.Plugins.Time
     [Block("{315E02FB-E665-4516-B6E8-871A540B747C}")]
     public partial class ClockBlock : UserControl
     {
+        #region Dependency properties
+        private static DependencyProperty TimeProperty = DependencyProperty.Register("Time",
+                                                                                     typeof(string),
+                                                                                     typeof(ClockBlock));
+        #endregion
+
         #region Private members
         private ITimerController mTimerController;
+
+        private string Time
+        {
+            get { return (string)GetValue(TimeProperty); }
+            set { SetValue(TimeProperty, value); }
+        }
         #endregion
 
         #region Constructors
@@ -37,14 +50,14 @@ namespace SoundBoard.Plugins.Time
             mTimerController.TimerPop += HandleTimerPop;
 
             // Set the initial time.
-            Time.Content = mTimerController.Now.ToString("T");
+            Time = mTimerController.Now.ToString("T");
         }
         #endregion
 
         #region Event handlers
         private void HandleTimerPop(DateTime xiDateTime)
         {
-            Time.Content = xiDateTime.ToString("T");
+            Time = xiDateTime.ToString("T");
         }
         #endregion
     }
