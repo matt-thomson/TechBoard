@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2646A297-F22F-4192-AEAD-3F4B16402F2C}</ProjectGuid>
+    <ProjectGuid>{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SoundBoard.Test</RootNamespace>
-    <AssemblyName>soundboard-test-lib</AssemblyName>
+    <RootNamespace>TechBoard.Plugins.Time.Test</RootNamespace>
+    <AssemblyName>techboard-test-plugin-time</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,8 +16,8 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\output\bin\Debug\</OutputPath>
-    <IntermediateOutputPath>..\..\output\obj\Debug\</IntermediateOutputPath>
+    <OutputPath>..\..\..\output\bin\Debug\</OutputPath>
+    <IntermediateOutputPath>..\..\..\output\obj\Debug\</IntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,8 +25,8 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\output\bin\Release\</OutputPath>
-    <IntermediateOutputPath>..\..\output\obj\Release\</IntermediateOutputPath>
+    <OutputPath>..\..\..\output\bin\Release\</OutputPath>
+    <IntermediateOutputPath>..\..\..\output\obj\Release\</IntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -50,21 +50,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="FileBlockPropertyEditorTest.cs" />
-    <Compile Include="PropertyMappingTest.cs" />
-    <Compile Include="RangeBlockPropertyEditorTest.cs" />
-    <Compile Include="TextBlockPropertyEditorTest.cs" />
+    <Compile Include="ClockBlockTest.cs" />
+    <Compile Include="StopWatchBlockTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\lib\soundboard-lib.csproj">
-      <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
-      <Name>soundboard-lib</Name>
+    <ProjectReference Include="..\..\..\src\plugins\time\techboard-plugin-time.csproj">
+      <Project>{6012D348-88C3-4B17-9F90-BF1C7C12B480}</Project>
+      <Name>techboard-plugin-time</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\plugins\test\soundboard-plugin-test.csproj">
-      <Project>{91591B58-4819-4EE3-95CA-F0162687BAC6}</Project>
-      <Name>soundboard-plugin-test</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

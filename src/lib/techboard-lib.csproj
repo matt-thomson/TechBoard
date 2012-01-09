@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{91591B58-4819-4EE3-95CA-F0162687BAC6}</ProjectGuid>
+    <ProjectGuid>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SoundBoard.Plugins.Test</RootNamespace>
-    <AssemblyName>soundboard-plugin-test</AssemblyName>
+    <RootNamespace>TechBoard</RootNamespace>
+    <AssemblyName>techboard-lib</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,23 +46,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="TestBlock.cs" />
-    <Compile Include="TestBlockPropertyAttribute.cs" />
-    <Compile Include="TestBlockPropertyEditor.cs" />
+    <Compile Include="BlockAttribute.cs" />
+    <Compile Include="BlockPropertyAttribute.cs" />
+    <Compile Include="BlockPropertyEditorAttribute.cs" />
+    <Compile Include="FileBlockPropertyAttribute.cs" />
+    <Compile Include="FileBlockPropertyEditor.xaml.cs">
+      <DependentUpon>FileBlockPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileDialogController.cs" />
+    <Compile Include="IFileDialogController.cs" />
+    <Compile Include="PropertyMapping.cs" />
+    <Compile Include="RangeBlockPropertyAttribute.cs" />
+    <Compile Include="RangeBlockPropertyEditor.xaml.cs">
+      <DependentUpon>RangeBlockPropertyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextBlockPropertyAttribute.cs" />
+    <Compile Include="TextBlockPropertyEditor.xaml.cs">
+      <DependentUpon>TextBlockPropertyEditor.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\soundboard-lib.csproj">
-      <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
-      <Name>soundboard-lib</Name>
-    </ProjectReference>
+    <Page Include="FileBlockPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RangeBlockPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TextBlockPropertyEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="folder_open_document.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  -->
   <Target Name="AfterBuild">
-     <Copy SourceFiles="$(OutputPath)\soundboard-plugin-test.dll" DestinationFolder="$(OutputPath)\plugins" />
   </Target>
+  -->
 </Project>

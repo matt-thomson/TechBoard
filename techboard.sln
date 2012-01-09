@@ -1,29 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test", "test\app\soundboard-test.csproj", "{73729A0D-A270-4A87-9DD1-B2461356AC59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-test", "test\app\techboard-test.csproj", "{73729A0D-A270-4A87-9DD1-B2461356AC59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard", "src\app\soundboard.csproj", "{C9A89E8B-E94C-431A-8235-5DE603A7927D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard", "src\app\techboard.csproj", "{C9A89E8B-E94C-431A-8235-5DE603A7927D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-test", "src\plugins\test\soundboard-plugin-test.csproj", "{91591B58-4819-4EE3-95CA-F0162687BAC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-plugin-test", "src\plugins\test\techboard-plugin-test.csproj", "{91591B58-4819-4EE3-95CA-F0162687BAC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-sounds", "src\plugins\sounds\soundboard-plugin-sounds.csproj", "{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-plugin-sounds", "src\plugins\sounds\techboard-plugin-sounds.csproj", "{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-lib", "src\lib\soundboard-lib.csproj", "{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-lib", "src\lib\techboard-lib.csproj", "{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-sounds", "test\plugins\sounds\soundboard-test-plugin-sounds.csproj", "{EB9DA60D-8663-4016-A35F-1FDF9FEB55B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-test-plugin-sounds", "test\plugins\sounds\techboard-test-plugin-sounds.csproj", "{EB9DA60D-8663-4016-A35F-1FDF9FEB55B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-lib", "test\lib\soundboard-test-lib.csproj", "{2646A297-F22F-4192-AEAD-3F4B16402F2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-test-lib", "test\lib\techboard-test-lib.csproj", "{2646A297-F22F-4192-AEAD-3F4B16402F2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-time", "src\plugins\time\soundboard-plugin-time.csproj", "{6012D348-88C3-4B17-9F90-BF1C7C12B480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-plugin-time", "src\plugins\time\techboard-plugin-time.csproj", "{6012D348-88C3-4B17-9F90-BF1C7C12B480}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-basic", "src\plugins\basic\soundboard-plugin-basic.csproj", "{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-plugin-basic", "src\plugins\basic\techboard-plugin-basic.csproj", "{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-plugin-dev", "src\plugins\dev\soundboard-plugin-dev.csproj", "{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-plugin-dev", "src\plugins\dev\techboard-plugin-dev.csproj", "{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-basic", "test\plugins\basic\soundboard-test-plugin-basic.csproj", "{05805BB5-0366-4398-832A-46B953A51050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-test-plugin-basic", "test\plugins\basic\techboard-test-plugin-basic.csproj", "{05805BB5-0366-4398-832A-46B953A51050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "soundboard-test-plugin-time", "test\plugins\time\soundboard-test-plugin-time.csproj", "{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techboard-test-plugin-time", "test\plugins\time\techboard-test-plugin-time.csproj", "{E5CD82A6-7BB6-4A33-A51B-5E33DC016585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

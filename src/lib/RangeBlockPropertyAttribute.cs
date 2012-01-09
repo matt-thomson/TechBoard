@@ -1,4 +1,4 @@
-﻿namespace SoundBoard
+﻿namespace TechBoard
 {
     [BlockPropertyEditor(typeof(RangeBlockPropertyEditor))]
     public class RangeBlockPropertyAttribute : BlockPropertyAttribute

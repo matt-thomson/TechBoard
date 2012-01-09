@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     public class BlockPropertyEditorSelector : DataTemplateSelector
     {

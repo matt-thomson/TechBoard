@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F6FA6E79-ABC1-4E33-8A9C-9CCD4D4E594D}</ProjectGuid>
+    <ProjectGuid>{307DFA1F-6268-4A16-BBB9-64B2E6D4D6CF}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>soundboard.Plugins.Sounds</RootNamespace>
-    <AssemblyName>soundboard-plugin-sounds</AssemblyName>
+    <RootNamespace>TechBoard.Plugins.Basic</RootNamespace>
+    <AssemblyName>techboard-plugin-basic</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,30 +46,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="IMediaController.cs" />
-    <Compile Include="MediaController.cs" />
-    <Compile Include="SoundBlock.xaml.cs">
-      <DependentUpon>SoundBlock.xaml</DependentUpon>
+    <Compile Include="DividerBlock.xaml.cs">
+      <DependentUpon>DividerBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SoundControlsBlock.xaml.cs">
-      <DependentUpon>SoundControlsBlock.xaml</DependentUpon>
+    <Compile Include="TextBlock.xaml.cs">
+      <DependentUpon>TextBlock.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="SoundBlock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SoundControlsBlock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\lib\soundboard-lib.csproj">
+    <ProjectReference Include="..\..\lib\techboard-lib.csproj">
       <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
-      <Name>soundboard-lib</Name>
+      <Name>techboard-lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="DividerBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -78,6 +77,6 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Copy SourceFiles="$(OutputPath)\soundboard-plugin-sounds.dll" DestinationFolder="$(OutputPath)\plugins" />
+    <Copy SourceFiles="$(OutputPath)\techboard-plugin-basic.dll" DestinationFolder="$(OutputPath)\plugins" />
   </Target>
 </Project>

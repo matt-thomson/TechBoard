@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Linq;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     public class BoardController : DependencyObject, IBoardController
     {
@@ -44,8 +44,8 @@ namespace SoundBoard.App
 
             foreach (string dll in Directory.GetFiles("plugins\\", "*.dll"))
             {
-                // Don't load the soundboard library DLL, as we've already loaded it.
-                if (dll != "plugins\\soundboard-lib.dll")
+                // Don't load the techboard library DLL, as we've already loaded it.
+                if (dll != "plugins\\techboard-lib.dll")
                 {
                     LoadBlocksFromDll(dll);
                 }
@@ -106,7 +106,7 @@ namespace SoundBoard.App
 
         public void Save(string xiFileName)
         {
-            // Create an XML document for this soundboard.
+            // Create an XML document for this techboard.
             XElement doc = new XElement("Board");
 
             XElement blocksElement = new XElement("Blocks");

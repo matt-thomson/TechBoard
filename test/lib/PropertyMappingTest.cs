@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using System.Windows;
 using NUnit.Framework;
-using SoundBoard.Plugins.Test;
+using TechBoard.Plugins.Test;
 
-namespace SoundBoard.Test
+namespace TechBoard.Test
 {
     [TestFixture]
     public class PropertyMappingTest : DependencyObject

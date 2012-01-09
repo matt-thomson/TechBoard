@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 
-namespace SoundBoard
+namespace TechBoard
 {
     public class FileDialogController : IFileDialogController
     {

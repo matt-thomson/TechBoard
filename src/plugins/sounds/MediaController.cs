@@ -3,7 +3,7 @@ using System.Timers;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace SoundBoard.Plugins.Sounds
+namespace TechBoard.Plugins.Sounds
 {
     public class MediaController : IMediaController
     {

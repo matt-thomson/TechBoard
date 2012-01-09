@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using Moq;
 using NUnit.Framework;
 
-namespace SoundBoard.Test
+namespace TechBoard.Test
 {
     [TestFixture, RequiresSTA]
     public class FileBlockPropertyEditorTest : DependencyObject

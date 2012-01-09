@@ -2,9 +2,9 @@
 using System.Windows.Controls;
 using Moq;
 using NUnit.Framework;
-using SoundBoard.Plugins.Sounds;
+using TechBoard.Plugins.Sounds;
 
-namespace SoundBoard.Plugins.Sounds.Test
+namespace TechBoard.Plugins.Sounds.Test
 {
     [TestFixture, RequiresSTA]
     public class SoundControlsBlockTest

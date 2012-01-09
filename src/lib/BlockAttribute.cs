@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoundBoard
+namespace TechBoard
 {
     public class BlockAttribute : Attribute
     {

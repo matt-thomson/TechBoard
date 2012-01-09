@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoundBoard
+namespace TechBoard
 {
     [BlockPropertyEditor(typeof(FileBlockPropertyEditor))]
     public class FileBlockPropertyAttribute : BlockPropertyAttribute

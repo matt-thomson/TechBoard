@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using SoundBoard.Plugins.Test;
+using TechBoard.Plugins.Test;
 
-namespace SoundBoard.App.Test
+namespace TechBoard.App.Test
 {
     [TestFixture, RequiresSTA]
     public class BoardTest

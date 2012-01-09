@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using Moq;
 using NUnit.Framework;
 
-namespace SoundBoard.Plugins.Time.Test
+namespace TechBoard.Plugins.Time.Test
 {
     [TestFixture, RequiresSTA]
     public class ClockBlockTest

@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using NUnit.Framework;
 
-namespace SoundBoard.Test
+namespace TechBoard.Test
 {
     [TestFixture, RequiresSTA]
     public class TextBlockPropertyEditorTest : DependencyObject

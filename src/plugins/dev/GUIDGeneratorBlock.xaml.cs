@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System;
 
-namespace SoundBoard.Plugins.Basic
+namespace TechBoard.Plugins.Basic
 {
     /// <summary>
     /// Interaction logic for TextBlock.xaml

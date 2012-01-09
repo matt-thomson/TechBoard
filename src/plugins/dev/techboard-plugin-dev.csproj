@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2DD9AC3A-D5EB-4CCB-AC16-C1B56084A3A2}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SoundBoard.Plugins.Dev</RootNamespace>
-    <AssemblyName>soundboard-plugin-dev</AssemblyName>
+    <RootNamespace>TechBoard.Plugins.Dev</RootNamespace>
+    <AssemblyName>techboard-plugin-dev</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -52,9 +52,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\soundboard-lib.csproj">
+    <ProjectReference Include="..\..\lib\techboard-lib.csproj">
       <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
-      <Name>soundboard-lib</Name>
+      <Name>techboard-lib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +76,6 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Copy SourceFiles="$(OutputPath)\soundboard-plugin-dev.dll" DestinationFolder="$(OutputPath)\plugins" />
+    <Copy SourceFiles="$(OutputPath)\techboard-plugin-dev.dll" DestinationFolder="$(OutputPath)\plugins" />
   </Target>
 </Project>

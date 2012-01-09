@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6012D348-88C3-4B17-9F90-BF1C7C12B480}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SoundBoard.Plugins.Time</RootNamespace>
-    <AssemblyName>soundboard-plugin-time</AssemblyName>
+    <RootNamespace>TechBoard.Plugins.Time</RootNamespace>
+    <AssemblyName>techboard-plugin-time</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -56,9 +56,9 @@
     <Compile Include="TimerController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\soundboard-lib.csproj">
+    <ProjectReference Include="..\..\lib\techboard-lib.csproj">
       <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
-      <Name>soundboard-lib</Name>
+      <Name>techboard-lib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +78,6 @@
   </Target>
   -->
   <Target Name="AfterBuild">
-    <Copy SourceFiles="$(OutputPath)\soundboard-plugin-time.dll" DestinationFolder="$(OutputPath)\plugins" />
+    <Copy SourceFiles="$(OutputPath)\techboard-plugin-time.dll" DestinationFolder="$(OutputPath)\plugins" />
   </Target>
 </Project>

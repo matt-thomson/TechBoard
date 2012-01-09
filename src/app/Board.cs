@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     public class Board
     {

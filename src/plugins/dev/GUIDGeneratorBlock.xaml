@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SoundBoard.Plugins.Basic.GUIDGeneratorBlock"
+﻿<UserControl x:Class="TechBoard.Plugins.Basic.GUIDGeneratorBlock"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -18,14 +18,14 @@
                 Width="24" 
                 Height="24"
                 Click="HandleGenerateButtonClick">
-            <Image Source="/soundboard-plugin-dev;component/gear.png" />
+            <Image Source="/techboard-plugin-dev;component/gear.png" />
         </Button>
         <Button Name="CopyButton" 
                 Grid.Column="2" 
                 Width="24"
                 Height="24"
                 Click="HandleCopyButtonClick">
-            <Image Source="/soundboard-plugin-dev;component/clipboard_empty.png" />
+            <Image Source="/techboard-plugin-dev;component/clipboard_empty.png" />
         </Button>
     </Grid>
 </UserControl>

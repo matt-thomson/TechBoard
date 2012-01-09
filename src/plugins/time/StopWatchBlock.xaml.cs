@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace SoundBoard.Plugins.Time
+namespace TechBoard.Plugins.Time
 {
     /// <summary>
     /// Interaction logic for StopWatchBlock.xaml

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoundBoard.Plugins.Time
+namespace TechBoard.Plugins.Time
 {
     public delegate void TimerDelegate();
 

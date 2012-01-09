@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SoundBoard
+namespace TechBoard
 {
     /// <summary>
     /// Interaction logic for RangeBlockPropertyEditor.xaml

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace SoundBoard
+namespace TechBoard
 {
     public class PropertyMapping : DependencyObject
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using NUnit.Framework;
-using SoundBoard.Plugins.Basic;
+using TechBoard.Plugins.Basic;
 
-namespace SoundBoard.Plugins.Basic.Test
+namespace TechBoard.Plugins.Basic.Test
 {
     [TestFixture, RequiresSTA]
     public class TextBlockTest

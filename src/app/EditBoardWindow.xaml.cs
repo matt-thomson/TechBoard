@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     /// <summary>
     /// Interaction logic for EditBoardWindow.xaml

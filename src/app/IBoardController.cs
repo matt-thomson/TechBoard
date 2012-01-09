@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
 	public interface IBoardController
     {

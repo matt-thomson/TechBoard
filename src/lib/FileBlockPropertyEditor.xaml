@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SoundBoard.FileBlockPropertyEditor"
+﻿<UserControl x:Class="TechBoard.FileBlockPropertyEditor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid Width="168">
@@ -13,7 +13,7 @@
                  Margin="2,2,0,2" 
                  Text="{Binding PropertyValue, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Name="FileButton" Grid.Column="1" Height="24" Width="24" Click="HandleFileButtonClick">
-            <Image Source="/soundboard-lib;component/folder_open_document.png" />
+            <Image Source="/techboard-lib;component/folder_open_document.png" />
         </Button>
     </Grid>
 </UserControl>

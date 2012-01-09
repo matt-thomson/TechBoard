@@ -1,4 +1,4 @@
-﻿namespace SoundBoard
+﻿namespace TechBoard
 {
 	public interface IFileDialogController
 	{

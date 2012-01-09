@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Threading;
 
-namespace SoundBoard.Plugins.Time
+namespace TechBoard.Plugins.Time
 {
     public class TimerController : ITimerController
     {

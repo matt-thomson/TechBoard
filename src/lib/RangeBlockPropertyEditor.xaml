@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SoundBoard.RangeBlockPropertyEditor"
+﻿<UserControl x:Class="TechBoard.RangeBlockPropertyEditor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Slider Name="Field"

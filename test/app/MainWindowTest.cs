@@ -4,15 +4,15 @@ using System.Windows;
 using System.Windows.Controls;
 using Moq;
 using NUnit.Framework;
-using SoundBoard.Plugins.Test;
+using TechBoard.Plugins.Test;
 
-namespace SoundBoard.App.Test
+namespace TechBoard.App.Test
 {
     [TestFixture, RequiresSTA]
     public class MainWindowTest
     {
         #region Constants
-        private const string FILTER = "SoundBoards (*.board)|*.board|All files (*.*)|*.*";
+        private const string FILTER = "TechBoards (*.board)|*.board|All files (*.*)|*.*";
         private const string BOARD_FILE_NAME = "my.board";
         #endregion
 

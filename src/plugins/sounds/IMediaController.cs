@@ -1,4 +1,4 @@
-﻿namespace SoundBoard.Plugins.Sounds
+﻿namespace TechBoard.Plugins.Sounds
 {
 	public interface IMediaController
     {

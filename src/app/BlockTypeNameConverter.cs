@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Data;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     public class BlockTypeNameConverter : IValueConverter
     {

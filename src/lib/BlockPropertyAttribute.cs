@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoundBoard
+namespace TechBoard
 {
     [AttributeUsage(AttributeTargets.Property)]
     public abstract class BlockPropertyAttribute : Attribute

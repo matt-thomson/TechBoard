@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace SoundBoard.Plugins.Time
+namespace TechBoard.Plugins.Time
 {
     /// <summary>
     /// Interaction logic for ClockBlock.xaml

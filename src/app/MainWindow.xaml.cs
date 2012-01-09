@@ -2,7 +2,7 @@
 using System.Windows;
 using Microsoft.Win32;
 
-namespace SoundBoard.App
+namespace TechBoard.App
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -10,7 +10,7 @@ namespace SoundBoard.App
     public partial class MainWindow : Window
     {
         #region Constants
-        private const string FILTER = "SoundBoards (*.board)|*.board|All files (*.*)|*.*";
+        private const string FILTER = "TechBoards (*.board)|*.board|All files (*.*)|*.*";
         #endregion
 
         #region Private properties

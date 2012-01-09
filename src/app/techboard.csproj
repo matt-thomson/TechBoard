@@ -8,8 +8,8 @@
     <ProjectGuid>{C9A89E8B-E94C-431A-8235-5DE603A7927D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SoundBoard.App</RootNamespace>
-    <AssemblyName>soundboard</AssemblyName>
+    <RootNamespace>TechBoard.App</RootNamespace>
+    <AssemblyName>techboard</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -119,9 +119,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\soundboard-lib.csproj">
+    <ProjectReference Include="..\lib\techboard-lib.csproj">
       <Project>{9478F43D-8A2C-40E8-B506-FDDC01B40BE1}</Project>
-      <Name>soundboard-lib</Name>
+      <Name>techboard-lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

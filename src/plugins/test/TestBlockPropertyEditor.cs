@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SoundBoard.Plugins.Test
+namespace TechBoard.Plugins.Test
 {
     public class TestBlockPropertyEditor : UserControl
     {

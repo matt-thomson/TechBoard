@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace SoundBoard.Plugins.Sounds
+namespace TechBoard.Plugins.Sounds
 {
     /// <summary>
     /// Interaction logic for SoundBlock.xaml
