@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TechBoard"
-#define MyAppVersion "0.3"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "Matt Thomson"
 #define MyAppURL "http://www.matt-thomson.co.uk/software/techboard/"
 #define MyAppExeName "techboard.exe"
