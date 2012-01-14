@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="About TechBoard" 
         SizeToContent="Height"
-        Width="320"
+        Width="300"
         ResizeMode="NoResize" 
         Closing="HandleWindowClosing"
         Icon="/techboard;component/icon.ico">
@@ -31,9 +31,9 @@
                    TextWrapping="Wrap" Margin="0,5">
             Copyright © Matt Thomson, 2011-2012
             <LineBreak />
-            <Hyperlink NavigateUri="http://www.matt-thomson.co.uk/software/techboard/"
+            <Hyperlink NavigateUri="http://www.matt-thomson.co.uk/software/"
                        RequestNavigate="HandleHyperlinkClick">
-                http://www.matt-thomson.co.uk/software/techboard
+                http://www.matt-thomson.co.uk/software/
             </Hyperlink>
             <LineBreak />
             <LineBreak />

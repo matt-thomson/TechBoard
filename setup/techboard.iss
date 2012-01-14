@@ -4,7 +4,7 @@
 #define MyAppName "TechBoard"
 #define MyAppVersion "1.0.0"
 #define MyAppPublisher "Matt Thomson"
-#define MyAppURL "http://www.matt-thomson.co.uk/software/techboard/"
+#define MyAppURL "http://www.matt-thomson.co.uk/software/"
 #define MyAppExeName "techboard.exe"
 
 [Setup]
