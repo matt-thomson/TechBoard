@@ -4,7 +4,7 @@
 #define MyAppName "TechBoard"
 #define MyAppVersion "0.3"
 #define MyAppPublisher "Matt Thomson"
-#define MyAppURL "http://www.matt-thomson.co.uk/software/techboard"
+#define MyAppURL "http://www.matt-thomson.co.uk/software/techboard/"
 #define MyAppExeName "techboard.exe"
 
 [Setup]
@@ -23,7 +23,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 LicenseFile=C:\Users\Matt\workspace\techboard\setup\license.txt
 OutputDir=C:\Users\Matt\workspace\techboard\output
-OutputBaseFilename=techboard
+OutputBaseFilename=techboard-setup
 Compression=lzma
 SolidCompression=yes
 
