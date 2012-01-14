@@ -6,7 +6,8 @@
         Height="468" 
         Width="300" 
         ResizeMode="CanMinimize" 
-        Closing="HandleWindowClosing">
+        Closing="HandleWindowClosing" 
+        Icon="/techboard;component/icon.ico">
     <Window.Resources>
         <l:EditBoardPropertyConverter x:Key="PropertyConverter" />
         <l:PropertyNameConverter x:Key="PropertyNameConverter" />

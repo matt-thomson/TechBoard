@@ -5,7 +5,8 @@
         Title="Add Block" 
         Height="250"
         Width="250" 
-        ResizeMode="CanMinimize">
+        ResizeMode="NoResize"
+        Icon="/techboard;component/icon.ico">
     <Window.Resources>
         <l:BlockTypeNameConverter x:Key="NameConverter" />
     </Window.Resources>

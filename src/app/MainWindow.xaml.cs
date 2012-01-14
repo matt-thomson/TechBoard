@@ -38,6 +38,7 @@ namespace TechBoard.App
         private IBoardController mBoardController;
         private IFileDialogController mFileDialogController;
         private EditBoardWindow mEditBoardWindow;
+        private AboutWindow mAboutWindow;
         #endregion
 
         #region Constructor
@@ -52,8 +53,9 @@ namespace TechBoard.App
             // Set the data context.
             DataContext = mBoardController;
 
-            // Create the edit board window.
+            // Create other windows.
             mEditBoardWindow = new EditBoardWindow(mBoardController);
+            mAboutWindow = new AboutWindow();
         }
         #endregion
 
@@ -99,6 +101,11 @@ namespace TechBoard.App
         {
             mEditBoardWindow.Show();
             mEditBoardWindow.Activate();
+        }
+
+        private void HandleMenuOptionAbout(object sender, RoutedEventArgs e)
+        {
+            mAboutWindow.ShowDialog();
         }
         #endregion
     }
