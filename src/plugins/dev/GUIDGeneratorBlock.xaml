@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="TechBoard.Plugins.Basic.GUIDGeneratorBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <Grid Width="288">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="28"/>
+            <ColumnDefinition Width="28"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="GUID" 
+                 Grid.Column="0" 
+                 FontSize="11" 
+                 IsEnabled="False" />
+        <Button Name="GenerateButton" 
+                Grid.Column="1" 
+                Width="24" 
+                Height="24"
+                Click="HandleGenerateButtonClick">
+            <Image Source="/techboard-plugin-dev;component/gear.png" />
+        </Button>
+        <Button Name="CopyButton" 
+                Grid.Column="2" 
+                Width="24"
+                Height="24"
+                Click="HandleCopyButtonClick">
+            <Image Source="/techboard-plugin-dev;component/clipboard_empty.png" />
+        </Button>
+    </Grid>
+</UserControl>

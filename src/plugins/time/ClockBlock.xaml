@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="TechBoard.Plugins.Time.ClockBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <Label Name="TimeLabel"
+           Width="288" 
+           FontSize="18"
+           HorizontalContentAlignment="Center" 
+           Content="{Binding Time}"/>
+</UserControl>

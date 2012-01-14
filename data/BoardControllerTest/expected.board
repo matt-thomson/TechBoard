@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Board>
+  <Blocks>
+    <Block Guid="018c517c-973e-4954-baa1-9d0a3ada375f">
+      <MyProperty>Some text</MyProperty>
+    </Block>
+  </Blocks>
+</Board>
