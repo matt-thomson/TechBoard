@@ -21,7 +21,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile=C:\Users\Matt\workspace\techboard\setup\license.txt
+LicenseFile=C:\Users\Matt\workspace\techboard\LICENSE
 OutputDir=C:\Users\Matt\workspace\techboard\output
 OutputBaseFilename=techboard-setup
 Compression=lzma
@@ -34,7 +34,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Matt\workspace\techboard\setup\license.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Matt\workspace\techboard\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-lib.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-plugin-basic.dll"; DestDir: "{app}\plugins"; Flags: ignoreversion
