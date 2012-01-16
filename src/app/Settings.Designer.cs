@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TechBoard.App.properties {
+namespace TechBoard.App {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

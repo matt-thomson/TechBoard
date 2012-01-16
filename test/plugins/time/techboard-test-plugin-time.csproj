@@ -50,6 +50,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ClockBlockTest.cs" />
     <Compile Include="StopWatchBlockTest.cs" />
   </ItemGroup>
