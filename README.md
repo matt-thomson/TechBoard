@@ -14,6 +14,7 @@ Currently, the following block types are supported in TechBoard:
 
 * Sound buttons
 * Sound control buttons (play/fade)
+* PowerPoint slideshow control buttons (next/previous slide, jump to numbered slide)
 * Clock
 * Stopwatch
 * Label
