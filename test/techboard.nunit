@@ -1,0 +1,19 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="..\output\bin\Debug\techboard-test.dll" />
+    <assembly path="..\output\bin\Debug\techboard-test-lib.dll" />
+    <assembly path="..\output\bin\Debug\techboard-test-plugin-basic.dll" />
+    <assembly path="..\output\bin\Debug\techboard-test-plugin-powerpoint.dll" />
+    <assembly path="..\output\bin\Debug\techboard-test-plugin-sounds.dll" />
+    <assembly path="..\output\bin\Debug\techboard-test-plugin-time.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto">
+    <assembly path="..\output\bin\Release\techboard-test.dll" />
+    <assembly path="..\output\bin\Release\techboard-test-lib.dll" />
+    <assembly path="..\output\bin\Release\techboard-test-plugin-basic.dll" />
+    <assembly path="..\output\bin\Release\techboard-test-plugin-powerpoint.dll" />
+    <assembly path="..\output\bin\Release\techboard-test-plugin-sounds.dll" />
+    <assembly path="..\output\bin\Release\techboard-test-plugin-time.dll" />
+  </Config>
+</NUnitProject>
