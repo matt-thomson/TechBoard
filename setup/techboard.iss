@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TechBoard"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Matt Thomson"
 #define MyAppURL "http://www.matt-thomson.co.uk/software/"
 #define MyAppExeName "techboard.exe"
@@ -38,6 +38,7 @@ Source: "C:\Users\Matt\workspace\techboard\LICENSE"; DestDir: "{app}"; Flags: ig
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-lib.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-plugin-basic.dll"; DestDir: "{app}\plugins"; Flags: ignoreversion
+Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-plugin-powerpoint.dll"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-plugin-sounds.dll"; DestDir: "{app}\plugins"; Flags: ignoreversion
 Source: "C:\Users\Matt\workspace\techboard\output\bin\Release\techboard-plugin-time.dll"; DestDir: "{app}\plugins"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
