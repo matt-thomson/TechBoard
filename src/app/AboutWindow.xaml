@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="About TechBoard" 
         SizeToContent="Height"
-        Width="300"
+        Width="320"
         ResizeMode="NoResize" 
         Closing="HandleWindowClosing"
         Icon="/techboard;component/icon.ico">
@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Source="/techboard;component/icon.ico" />
             <Label Grid.Column="1"
-                   Content="TechBoard V1.0.0" 
+                   Content="TechBoard v1.0.1" 
                    FontWeight="ExtraBold" 
                    FontSize="24" 
                    HorizontalContentAlignment="Center" 
@@ -31,9 +31,9 @@
                    TextWrapping="Wrap" Margin="0,5">
             Copyright © Matt Thomson, 2011-2012
             <LineBreak />
-            <Hyperlink NavigateUri="http://www.matt-thomson.co.uk/software/"
+            <Hyperlink NavigateUri="http://www.matt-thomson.co.uk/software/techboard/"
                        RequestNavigate="HandleHyperlinkClick">
-                http://www.matt-thomson.co.uk/software/
+                http://www.matt-thomson.co.uk/software/techboard/
             </Hyperlink>
             <LineBreak />
             <LineBreak />
