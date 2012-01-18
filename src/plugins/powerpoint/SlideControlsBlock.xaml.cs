@@ -19,8 +19,10 @@
  *  <http://www.matt-thomson.co.uk/software/techboard>.
  */
 
+using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace TechBoard.Plugins.PowerPoint
 {
@@ -65,6 +67,24 @@ namespace TechBoard.Plugins.PowerPoint
         private void HandleNextButtonClick(object sender, RoutedEventArgs e)
         {
             mPowerPointController.NextSlide();
+        }
+
+        private void HandleTextBoxKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    int index = Convert.ToInt32(SlideNumber.Text);
+                    mPowerPointController.GoToSlide(index);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
+                SlideNumber.Text = string.Empty;
+            }
         }
         #endregion
     }

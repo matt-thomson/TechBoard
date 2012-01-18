@@ -20,6 +20,8 @@
  */
 
 using System;
+using System.Runtime.InteropServices;
+
 namespace TechBoard.Plugins.PowerPoint
 {
 	public class PowerPointController : IPowerPointController
@@ -74,6 +76,24 @@ namespace TechBoard.Plugins.PowerPoint
                 foreach (var window in mApp.SlideShowWindows)
                 {
                     window.View.Previous();
+                }
+            }
+        }
+
+        public void GoToSlide(int xiIndex)
+        {
+            if (mApp != null)
+            {
+                foreach (var window in mApp.SlideShowWindows)
+                {
+                    try
+                    {
+                        window.View.GoToSlide(xiIndex);
+                    }
+                    catch (COMException e)
+                    {
+                        Console.WriteLine(e);
+                    }
                 }
             }
         }

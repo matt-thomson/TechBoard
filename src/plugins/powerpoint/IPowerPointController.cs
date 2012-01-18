@@ -26,6 +26,7 @@ namespace TechBoard.Plugins.PowerPoint
         #region Methods
         void NextSlide();
         void PreviousSlide();
+        void GoToSlide(int xiIndex);
         #endregion
     }
 }

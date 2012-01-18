@@ -21,9 +21,9 @@
 
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Moq;
 using NUnit.Framework;
-using TechBoard.Plugins.PowerPoint;
 
 namespace TechBoard.Plugins.PowerPoint.Test
 {
@@ -41,6 +41,7 @@ namespace TechBoard.Plugins.PowerPoint.Test
         private Window mWindow;
         private Button mPreviousButton;
         private Button mNextButton;
+        private TextBox mSlideNumber;
         #endregion
 
         #region Initialization
@@ -56,10 +57,11 @@ namespace TechBoard.Plugins.PowerPoint.Test
             // Set the data context for the slide controls block.
             mSlideControlsBlock.DataContext = mSlideControlsBlock;
         
-            // Get reference to the buttons.
+            // Get reference to the controls.
             Grid grid = mSlideControlsBlock.Content as Grid;
             mPreviousButton = grid.Children[0] as Button;
             mNextButton = grid.Children[1] as Button;
+            mSlideNumber = grid.Children[2] as TextBox;
 
             // Create a window, and add the block to it.
             mWindow = new Window();
@@ -99,6 +101,63 @@ namespace TechBoard.Plugins.PowerPoint.Test
             // Click on the button.
             RoutedEventArgs args = new RoutedEventArgs(Button.ClickEvent, mNextButton);
             mNextButton.RaiseEvent(args);
+        }
+
+        [Test]
+        public void TestGoToSlide()
+        {
+            // Enter a slide number into the text box.
+            mSlideNumber.Text = "12";
+
+            // Expect to jump to the specified slide.
+            mMockPowerPointController.Setup(c => c.GoToSlide(12));
+
+            // Press enter.
+            KeyEventArgs args = new KeyEventArgs(Keyboard.PrimaryDevice, 
+                                                 Keyboard.PrimaryDevice.ActiveSource,
+                                                 0,
+                                                 Key.Enter);
+            args.RoutedEvent = Keyboard.KeyUpEvent;
+            mSlideNumber.RaiseEvent(args);
+
+            // Check that the text box is cleared.
+            Assert.IsEmpty(mSlideNumber.Text);
+        }
+
+        [Test]
+        public void TestGoToSlideText()
+        {
+            // Enter some text into the text box.
+            mSlideNumber.Text = "abc";
+
+            // Press enter.  No slide jump happens.
+            KeyEventArgs args = new KeyEventArgs(Keyboard.PrimaryDevice,
+                                                 Keyboard.PrimaryDevice.ActiveSource,
+                                                 0,
+                                                 Key.Enter);
+            args.RoutedEvent = Keyboard.KeyUpEvent;
+            mSlideNumber.RaiseEvent(args);
+
+            // Check that the text box is cleared.
+            Assert.IsEmpty(mSlideNumber.Text);
+        }
+
+        [Test]
+        public void TestGoToSlideEmpty()
+        {
+            // Check that the text box is empty.
+            mSlideNumber.Text = string.Empty;
+
+            // Press enter.  No slide jump happens.
+            KeyEventArgs args = new KeyEventArgs(Keyboard.PrimaryDevice,
+                                                 Keyboard.PrimaryDevice.ActiveSource,
+                                                 0,
+                                                 Key.Enter);
+            args.RoutedEvent = Keyboard.KeyUpEvent;
+            mSlideNumber.RaiseEvent(args);
+
+            // Check that the text box is cleared.
+            Assert.IsEmpty(mSlideNumber.Text);
         }
         #endregion
     }
