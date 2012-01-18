@@ -19,6 +19,8 @@
  *  <http://www.matt-thomson.co.uk/software/techboard>.
  */
 
+using Microsoft.Office.Interop.PowerPoint;
+
 namespace TechBoard.Plugins.PowerPoint
 {
 	public class PowerPointController : IPowerPointController
@@ -39,16 +41,35 @@ namespace TechBoard.Plugins.PowerPoint
         #endregion
 
         #region Static properties
-        private static PowerPointController mStaticInstance;
+        private static PowerPointController mStaticInstance;        
+        #endregion
+
+        #region Private properties
+        private Application mApp;
+        #endregion
+
+        #region Constructor
+        public PowerPointController()
+        {
+            mApp = new Application();
+        }
         #endregion
 
         #region Public methods
         public void NextSlide()
         {
+            foreach (SlideShowWindow window in mApp.SlideShowWindows)
+            {
+                window.View.Next();
+            }
         }
 
         public void PreviousSlide()
         {
+            foreach (SlideShowWindow window in mApp.SlideShowWindows)
+            {
+                window.View.Previous();
+            }
         }
         #endregion
     }
