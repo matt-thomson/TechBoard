@@ -104,8 +104,8 @@ namespace TechBoard.Test
             Assert.AreEqual(VALUE_2, mSlider.Value);
 
             // Move the slider, and check that the property is updated.
-            mSlider.Value = VALUE_2;
-            Assert.AreEqual(VALUE_2, MyProperty);
+            mSlider.Value = VALUE_1;
+            Assert.AreEqual(VALUE_1, MyProperty);
 
         }
 
