@@ -20,6 +20,7 @@
  */
 
 using NUnit.Framework;
+using System.IO;
 using TechBoard.Plugins.Test;
 
 namespace TechBoard.App.Test
@@ -34,7 +35,7 @@ namespace TechBoard.App.Test
         private const string EMPTY_BOARD = "..\\..\\..\\data\\BoardTest\\empty.board";
 
         // Location to save board to.
-        private const string SAVED_BOARD = "C:\\temp\\output.board";
+        private string SAVED_BOARD = Path.Combine(Path.GetTempPath(), "output.board");
 
         // Properties of a block.
         private const string TEXT_1 = "Some text 1";
