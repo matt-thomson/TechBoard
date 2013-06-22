@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Source="/techboard;component/icon.ico" />
             <Label Grid.Column="1"
-                   Content="TechBoard v1.0.1" 
+                   Content="TechBoard v1.0.2" 
                    FontWeight="ExtraBold" 
                    FontSize="24" 
                    HorizontalContentAlignment="Center" 
